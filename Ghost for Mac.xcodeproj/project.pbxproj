@@ -1,0 +1,480 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EFFAD45F23F8A26C009004D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFAD45E23F8A26C009004D0 /* AppDelegate.swift */; };
+		EFFAD46123F8A26C009004D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFAD46023F8A26C009004D0 /* ViewController.swift */; };
+		EFFAD46423F8A26C009004D0 /* Ghost_for_Mac.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFFAD46223F8A26C009004D0 /* Ghost_for_Mac.xcdatamodeld */; };
+		EFFAD46623F8A26E009004D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFFAD46523F8A26E009004D0 /* Assets.xcassets */; };
+		EFFAD46923F8A26E009004D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFFAD46723F8A26E009004D0 /* Main.storyboard */; };
+		EFFAD47523F8A26E009004D0 /* Ghost_for_MacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFAD47423F8A26E009004D0 /* Ghost_for_MacTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EFFAD47123F8A26E009004D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EFFAD45323F8A26C009004D0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EFFAD45A23F8A26C009004D0;
+			remoteInfo = "Ghost for Mac";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EFFAD45B23F8A26C009004D0 /* Ghost for Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ghost for Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFFAD45E23F8A26C009004D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EFFAD46023F8A26C009004D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EFFAD46323F8A26C009004D0 /* Ghost_for_Mac.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ghost_for_Mac.xcdatamodel; sourceTree = "<group>"; };
+		EFFAD46523F8A26E009004D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EFFAD46823F8A26E009004D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EFFAD46A23F8A26E009004D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFFAD46B23F8A26E009004D0 /* Ghost_for_Mac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ghost_for_Mac.entitlements; sourceTree = "<group>"; };
+		EFFAD47023F8A26E009004D0 /* Ghost for MacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ghost for MacTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFFAD47423F8A26E009004D0 /* Ghost_for_MacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ghost_for_MacTests.swift; sourceTree = "<group>"; };
+		EFFAD47623F8A26E009004D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EFFAD45823F8A26C009004D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFFAD46D23F8A26E009004D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EFFAD45223F8A26C009004D0 = {
+			isa = PBXGroup;
+			children = (
+				EFFAD45D23F8A26C009004D0 /* Ghost for Mac */,
+				EFFAD47323F8A26E009004D0 /* Ghost for MacTests */,
+				EFFAD45C23F8A26C009004D0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EFFAD45C23F8A26C009004D0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EFFAD45B23F8A26C009004D0 /* Ghost for Mac.app */,
+				EFFAD47023F8A26E009004D0 /* Ghost for MacTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EFFAD45D23F8A26C009004D0 /* Ghost for Mac */ = {
+			isa = PBXGroup;
+			children = (
+				EFFAD45E23F8A26C009004D0 /* AppDelegate.swift */,
+				EFFAD46023F8A26C009004D0 /* ViewController.swift */,
+				EFFAD46523F8A26E009004D0 /* Assets.xcassets */,
+				EFFAD46723F8A26E009004D0 /* Main.storyboard */,
+				EFFAD46A23F8A26E009004D0 /* Info.plist */,
+				EFFAD46B23F8A26E009004D0 /* Ghost_for_Mac.entitlements */,
+				EFFAD46223F8A26C009004D0 /* Ghost_for_Mac.xcdatamodeld */,
+			);
+			path = "Ghost for Mac";
+			sourceTree = "<group>";
+		};
+		EFFAD47323F8A26E009004D0 /* Ghost for MacTests */ = {
+			isa = PBXGroup;
+			children = (
+				EFFAD47423F8A26E009004D0 /* Ghost_for_MacTests.swift */,
+				EFFAD47623F8A26E009004D0 /* Info.plist */,
+			);
+			path = "Ghost for MacTests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EFFAD45A23F8A26C009004D0 /* Ghost for Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFFAD47923F8A26E009004D0 /* Build configuration list for PBXNativeTarget "Ghost for Mac" */;
+			buildPhases = (
+				EFFAD45723F8A26C009004D0 /* Sources */,
+				EFFAD45823F8A26C009004D0 /* Frameworks */,
+				EFFAD45923F8A26C009004D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Ghost for Mac";
+			productName = "Ghost for Mac";
+			productReference = EFFAD45B23F8A26C009004D0 /* Ghost for Mac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EFFAD46F23F8A26E009004D0 /* Ghost for MacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFFAD47C23F8A26E009004D0 /* Build configuration list for PBXNativeTarget "Ghost for MacTests" */;
+			buildPhases = (
+				EFFAD46C23F8A26E009004D0 /* Sources */,
+				EFFAD46D23F8A26E009004D0 /* Frameworks */,
+				EFFAD46E23F8A26E009004D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EFFAD47223F8A26E009004D0 /* PBXTargetDependency */,
+			);
+			name = "Ghost for MacTests";
+			productName = "Ghost for MacTests";
+			productReference = EFFAD47023F8A26E009004D0 /* Ghost for MacTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EFFAD45323F8A26C009004D0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = Ephod;
+				TargetAttributes = {
+					EFFAD45A23F8A26C009004D0 = {
+						CreatedOnToolsVersion = 11.3;
+					};
+					EFFAD46F23F8A26E009004D0 = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = EFFAD45A23F8A26C009004D0;
+					};
+				};
+			};
+			buildConfigurationList = EFFAD45623F8A26C009004D0 /* Build configuration list for PBXProject "Ghost for Mac" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EFFAD45223F8A26C009004D0;
+			productRefGroup = EFFAD45C23F8A26C009004D0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EFFAD45A23F8A26C009004D0 /* Ghost for Mac */,
+				EFFAD46F23F8A26E009004D0 /* Ghost for MacTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EFFAD45923F8A26C009004D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFFAD46623F8A26E009004D0 /* Assets.xcassets in Resources */,
+				EFFAD46923F8A26E009004D0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFFAD46E23F8A26E009004D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EFFAD45723F8A26C009004D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFFAD46423F8A26C009004D0 /* Ghost_for_Mac.xcdatamodeld in Sources */,
+				EFFAD46123F8A26C009004D0 /* ViewController.swift in Sources */,
+				EFFAD45F23F8A26C009004D0 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFFAD46C23F8A26E009004D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFFAD47523F8A26E009004D0 /* Ghost_for_MacTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EFFAD47223F8A26E009004D0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EFFAD45A23F8A26C009004D0 /* Ghost for Mac */;
+			targetProxy = EFFAD47123F8A26E009004D0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EFFAD46723F8A26E009004D0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EFFAD46823F8A26E009004D0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EFFAD47723F8A26E009004D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EFFAD47823F8A26E009004D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		EFFAD47A23F8A26E009004D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Ghost for Mac/Ghost_for_Mac.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = KPGYDGPJU8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "Ghost for Mac/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ephod.ghost.Ghost-for-Mac";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		EFFAD47B23F8A26E009004D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Ghost for Mac/Ghost_for_Mac.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = KPGYDGPJU8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "Ghost for Mac/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ephod.ghost.Ghost-for-Mac";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		EFFAD47D23F8A26E009004D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = KPGYDGPJU8;
+				INFOPLIST_FILE = "Ghost for MacTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ephod.ghost.Ghost-for-MacTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ghost for Mac.app/Contents/MacOS/Ghost for Mac";
+			};
+			name = Debug;
+		};
+		EFFAD47E23F8A26E009004D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = KPGYDGPJU8;
+				INFOPLIST_FILE = "Ghost for MacTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ephod.ghost.Ghost-for-MacTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ghost for Mac.app/Contents/MacOS/Ghost for Mac";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EFFAD45623F8A26C009004D0 /* Build configuration list for PBXProject "Ghost for Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFFAD47723F8A26E009004D0 /* Debug */,
+				EFFAD47823F8A26E009004D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFFAD47923F8A26E009004D0 /* Build configuration list for PBXNativeTarget "Ghost for Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFFAD47A23F8A26E009004D0 /* Debug */,
+				EFFAD47B23F8A26E009004D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFFAD47C23F8A26E009004D0 /* Build configuration list for PBXNativeTarget "Ghost for MacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFFAD47D23F8A26E009004D0 /* Debug */,
+				EFFAD47E23F8A26E009004D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EFFAD46223F8A26C009004D0 /* Ghost_for_Mac.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EFFAD46323F8A26C009004D0 /* Ghost_for_Mac.xcdatamodel */,
+			);
+			currentVersion = EFFAD46323F8A26C009004D0 /* Ghost_for_Mac.xcdatamodel */;
+			path = Ghost_for_Mac.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = EFFAD45323F8A26C009004D0 /* Project object */;
+}
