@@ -3,16 +3,24 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37BDE9FBBD482218D8EB1426 /* Pods_Ghost_for_MacTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC917E76DE41586BDC2EF2B /* Pods_Ghost_for_MacTests.framework */; };
+		552365B44D482F3140614903 /* Pods_Ghost_for_Mac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A0A08BD7191287F1043593 /* Pods_Ghost_for_Mac.framework */; };
+		EFB99FC3242832B0005B38E5 /* EventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB99FC1242832B0005B38E5 /* EventItem.swift */; };
+		EFB99FC4242832B0005B38E5 /* EventItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFB99FC2242832B0005B38E5 /* EventItem.xib */; };
+		EFF410422402379A00D01DF8 /* GhostWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF410412402379A00D01DF8 /* GhostWeekView.swift */; };
+		EFF4104424023C9100D01DF8 /* BgNSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF4104324023C9100D01DF8 /* BgNSView.swift */; };
+		EFF410462402421500D01DF8 /* MainWindowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF410452402421500D01DF8 /* MainWindowViewController.swift */; };
 		EFFAD45F23F8A26C009004D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFAD45E23F8A26C009004D0 /* AppDelegate.swift */; };
-		EFFAD46123F8A26C009004D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFAD46023F8A26C009004D0 /* ViewController.swift */; };
+		EFFAD46123F8A26C009004D0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFAD46023F8A26C009004D0 /* MainViewController.swift */; };
 		EFFAD46423F8A26C009004D0 /* Ghost_for_Mac.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFFAD46223F8A26C009004D0 /* Ghost_for_Mac.xcdatamodeld */; };
 		EFFAD46623F8A26E009004D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFFAD46523F8A26E009004D0 /* Assets.xcassets */; };
 		EFFAD46923F8A26E009004D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFFAD46723F8A26E009004D0 /* Main.storyboard */; };
 		EFFAD47523F8A26E009004D0 /* Ghost_for_MacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFAD47423F8A26E009004D0 /* Ghost_for_MacTests.swift */; };
+		EFFAD48523F8B8C7009004D0 /* GhostNSImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFAD48423F8B8C7009004D0 /* GhostNSImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,9 +34,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B30BE18567D8B3E2FC3C772 /* Pods-Ghost for MacTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ghost for MacTests.release.xcconfig"; path = "Target Support Files/Pods-Ghost for MacTests/Pods-Ghost for MacTests.release.xcconfig"; sourceTree = "<group>"; };
+		3EC43943BBA84BFDA24560C5 /* Pods-Ghost for MacTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ghost for MacTests.debug.xcconfig"; path = "Target Support Files/Pods-Ghost for MacTests/Pods-Ghost for MacTests.debug.xcconfig"; sourceTree = "<group>"; };
+		45A0A08BD7191287F1043593 /* Pods_Ghost_for_Mac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ghost_for_Mac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6263089CBCA0C7D36EC31AFE /* Pods-Ghost for Mac.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ghost for Mac.debug.xcconfig"; path = "Target Support Files/Pods-Ghost for Mac/Pods-Ghost for Mac.debug.xcconfig"; sourceTree = "<group>"; };
+		A5C16CE5FA92500E555F3755 /* Pods-Ghost for Mac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ghost for Mac.release.xcconfig"; path = "Target Support Files/Pods-Ghost for Mac/Pods-Ghost for Mac.release.xcconfig"; sourceTree = "<group>"; };
+		CFC917E76DE41586BDC2EF2B /* Pods_Ghost_for_MacTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ghost_for_MacTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFB99FC1242832B0005B38E5 /* EventItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventItem.swift; sourceTree = "<group>"; };
+		EFB99FC2242832B0005B38E5 /* EventItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventItem.xib; sourceTree = "<group>"; };
+		EFF410412402379A00D01DF8 /* GhostWeekView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GhostWeekView.swift; sourceTree = "<group>"; };
+		EFF4104324023C9100D01DF8 /* BgNSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BgNSView.swift; sourceTree = "<group>"; };
+		EFF410452402421500D01DF8 /* MainWindowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowViewController.swift; sourceTree = "<group>"; };
 		EFFAD45B23F8A26C009004D0 /* Ghost for Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ghost for Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFFAD45E23F8A26C009004D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EFFAD46023F8A26C009004D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EFFAD46023F8A26C009004D0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		EFFAD46323F8A26C009004D0 /* Ghost_for_Mac.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ghost_for_Mac.xcdatamodel; sourceTree = "<group>"; };
 		EFFAD46523F8A26E009004D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EFFAD46823F8A26E009004D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -37,6 +56,7 @@
 		EFFAD47023F8A26E009004D0 /* Ghost for MacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ghost for MacTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFFAD47423F8A26E009004D0 /* Ghost_for_MacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ghost_for_MacTests.swift; sourceTree = "<group>"; };
 		EFFAD47623F8A26E009004D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFFAD48423F8B8C7009004D0 /* GhostNSImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostNSImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				552365B44D482F3140614903 /* Pods_Ghost_for_Mac.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,18 +72,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37BDE9FBBD482218D8EB1426 /* Pods_Ghost_for_MacTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B61E1ABDA64B4683A45E54D4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6263089CBCA0C7D36EC31AFE /* Pods-Ghost for Mac.debug.xcconfig */,
+				A5C16CE5FA92500E555F3755 /* Pods-Ghost for Mac.release.xcconfig */,
+				3EC43943BBA84BFDA24560C5 /* Pods-Ghost for MacTests.debug.xcconfig */,
+				1B30BE18567D8B3E2FC3C772 /* Pods-Ghost for MacTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DFCBE443C06E68696E62300D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				45A0A08BD7191287F1043593 /* Pods_Ghost_for_Mac.framework */,
+				CFC917E76DE41586BDC2EF2B /* Pods_Ghost_for_MacTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EFFAD45223F8A26C009004D0 = {
 			isa = PBXGroup;
 			children = (
 				EFFAD45D23F8A26C009004D0 /* Ghost for Mac */,
 				EFFAD47323F8A26E009004D0 /* Ghost for MacTests */,
 				EFFAD45C23F8A26C009004D0 /* Products */,
+				B61E1ABDA64B4683A45E54D4 /* Pods */,
+				DFCBE443C06E68696E62300D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,10 +122,10 @@
 		EFFAD45D23F8A26C009004D0 /* Ghost for Mac */ = {
 			isa = PBXGroup;
 			children = (
-				EFFAD45E23F8A26C009004D0 /* AppDelegate.swift */,
-				EFFAD46023F8A26C009004D0 /* ViewController.swift */,
+				EFFAD47F23F8A27B009004D0 /* Core */,
+				EFFAD48323F8B8B3009004D0 /* CustomViews */,
+				EFFAD48023F8A28C009004D0 /* Screens */,
 				EFFAD46523F8A26E009004D0 /* Assets.xcassets */,
-				EFFAD46723F8A26E009004D0 /* Main.storyboard */,
 				EFFAD46A23F8A26E009004D0 /* Info.plist */,
 				EFFAD46B23F8A26E009004D0 /* Ghost_for_Mac.entitlements */,
 				EFFAD46223F8A26C009004D0 /* Ghost_for_Mac.xcdatamodeld */,
@@ -98,6 +142,44 @@
 			path = "Ghost for MacTests";
 			sourceTree = "<group>";
 		};
+		EFFAD47F23F8A27B009004D0 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				EFFAD45E23F8A26C009004D0 /* AppDelegate.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		EFFAD48023F8A28C009004D0 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				EFFAD48123F8A29D009004D0 /* Main */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		EFFAD48123F8A29D009004D0 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				EFFAD46723F8A26E009004D0 /* Main.storyboard */,
+				EFFAD46023F8A26C009004D0 /* MainViewController.swift */,
+				EFF410452402421500D01DF8 /* MainWindowViewController.swift */,
+				EFB99FC1242832B0005B38E5 /* EventItem.swift */,
+				EFB99FC2242832B0005B38E5 /* EventItem.xib */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		EFFAD48323F8B8B3009004D0 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				EFFAD48423F8B8C7009004D0 /* GhostNSImageView.swift */,
+				EFF410412402379A00D01DF8 /* GhostWeekView.swift */,
+				EFF4104324023C9100D01DF8 /* BgNSView.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -105,9 +187,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EFFAD47923F8A26E009004D0 /* Build configuration list for PBXNativeTarget "Ghost for Mac" */;
 			buildPhases = (
+				1A65F09ED16C395C35F884C9 /* [CP] Check Pods Manifest.lock */,
 				EFFAD45723F8A26C009004D0 /* Sources */,
 				EFFAD45823F8A26C009004D0 /* Frameworks */,
 				EFFAD45923F8A26C009004D0 /* Resources */,
+				361D3526A441999652564D74 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -122,6 +206,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EFFAD47C23F8A26E009004D0 /* Build configuration list for PBXNativeTarget "Ghost for MacTests" */;
 			buildPhases = (
+				87F60B3EA7A97671ADD7E6FC /* [CP] Check Pods Manifest.lock */,
 				EFFAD46C23F8A26E009004D0 /* Sources */,
 				EFFAD46D23F8A26E009004D0 /* Frameworks */,
 				EFFAD46E23F8A26E009004D0 /* Resources */,
@@ -180,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFFAD46623F8A26E009004D0 /* Assets.xcassets in Resources */,
+				EFB99FC4242832B0005B38E5 /* EventItem.xib in Resources */,
 				EFFAD46923F8A26E009004D0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,13 +279,82 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1A65F09ED16C395C35F884C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Ghost for Mac-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		361D3526A441999652564D74 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ghost for Mac/Pods-Ghost for Mac-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ghost for Mac/Pods-Ghost for Mac-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Ghost for Mac/Pods-Ghost for Mac-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		87F60B3EA7A97671ADD7E6FC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Ghost for MacTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EFFAD45723F8A26C009004D0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFF410462402421500D01DF8 /* MainWindowViewController.swift in Sources */,
 				EFFAD46423F8A26C009004D0 /* Ghost_for_Mac.xcdatamodeld in Sources */,
-				EFFAD46123F8A26C009004D0 /* ViewController.swift in Sources */,
+				EFFAD48523F8B8C7009004D0 /* GhostNSImageView.swift in Sources */,
+				EFB99FC3242832B0005B38E5 /* EventItem.swift in Sources */,
+				EFF4104424023C9100D01DF8 /* BgNSView.swift in Sources */,
+				EFF410422402379A00D01DF8 /* GhostWeekView.swift in Sources */,
+				EFFAD46123F8A26C009004D0 /* MainViewController.swift in Sources */,
 				EFFAD45F23F8A26C009004D0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,6 +504,7 @@
 		};
 		EFFAD47A23F8A26E009004D0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6263089CBCA0C7D36EC31AFE /* Pods-Ghost for Mac.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Ghost for Mac/Ghost_for_Mac.entitlements";
@@ -369,6 +525,7 @@
 		};
 		EFFAD47B23F8A26E009004D0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5C16CE5FA92500E555F3755 /* Pods-Ghost for Mac.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Ghost for Mac/Ghost_for_Mac.entitlements";
@@ -389,6 +546,7 @@
 		};
 		EFFAD47D23F8A26E009004D0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3EC43943BBA84BFDA24560C5 /* Pods-Ghost for MacTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -411,6 +569,7 @@
 		};
 		EFFAD47E23F8A26E009004D0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B30BE18567D8B3E2FC3C772 /* Pods-Ghost for MacTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
