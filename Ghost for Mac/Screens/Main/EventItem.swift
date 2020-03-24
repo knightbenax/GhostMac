@@ -10,6 +10,7 @@ import Cocoa
 
 class EventItem: NSCollectionViewItem {
 
+    @IBOutlet weak var todayDotView: BgNSView!
     @IBOutlet weak var dayText: NSTextField!
     @IBOutlet weak var dateText: NSTextField!
     

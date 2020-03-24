@@ -1,0 +1,6 @@
+framework module Pods_Ghost_for_MacTests {
+  umbrella header "Pods-Ghost for MacTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -745,7 +745,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="30" id="vm3-vn-MZC"/>
                                                             </constraints>
-                                                            <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="cogs" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Sk5-UO-Frk">
+                                                            <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSActionTemplate" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Sk5-UO-Frk">
                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="system"/>
                                                             </buttonCell>
@@ -830,19 +830,19 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </customView>
                                                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="UGy-oq-cSl" customClass="BgNSView" customModule="Ghost_for_Mac" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="372" width="330" height="85"/>
+                                                    <rect key="frame" x="0.0" y="382" width="330" height="75"/>
                                                     <subviews>
                                                         <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="axX-SD-xKB">
-                                                            <rect key="frame" x="0.0" y="0.0" width="330" height="80"/>
-                                                            <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="TDW-2b-0HU">
-                                                                <rect key="frame" x="0.0" y="0.0" width="330" height="80"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="330" height="70"/>
+                                                            <clipView key="contentView" copiesOnScroll="NO" id="TDW-2b-0HU">
+                                                                <rect key="frame" x="0.0" y="0.0" width="330" height="70"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
                                                                     <collectionView allowsEmptySelection="NO" id="yLR-Zq-FQ2">
                                                                         <rect key="frame" x="0.0" y="0.0" width="330" height="158"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" id="f2M-Wg-ALw">
-                                                                            <size key="itemSize" width="54" height="80"/>
+                                                                            <size key="itemSize" width="54" height="70"/>
                                                                         </collectionViewFlowLayout>
                                                                         <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </collectionView>
@@ -850,7 +850,7 @@
                                                                 <color key="backgroundColor" name="darkBgColor"/>
                                                             </clipView>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="80" id="GON-a5-yzM"/>
+                                                                <constraint firstAttribute="height" constant="70" id="GON-a5-yzM"/>
                                                             </constraints>
                                                             <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="ulZ-l1-lxL">
                                                                 <rect key="frame" x="-100" y="-100" width="233" height="15"/>
@@ -875,11 +875,8 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </customView>
                                                 <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vtt-nz-c5Q">
-                                                    <rect key="frame" x="13" y="336" width="171" height="27"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="24" id="uy7-Mk-Xss"/>
-                                                    </constraints>
-                                                    <segmentedCell key="cell" borderStyle="border" alignment="left" segmentDistribution="fill" style="rounded" trackingMode="selectOne" id="oJY-YT-aUG">
+                                                    <rect key="frame" x="15" y="350" width="167" height="23"/>
+                                                    <segmentedCell key="cell" borderStyle="border" alignment="left" segmentDistribution="fill" style="smallSquare" trackingMode="selectOne" id="oJY-YT-aUG">
                                                         <font key="font" size="13" name="Overpass-Regular"/>
                                                         <segments>
                                                             <segment label="Important" width="90" selected="YES"/>
@@ -887,13 +884,16 @@
                                                         </segments>
                                                     </segmentedCell>
                                                 </segmentedControl>
-                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9bH-cI-B1T">
-                                                    <rect key="frame" x="264" y="333" width="40" height="32"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <buttonCell key="cell" type="push" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="y8d-lm-jcv">
+                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9bH-cI-B1T">
+                                                    <rect key="frame" x="288" y="342" width="30" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="SFQ-z3-IUK"/>
+                                                    </constraints>
+                                                    <buttonCell key="cell" type="roundRect" bezelStyle="roundedRect" image="plus" imagePosition="only" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="y8d-lm-jcv">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                        <font key="font" metaFont="system"/>
+                                                        <font key="font" metaFont="cellTitle"/>
                                                     </buttonCell>
+                                                    <color key="contentTintColor" red="0.8862745098" green="0.8862745098" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -902,7 +902,9 @@
                                                 <constraint firstItem="2Vq-V9-G1S" firstAttribute="top" secondItem="WGH-rk-iJa" secondAttribute="top" id="Kkl-ys-DBs"/>
                                                 <constraint firstItem="vtt-nz-c5Q" firstAttribute="top" secondItem="UGy-oq-cSl" secondAttribute="bottom" constant="10" id="Orh-2D-p50"/>
                                                 <constraint firstItem="vtt-nz-c5Q" firstAttribute="leading" secondItem="WGH-rk-iJa" secondAttribute="leading" constant="15" id="TW3-mj-zaP"/>
+                                                <constraint firstItem="9bH-cI-B1T" firstAttribute="centerY" secondItem="vtt-nz-c5Q" secondAttribute="centerY" id="f2f-za-aVE"/>
                                                 <constraint firstAttribute="trailing" secondItem="2Vq-V9-G1S" secondAttribute="trailing" id="fx2-IA-fXt"/>
+                                                <constraint firstAttribute="trailing" secondItem="9bH-cI-B1T" secondAttribute="trailing" constant="12" id="mmY-LG-Crf"/>
                                                 <constraint firstItem="UGy-oq-cSl" firstAttribute="leading" secondItem="WGH-rk-iJa" secondAttribute="leading" id="q3o-8b-bcB"/>
                                                 <constraint firstItem="2Vq-V9-G1S" firstAttribute="leading" secondItem="WGH-rk-iJa" secondAttribute="leading" id="vT8-Um-9DW"/>
                                             </constraints>
@@ -941,7 +943,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cogs" width="40" height="40"/>
+        <image name="NSActionTemplate" width="14" height="14"/>
+        <image name="plus" width="40" height="40"/>
         <namedColor name="barColor">
             <color red="0.96100002527236938" green="0.64300000667572021" blue="0.13699999451637268" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

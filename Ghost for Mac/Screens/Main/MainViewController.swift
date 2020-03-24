@@ -123,7 +123,13 @@ extension MainViewController: NSCollectionViewDataSource, NSCollectionViewDelega
         
         let dayDiff = i - 7
         let nextDate = Calendar.current.date(byAdding: .day, value: dayDiff, to: today)
-                   
+        cell?.todayDotView.isHidden = true
+        
+        if (i == 7){
+            //this is today
+            cell?.todayDotView.isHidden = false
+        }
+        
         let index = getDayOfWeek(today: nextDate!)! - 1
         cell?.dateText.stringValue = formatDateToBeauty(thisDate: nextDate!)
         cell?.dayText.stringValue = daysOfWeek[index]
