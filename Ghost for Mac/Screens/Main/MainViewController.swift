@@ -9,11 +9,13 @@
 import Cocoa
 import Kingfisher
 
-class MainViewController: NSViewController {
+class MainViewController: BaseViewController {
 
     @IBOutlet weak var weekView: NSCollectionView!
     @IBOutlet weak var inspirationImage: NSImageView!
     @IBOutlet weak var monthLabel: NSTextField!
+    
+    
     
     let eventItemIdentifier: NSUserInterfaceItemIdentifier = NSUserInterfaceItemIdentifier(rawValue: "EventItemIdentifier")
     
@@ -25,6 +27,24 @@ class MainViewController: NSViewController {
         super.viewDidLoad()
         getDailyView()
         setCollectionFlowLayout()
+    }
+    
+    func signInGoogle(){
+        if (store.userLoggedIn()){
+            
+        }
+    }
+    
+    
+    @IBAction func signInGoogleAction(_ sender: Any) {
+        signInGoogle()
+    }
+    
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        let defaultImage = NSImage(named: NSImage.Name("wait_image"))!
+        self.imageFitWell(image: defaultImage)
+        self.imageFitWell(image: defaultImage)
     }
     
     fileprivate func setCollectionFlowLayout(){
@@ -55,6 +75,7 @@ class MainViewController: NSViewController {
     }
     
     func getDailyView(){
+     
         let url = URL(string: "https://source.unsplash.com/collection/9552158")
         /*KingfisherManager.shared.retrieveImage(with: url!, options: [.memoryCacheExpiration(.expired), .diskCacheExpiration(.expired), .keepCurrentImageWhileLoading, .transition(.none)]) { result in
             // Do something with `result`
@@ -76,13 +97,14 @@ class MainViewController: NSViewController {
                print(error)
            }
        }
-       }
+    }
 
     private func imageFitWell(image: NSImage){
         inspirationImage.layer? = CALayer()
         inspirationImage.layer?.contentsGravity = .resizeAspectFill
         inspirationImage.layer?.contents = image
         inspirationImage.wantsLayer = true
+        print(image)
     }
     
     

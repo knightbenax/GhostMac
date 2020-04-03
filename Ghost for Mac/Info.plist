@@ -32,5 +32,11 @@
 	<true/>
 	<key>NSSupportsSuddenTermination</key>
 	<true/>
+	<key>RedirectUri</key>
+	<string>com.googleusercontent.apps.330535063750-nve47uptf78l455fj7n1o2asvk7v02l9.apps.googleusercontent.com:/oauthredirect</string>
+	<key>ClientId</key>
+	<string>330535063750-nve47uptf78l455fj7n1o2asvk7v02l9.apps.googleusercontent.com.apps.googleusercontent.com</string>
+	<key>ClientSecret</key>
+	<string>G3J4lQ6MAnmmaRAHi5CcJFev</string>
 </dict>
 </plist>
