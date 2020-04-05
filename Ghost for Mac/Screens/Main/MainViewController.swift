@@ -8,6 +8,7 @@
 
 import Cocoa
 import Kingfisher
+import GAppAuth
 
 class MainViewController: BaseViewController {
 
@@ -27,11 +28,36 @@ class MainViewController: BaseViewController {
         super.viewDidLoad()
         getDailyView()
         setCollectionFlowLayout()
+        GAppAuth.shared.retrieveExistingAuthorizationState()
+        
+        if GAppAuth.shared.isAuthorized() {
+            let authorization = GAppAuth.shared.getCurrentAuthorization()
+            //self.updateUI(authorization)
+        }
+    }
+    
+    override var representedObject: Any? {
+        didSet {
+            if GAppAuth.shared.isAuthorized() {
+                let authorization = GAppAuth.shared.getCurrentAuthorization()
+                //self.updateUI(authorization)
+            }
+        }
     }
     
     func signInGoogle(){
-        if (store.userLoggedIn()){
-            
+        do {
+            try GAppAuth.shared.authorize { auth in
+                if auth {
+                    if GAppAuth.shared.isAuthorized() {
+                        let authorization = GAppAuth.shared.getCurrentAuthorization()
+                        //self.updateUI(authorization)
+                    }
+                }
+            }
+        } catch let error {
+            print(error.localizedDescription)
+            //updateUI(nil)
         }
     }
     
@@ -66,13 +92,6 @@ class MainViewController: BaseViewController {
            flowLayout.minimumInteritemSpacing = 0
            colorList.collectionViewLayout = flowLayout*/
     }
-
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
-    }
     
     func getDailyView(){
      
@@ -104,7 +123,6 @@ class MainViewController: BaseViewController {
         inspirationImage.layer?.contentsGravity = .resizeAspectFill
         inspirationImage.layer?.contents = image
         inspirationImage.wantsLayer = true
-        print(image)
     }
     
     

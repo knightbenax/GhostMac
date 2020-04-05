@@ -18,6 +18,19 @@
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>CFBundleURLTypes</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.330535063750-nve47uptf78l455fj7n1o2asvk7v02l9.apps.googleusercontent.com</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSMinimumSystemVersion</key>
@@ -32,11 +45,12 @@
 	<true/>
 	<key>NSSupportsSuddenTermination</key>
 	<true/>
-	<key>RedirectUri</key>
-	<string>com.googleusercontent.apps.330535063750-nve47uptf78l455fj7n1o2asvk7v02l9.apps.googleusercontent.com:/oauthredirect</string>
-	<key>ClientId</key>
-	<string>330535063750-nve47uptf78l455fj7n1o2asvk7v02l9.apps.googleusercontent.com.apps.googleusercontent.com</string>
-	<key>ClientSecret</key>
-	<string>G3J4lQ6MAnmmaRAHi5CcJFev</string>
+	<key>GAppAuth</key>
+	<dict>
+		<key>RedirectUri</key>
+		<string>com.googleusercontent.apps.330535063750-nve47uptf78l455fj7n1o2asvk7v02l9:/oauthredirect</string>
+		<key>ClientId</key>
+		<string>330535063750-nve47uptf78l455fj7n1o2asvk7v02l9.apps.googleusercontent.com</string>
+	</dict>
 </dict>
 </plist>
