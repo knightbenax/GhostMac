@@ -11,6 +11,9 @@
 		552365B44D482F3140614903 /* Pods_Ghost_for_Mac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A0A08BD7191287F1043593 /* Pods_Ghost_for_Mac.framework */; };
 		EFB99FC3242832B0005B38E5 /* EventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB99FC1242832B0005B38E5 /* EventItem.swift */; };
 		EFB99FC4242832B0005B38E5 /* EventItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFB99FC2242832B0005B38E5 /* EventItem.xib */; };
+		EFB99FC6242A63C1005B38E5 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB99FC5242A63C1005B38E5 /* AppConstants.swift */; };
+		EFB99FC8242A6A53005B38E5 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB99FC7242A6A53005B38E5 /* Store.swift */; };
+		EFB99FCB242A7AB6005B38E5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB99FCA242A7AB6005B38E5 /* BaseViewController.swift */; };
 		EFF410422402379A00D01DF8 /* GhostWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF410412402379A00D01DF8 /* GhostWeekView.swift */; };
 		EFF4104424023C9100D01DF8 /* BgNSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF4104324023C9100D01DF8 /* BgNSView.swift */; };
 		EFF410462402421500D01DF8 /* MainWindowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF410452402421500D01DF8 /* MainWindowViewController.swift */; };
@@ -21,6 +24,14 @@
 		EFFAD46923F8A26E009004D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFFAD46723F8A26E009004D0 /* Main.storyboard */; };
 		EFFAD47523F8A26E009004D0 /* Ghost_for_MacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFAD47423F8A26E009004D0 /* Ghost_for_MacTests.swift */; };
 		EFFAD48523F8B8C7009004D0 /* GhostNSImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFAD48423F8B8C7009004D0 /* GhostNSImageView.swift */; };
+		EFFCA5D3243B6843001BA016 /* GoogleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCA5D2243B6842001BA016 /* GoogleService.swift */; };
+		EFFCA5D5243B868E001BA016 /* BaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCA5D4243B868E001BA016 /* BaseClass.swift */; };
+		EFFCA5DA243B9C28001BA016 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCA5D7243B9C28001BA016 /* Event.swift */; };
+		EFFCA5DB243B9C28001BA016 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCA5D8243B9C28001BA016 /* Contact.swift */; };
+		EFFCA5DC243B9C28001BA016 /* GhostCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCA5D9243B9C28001BA016 /* GhostCalendar.swift */; };
+		EFFCA5DF243BB535001BA016 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCA5DE243BB535001BA016 /* Utils.swift */; };
+		EFFCA5E2243BC072001BA016 /* EventTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCA5E1243BC072001BA016 /* EventTableCell.swift */; };
+		EFFCA5E4243BD15A001BA016 /* rndBgNSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCA5E3243BD15A001BA016 /* rndBgNSView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +53,9 @@
 		CFC917E76DE41586BDC2EF2B /* Pods_Ghost_for_MacTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ghost_for_MacTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFB99FC1242832B0005B38E5 /* EventItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventItem.swift; sourceTree = "<group>"; };
 		EFB99FC2242832B0005B38E5 /* EventItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventItem.xib; sourceTree = "<group>"; };
+		EFB99FC5242A63C1005B38E5 /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		EFB99FC7242A6A53005B38E5 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		EFB99FCA242A7AB6005B38E5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		EFF410412402379A00D01DF8 /* GhostWeekView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GhostWeekView.swift; sourceTree = "<group>"; };
 		EFF4104324023C9100D01DF8 /* BgNSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BgNSView.swift; sourceTree = "<group>"; };
 		EFF410452402421500D01DF8 /* MainWindowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +71,14 @@
 		EFFAD47423F8A26E009004D0 /* Ghost_for_MacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ghost_for_MacTests.swift; sourceTree = "<group>"; };
 		EFFAD47623F8A26E009004D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFFAD48423F8B8C7009004D0 /* GhostNSImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostNSImageView.swift; sourceTree = "<group>"; };
+		EFFCA5D2243B6842001BA016 /* GoogleService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleService.swift; path = "Ghost for Mac/Core/GoogleService.swift"; sourceTree = SOURCE_ROOT; };
+		EFFCA5D4243B868E001BA016 /* BaseClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseClass.swift; sourceTree = "<group>"; };
+		EFFCA5D7243B9C28001BA016 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		EFFCA5D8243B9C28001BA016 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		EFFCA5D9243B9C28001BA016 /* GhostCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GhostCalendar.swift; sourceTree = "<group>"; };
+		EFFCA5DE243BB535001BA016 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		EFFCA5E1243BC072001BA016 /* EventTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableCell.swift; sourceTree = "<group>"; };
+		EFFCA5E3243BD15A001BA016 /* rndBgNSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rndBgNSView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +121,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EFB99FC9242A6A57005B38E5 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				EFB99FC7242A6A53005B38E5 /* Store.swift */,
+				EFB99FC5242A63C1005B38E5 /* AppConstants.swift */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
 		EFFAD45223F8A26C009004D0 = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +155,8 @@
 			children = (
 				EFFAD47F23F8A27B009004D0 /* Core */,
 				EFFAD48323F8B8B3009004D0 /* CustomViews */,
+				EFFCA5D6243B9C28001BA016 /* Models */,
+				EFFCA5E0243BC05A001BA016 /* TableCells */,
 				EFFAD48023F8A28C009004D0 /* Screens */,
 				EFFAD46523F8A26E009004D0 /* Assets.xcassets */,
 				EFFAD46A23F8A26E009004D0 /* Info.plist */,
@@ -145,6 +178,9 @@
 		EFFAD47F23F8A27B009004D0 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				EFFCA5DD243BB526001BA016 /* Extensions */,
+				EFFCA5D1243B6833001BA016 /* Services */,
+				EFB99FC9242A6A57005B38E5 /* DB */,
 				EFFAD45E23F8A26C009004D0 /* AppDelegate.swift */,
 			);
 			path = Core;
@@ -154,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				EFFAD48123F8A29D009004D0 /* Main */,
+				EFB99FCA242A7AB6005B38E5 /* BaseViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -176,8 +213,44 @@
 				EFFAD48423F8B8C7009004D0 /* GhostNSImageView.swift */,
 				EFF410412402379A00D01DF8 /* GhostWeekView.swift */,
 				EFF4104324023C9100D01DF8 /* BgNSView.swift */,
+				EFFCA5E3243BD15A001BA016 /* rndBgNSView.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		EFFCA5D1243B6833001BA016 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				EFFCA5D2243B6842001BA016 /* GoogleService.swift */,
+				EFFCA5D4243B868E001BA016 /* BaseClass.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		EFFCA5D6243B9C28001BA016 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EFFCA5D7243B9C28001BA016 /* Event.swift */,
+				EFFCA5D8243B9C28001BA016 /* Contact.swift */,
+				EFFCA5D9243B9C28001BA016 /* GhostCalendar.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EFFCA5DD243BB526001BA016 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EFFCA5DE243BB535001BA016 /* Utils.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EFFCA5E0243BC05A001BA016 /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				EFFCA5E1243BC072001BA016 /* EventTableCell.swift */,
+			);
+			path = TableCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,12 +422,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFF410462402421500D01DF8 /* MainWindowViewController.swift in Sources */,
+				EFFCA5E2243BC072001BA016 /* EventTableCell.swift in Sources */,
+				EFB99FC6242A63C1005B38E5 /* AppConstants.swift in Sources */,
+				EFB99FCB242A7AB6005B38E5 /* BaseViewController.swift in Sources */,
 				EFFAD46423F8A26C009004D0 /* Ghost_for_Mac.xcdatamodeld in Sources */,
 				EFFAD48523F8B8C7009004D0 /* GhostNSImageView.swift in Sources */,
 				EFB99FC3242832B0005B38E5 /* EventItem.swift in Sources */,
+				EFB99FC8242A6A53005B38E5 /* Store.swift in Sources */,
 				EFF4104424023C9100D01DF8 /* BgNSView.swift in Sources */,
+				EFFCA5E4243BD15A001BA016 /* rndBgNSView.swift in Sources */,
+				EFFCA5D3243B6843001BA016 /* GoogleService.swift in Sources */,
+				EFFCA5DF243BB535001BA016 /* Utils.swift in Sources */,
 				EFF410422402379A00D01DF8 /* GhostWeekView.swift in Sources */,
+				EFFCA5D5243B868E001BA016 /* BaseClass.swift in Sources */,
 				EFFAD46123F8A26C009004D0 /* MainViewController.swift in Sources */,
+				EFFCA5DB243B9C28001BA016 /* Contact.swift in Sources */,
+				EFFCA5DC243B9C28001BA016 /* GhostCalendar.swift in Sources */,
+				EFFCA5DA243B9C28001BA016 /* Event.swift in Sources */,
 				EFFAD45F23F8A26C009004D0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

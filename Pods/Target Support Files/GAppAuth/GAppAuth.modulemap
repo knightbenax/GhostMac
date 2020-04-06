@@ -1,0 +1,6 @@
+framework module GAppAuth {
+  umbrella header "GAppAuth-umbrella.h"
+
+  export *
+  module * { export * }
+}

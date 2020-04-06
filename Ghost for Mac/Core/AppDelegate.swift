@@ -7,14 +7,37 @@
 //
 
 import Cocoa
+import GAppAuth
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
-
+    
+    let storeHelper = Store()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        // Handle URL event
+        NSAppleEventManager.shared().setEventHandler(self, andSelector: #selector(handleEvent(event:replyEvent:)), forEventClass: AEEventClass(kInternetEventClass), andEventID: AEEventID(kAEGetURL))
+              
+        //GAppAuth.shared.appendAuthorizationRealm(OIDScopeEmail)
+        GAppAuth.shared.appendAuthorizationRealm("https://www.googleapis.com/auth/calendar")
+        GAppAuth.shared.appendAuthorizationRealm("https://www.googleapis.com/auth/contacts")
+        GAppAuth.shared.appendAuthorizationRealm("https://www.googleapis.com/auth/contacts.readonly")
+              
+        // Retrieve existing auth
+        GAppAuth.shared.retrieveExistingAuthorizationState()
+    }
+    
+    func logout() {
+        GAppAuth.shared.resetAuthorizationState()
+        storeHelper.clearAll()
+    }
+    
+    @objc private func handleEvent(event: NSAppleEventDescriptor, replyEvent: NSAppleEventDescriptor) {
+        let urlString = event.paramDescriptor(forKeyword: keyDirectObject)?.stringValue ?? ""
+        let url = URL(string: urlString)!
+        
+        _ = GAppAuth.shared.continueAuthorization(with: url, callback: nil)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
