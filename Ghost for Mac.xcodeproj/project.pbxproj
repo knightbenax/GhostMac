@@ -30,6 +30,8 @@
 		EFFCA5DB243B9C28001BA016 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCA5D8243B9C28001BA016 /* Contact.swift */; };
 		EFFCA5DC243B9C28001BA016 /* GhostCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCA5D9243B9C28001BA016 /* GhostCalendar.swift */; };
 		EFFCA5DF243BB535001BA016 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCA5DE243BB535001BA016 /* Utils.swift */; };
+		EFFCA5E2243BC072001BA016 /* EventTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCA5E1243BC072001BA016 /* EventTableCell.swift */; };
+		EFFCA5E4243BD15A001BA016 /* rndBgNSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCA5E3243BD15A001BA016 /* rndBgNSView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		EFFCA5D8243B9C28001BA016 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		EFFCA5D9243B9C28001BA016 /* GhostCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GhostCalendar.swift; sourceTree = "<group>"; };
 		EFFCA5DE243BB535001BA016 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		EFFCA5E1243BC072001BA016 /* EventTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableCell.swift; sourceTree = "<group>"; };
+		EFFCA5E3243BD15A001BA016 /* rndBgNSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rndBgNSView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +156,7 @@
 				EFFAD47F23F8A27B009004D0 /* Core */,
 				EFFAD48323F8B8B3009004D0 /* CustomViews */,
 				EFFCA5D6243B9C28001BA016 /* Models */,
+				EFFCA5E0243BC05A001BA016 /* TableCells */,
 				EFFAD48023F8A28C009004D0 /* Screens */,
 				EFFAD46523F8A26E009004D0 /* Assets.xcassets */,
 				EFFAD46A23F8A26E009004D0 /* Info.plist */,
@@ -208,6 +213,7 @@
 				EFFAD48423F8B8C7009004D0 /* GhostNSImageView.swift */,
 				EFF410412402379A00D01DF8 /* GhostWeekView.swift */,
 				EFF4104324023C9100D01DF8 /* BgNSView.swift */,
+				EFFCA5E3243BD15A001BA016 /* rndBgNSView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -237,6 +243,14 @@
 				EFFCA5DE243BB535001BA016 /* Utils.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EFFCA5E0243BC05A001BA016 /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				EFFCA5E1243BC072001BA016 /* EventTableCell.swift */,
+			);
+			path = TableCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -408,6 +422,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFF410462402421500D01DF8 /* MainWindowViewController.swift in Sources */,
+				EFFCA5E2243BC072001BA016 /* EventTableCell.swift in Sources */,
 				EFB99FC6242A63C1005B38E5 /* AppConstants.swift in Sources */,
 				EFB99FCB242A7AB6005B38E5 /* BaseViewController.swift in Sources */,
 				EFFAD46423F8A26C009004D0 /* Ghost_for_Mac.xcdatamodeld in Sources */,
@@ -415,6 +430,7 @@
 				EFB99FC3242832B0005B38E5 /* EventItem.swift in Sources */,
 				EFB99FC8242A6A53005B38E5 /* Store.swift in Sources */,
 				EFF4104424023C9100D01DF8 /* BgNSView.swift in Sources */,
+				EFFCA5E4243BD15A001BA016 /* rndBgNSView.swift in Sources */,
 				EFFCA5D3243B6843001BA016 /* GoogleService.swift in Sources */,
 				EFFCA5DF243BB535001BA016 /* Utils.swift in Sources */,
 				EFF410422402379A00D01DF8 /* GhostWeekView.swift in Sources */,

@@ -20,6 +20,7 @@ class MainViewController: BaseViewController {
     
     let eventItemIdentifier: NSUserInterfaceItemIdentifier = NSUserInterfaceItemIdentifier(rawValue: "EventItemIdentifier")
     
+    @IBOutlet weak var eventsTable: NSTableView!
     let today = Date()
     var fetchedDay = 0
     var wakeup = false
@@ -43,6 +44,7 @@ class MainViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpTable()
         selectedCalendar = importantCalendar
         GAppAuth.shared.retrieveExistingAuthorizationState()
         checkRegistration()
@@ -56,12 +58,30 @@ class MainViewController: BaseViewController {
         setCollectionFlowLayout()
     }
     
+    
+    func setUpTable(){
+        eventsTable.delegate = self
+        eventsTable.dataSource = self
+        eventsTable.backgroundColor = NSColor.clear
+        eventsTable.focusRingType = .none
+        eventsTable.selectionHighlightStyle = .none
+        eventsTable.enclosingScrollView?.contentInsets = NSEdgeInsets.init(top: 15, left: 0, bottom: 15, right: 0)
+               
+               //Context Menu for the HistoryTable
+        let menu = NSMenu()
+        menu.addItem(NSMenuItem(title: "Delete", action: #selector(tableViewDeleteItemClicked(_:)), keyEquivalent: ""))
+        eventsTable.menu = menu
+    }
+    
+    @objc private func tableViewDeleteItemClicked(_ sender: AnyObject) {
+           guard eventsTable.clickedRow >= 0 else { return }
+    }
+    
     func getCalendarEvents(){
        startProgressLoading()
         let today = getTimeAndDate(day: fetchedDay)
         let yesterday = getTimeAndDate(diff: -1, day: fetchedDay)
         googleService.getGoogleCalendarEvents(calendar_id: selectedCalendar, startDate: yesterday, endDate: today, completion: { (result: Result<Any, Error>) in
-            
             switch (result){
             case .success(let data):
                  let dataItems = data as! NSDictionary
@@ -70,9 +90,29 @@ class MainViewController: BaseViewController {
             case .failure(let error):
                 print(error)
             }
-            
-          
         })
+    }
+    
+    @IBAction func refreshCalendar(_ sender: Any) {
+        events.removeAll()
+        getCalendarEvents()
+    }
+    
+    @IBAction func switchCalender(_ sender: Any) {
+        let sender = sender as! NSSegmentedControl
+        switch sender.selectedSegment {
+        case 0:
+            selectedCalendar = importantCalendar
+            break
+        case 1:
+            selectedCalendar = urgentCalendar
+            break
+        default:
+            break
+        }
+        
+        events.removeAll()
+        getCalendarEvents()
     }
     
     private func startProgressLoading(){
@@ -197,7 +237,7 @@ class MainViewController: BaseViewController {
             //fetch the contacts, we would reload the table when done
             fetchContacts()
         } else {
-            scheduleList.reloadData()
+            eventsTable.reloadData()
             endProgressLoading()
         }
         
@@ -215,6 +255,64 @@ class MainViewController: BaseViewController {
         
         //events.count == 0 ? emptyView.isHidden = false : emptyView.isHidden = true
     }
+    
+    
+    //We are going to be fetching contacts once. It's a fucking
+       //tedious process to be doing all over and over again
+       func fetchContacts (){
+           //once created, don't fetch again
+           if (contacts == nil){
+               googleService.getContacts(completion: {(result : Result<Any, Error>) in
+                   switch (result){
+                   case .success(let data):
+                       self.parseContacts(item: data as! NSDictionary)
+                       break
+                   case .failure(let error):
+                       print("contacts_error")
+                       let code = error.asAFError?.responseCode
+                       self.manageError(responseCode: code!)
+                       break
+                   }
+                     
+               })
+           } else {
+               //So the user needs contacts but contacts have already been loaded, so
+               //just reload the table
+            eventsTable.reloadData()
+            endProgressLoading()
+           }
+           
+       }
+       
+       
+       func parseContacts(item: NSDictionary){
+           let connections = item.object(forKey: "connections") as! NSArray
+           
+           contacts = Array<Contact>()
+           
+           for connection in connections {
+               
+               var emailValue = ""
+               let connection = connection as! NSDictionary
+               let names =  connection.object(forKey: "names") as! NSArray
+               let name = names[0] as! NSDictionary
+               
+               let photos =  connection.object(forKey: "photos") as! NSArray
+               let photo = photos[0] as! NSDictionary
+               
+               if let emails = connection.object(forKey: "emailAddresses") as? NSArray {
+                   let email = emails[0] as! NSDictionary
+                   emailValue = email.object(forKey: "value") as! String
+               }
+               
+               contacts.append(Contact(name: name.object(forKey: "displayNameLastFirst") as! String,
+                                       email: emailValue, photo: photo.object(forKey: "url") as! String))
+           }
+           
+           //reload table now
+           eventsTable.reloadData()
+           endProgressLoading()
+       }
     
     
     func setEmptyTaskTextViewLabel(calendar: String){
@@ -240,7 +338,8 @@ class MainViewController: BaseViewController {
             let tokenResponse = authorization?.authState.lastTokenResponse
             let accessToken : String = (tokenResponse?.accessToken)!
             let refreshToken : String = (tokenResponse?.refreshToken)!
-            let accessExpiryDate : Date = (tokenResponse?.accessTokenExpirationDate)!
+            let interval = Date().timeIntervalSince((tokenResponse?.accessTokenExpirationDate)!)
+            let accessExpiryDate : TimeInterval = interval
             let values : NSMutableDictionary = ["access_token": accessToken,
                                                 "refresh_token": refreshToken,
                                                 "expires_in": accessExpiryDate]
@@ -374,7 +473,7 @@ extension MainViewController: NSCollectionViewDataSource, NSCollectionViewDelega
         cell?.todayDotView.isHidden = true
         
         if (i == 7){
-            //this is today
+            //this is today 
             cell?.todayDotView.isHidden = false
         }
         
@@ -384,8 +483,51 @@ extension MainViewController: NSCollectionViewDataSource, NSCollectionViewDelega
         return cell!
     }
     
+}
+
+extension MainViewController: NSTableViewDelegate, NSTableViewDataSource{
     
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return events.count
+    }
     
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+           
+        let event = events[row]
+        let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("EventTableCell"), owner: self) as? EventTableCell
+        
+        if (event.hasTime){
+            cell?.startTimeLabel.stringValue = formatDateToTimeOnly(thisDate: event.startDate)
+            cell?.endTimeLabel.stringValue = formatDateToTimeOnly(thisDate: event.endDate)
+        } else {
+            cell?.startTimeLabel.stringValue = "ALL DAY"
+            cell?.endTimeLabel.stringValue = ""
+        }
+        
+        if (event.markedAsDone){
+            let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: event.summary)
+            attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 1, range: NSMakeRange(0, attributeString.length))
+            cell?.eventSummaryLabel.attributedStringValue = attributeString
+        } else {
+            cell?.eventSummaryLabel.attributedStringValue = NSAttributedString.init()
+            cell?.eventSummaryLabel.stringValue = event.summary
+        }
+        
+        switch event.type {
+        case "#meeting":
+            cell?.eventTypeLabel.stringValue = "Meeting"
+        case "#gym":
+            cell?.eventTypeLabel.stringValue = "Gym"
+        case "#task":
+            cell?.eventTypeLabel.stringValue = "Task"
+        default:
+            cell?.eventTypeLabel.stringValue = "Work"
+        }
+        
+        cell?.setColor(eventType: event.type)
+        
+        return cell
+    }
     
 }
 

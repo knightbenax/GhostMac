@@ -46,6 +46,26 @@ class BaseViewController: NSViewController {
            
            return dateString
        }
+    
+    
+    
+     func formatDateToTimeOnly(thisDate: String) -> String{
+         //print(thisDate)
+         let dateFormatterGet = DateFormatter()
+         dateFormatterGet.locale = Locale(identifier: "en_US_POSIX")
+         dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+         //2019-07-08T18:00:00+01:00
+         let dateFormatterPrint = DateFormatter()
+         dateFormatterPrint.dateFormat = "hh:mma"
+         
+         let date = dateFormatterGet.date(from: thisDate)
+         return dateFormatterPrint.string(from: date!)
+     }
+    
+    
+      func manageError(responseCode: Int){
+          print(responseCode)
+      }
        
     
 }

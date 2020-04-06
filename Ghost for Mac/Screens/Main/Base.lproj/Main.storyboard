@@ -712,21 +712,21 @@
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="MainViewController" customModule="Ghost_for_Mac" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" misplaced="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="580" height="498"/>
+                    <view key="view" id="m2S-Jp-Qdl">
+                        <rect key="frame" x="0.0" y="0.0" width="580" height="515"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box boxType="custom" borderType="none" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="aPr-ca-o0O" userLabel="BackgroundBox">
-                                <rect key="frame" x="0.0" y="0.0" width="580" height="503"/>
+                                <rect key="frame" x="0.0" y="0.0" width="580" height="515"/>
                                 <view key="contentView" id="HCa-2j-NHZ" userLabel="BackgroundView">
-                                    <rect key="frame" x="0.0" y="0.0" width="580" height="503"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="580" height="515"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="KYO-zX-V5X" customClass="BgNSView" customModule="Ghost_for_Mac" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="250" height="503"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="250" height="515"/>
                                             <subviews>
                                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JX9-Av-S72" userLabel="InspirationImage" customClass="GhostNSImageView" customModule="Ghost_for_Mac" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="249" height="503"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="249" height="515"/>
                                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="NL3-Pv-1ad"/>
                                                 </imageView>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohf-vB-5Gm">
@@ -738,10 +738,10 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <customView canDrawConcurrently="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7GF-14-d5N" customClass="BgNSView" customModule="Ghost_for_Mac" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="463" width="249" height="40"/>
+                                                    <rect key="frame" x="0.0" y="475" width="249" height="40"/>
                                                     <subviews>
                                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7VA-6c-0Nd">
-                                                            <rect key="frame" x="207" y="8" width="30" height="23"/>
+                                                            <rect key="frame" x="206.5" y="8" width="31" height="23"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="30" id="vm3-vn-MZC"/>
                                                             </constraints>
@@ -784,10 +784,10 @@
                                             </userDefinedRuntimeAttributes>
                                         </customView>
                                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="WGH-rk-iJa">
-                                            <rect key="frame" x="250" y="0.0" width="330" height="503"/>
+                                            <rect key="frame" x="250" y="0.0" width="330" height="515"/>
                                             <subviews>
                                                 <customView canDrawConcurrently="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Vq-V9-G1S" customClass="BgNSView" customModule="Ghost_for_Mac" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="463" width="330" height="40"/>
+                                                    <rect key="frame" x="0.0" y="475" width="330" height="40"/>
                                                     <subviews>
                                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uj9-oO-FkT">
                                                             <rect key="frame" x="218" y="3" width="106" height="32"/>
@@ -821,7 +821,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </customView>
                                                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="UGy-oq-cSl" customClass="BgNSView" customModule="Ghost_for_Mac" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="388" width="330" height="75"/>
+                                                    <rect key="frame" x="0.0" y="400" width="330" height="75"/>
                                                     <subviews>
                                                         <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="axX-SD-xKB">
                                                             <rect key="frame" x="0.0" y="0.0" width="330" height="70"/>
@@ -866,7 +866,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </customView>
                                                 <segmentedControl verticalHuggingPriority="750" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vtt-nz-c5Q">
-                                                    <rect key="frame" x="10" y="355" width="171" height="23"/>
+                                                    <rect key="frame" x="9.5" y="367" width="171" height="23"/>
                                                     <segmentedCell key="cell" borderStyle="border" alignment="left" style="capsule" trackingMode="selectOne" id="oJY-YT-aUG">
                                                         <font key="font" size="13" name="Overpass-Regular"/>
                                                         <segments>
@@ -874,9 +874,12 @@
                                                             <segment label="Urgent" width="74" tag="1"/>
                                                         </segments>
                                                     </segmentedCell>
+                                                    <connections>
+                                                        <action selector="switchCalender:" target="XfG-lQ-9wD" id="Dat-9j-kw9"/>
+                                                    </connections>
                                                 </segmentedControl>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9bH-cI-B1T">
-                                                    <rect key="frame" x="282" y="350" width="42" height="32"/>
+                                                    <rect key="frame" x="282" y="362" width="42" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="SFQ-z3-IUK"/>
                                                     </constraints>
@@ -887,7 +890,7 @@
                                                     <color key="contentTintColor" red="0.8862745098" green="0.8862745098" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                 </button>
                                                 <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="118" horizontalPageScroll="10" verticalLineScroll="118" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o8D-ZB-k3Z">
-                                                    <rect key="frame" x="10" y="36" width="310" height="316"/>
+                                                    <rect key="frame" x="10" y="42" width="310" height="316"/>
                                                     <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Tjn-ar-4x4">
                                                         <rect key="frame" x="0.0" y="0.0" width="310" height="316"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -912,7 +915,7 @@
                                                                         </textFieldCell>
                                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                         <prototypeCellViews>
-                                                                            <tableCellView id="hku-9L-gM7" userLabel="Event View">
+                                                                            <tableCellView identifier="EventTableCell" id="hku-9L-gM7" userLabel="Event View" customClass="EventTableCell" customModule="Ghost_for_Mac" customModuleProvider="target">
                                                                                 <rect key="frame" x="1" y="1" width="305" height="72"/>
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                 <subviews>
@@ -920,41 +923,44 @@
                                                                                         <rect key="frame" x="0.0" y="0.0" width="305" height="72"/>
                                                                                         <subviews>
                                                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ueP-5Q-R2k">
-                                                                                                <rect key="frame" x="10" y="37" width="76" height="23"/>
+                                                                                                <rect key="frame" x="6" y="37" width="76" height="23"/>
+                                                                                                <constraints>
+                                                                                                    <constraint firstAttribute="width" constant="72" id="bfi-Ck-OUo"/>
+                                                                                                </constraints>
                                                                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="01:30pm" id="blk-M5-sD6">
                                                                                                     <font key="font" size="18" name="Overpass-Bold"/>
-                                                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                                                    <color key="textColor" name="textColor"/>
                                                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
                                                                                             </textField>
                                                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vZC-c6-z6T">
-                                                                                                <rect key="frame" x="12" y="19" width="48" height="15"/>
+                                                                                                <rect key="frame" x="6" y="19" width="48" height="15"/>
                                                                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="11:00pm" id="RiY-lJ-hqT">
                                                                                                     <font key="font" size="12" name="Overpass-Regular"/>
-                                                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                                                    <color key="textColor" name="textColor"/>
                                                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
                                                                                             </textField>
-                                                                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Lje-a8-Adu" customClass="BgNSView" customModule="Ghost_for_Mac" customModuleProvider="target">
-                                                                                                <rect key="frame" x="92" y="10" width="8" height="52"/>
+                                                                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Lje-a8-Adu" customClass="rndBgNSView" customModule="Ghost_for_Mac" customModuleProvider="target">
+                                                                                                <rect key="frame" x="92" y="10" width="6" height="52"/>
                                                                                                 <constraints>
-                                                                                                    <constraint firstAttribute="width" constant="8" id="hSk-pZ-yB8"/>
+                                                                                                    <constraint firstAttribute="width" constant="6" id="hSk-pZ-yB8"/>
                                                                                                     <constraint firstAttribute="height" constant="52" id="xno-kd-TGL"/>
                                                                                                 </constraints>
                                                                                             </customView>
                                                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Zoy-eD-LKM">
-                                                                                                <rect key="frame" x="106" y="41" width="48" height="15"/>
+                                                                                                <rect key="frame" x="108" y="41" width="48" height="15"/>
                                                                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Meeting" id="1YA-PA-bY4">
                                                                                                     <font key="font" size="12" name="Overpass-Regular"/>
-                                                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                                                    <color key="textColor" name="textHintColor"/>
                                                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
                                                                                             </textField>
                                                                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="8p3-LG-7Sa">
-                                                                                                <rect key="frame" x="106" y="10" width="191" height="25"/>
+                                                                                                <rect key="frame" x="108" y="10" width="191" height="25"/>
                                                                                                 <textFieldCell key="cell" selectable="YES" title="Multiline Label" id="YTB-z0-Cj0">
                                                                                                     <font key="font" size="14" name="Overpass-Regular"/>
-                                                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                                                    <color key="textColor" name="textColor"/>
                                                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
                                                                                             </textField>
@@ -963,16 +969,16 @@
                                                                                             <constraint firstItem="ueP-5Q-R2k" firstAttribute="top" secondItem="EAH-qb-kPY" secondAttribute="top" constant="12" id="4lT-De-6gA"/>
                                                                                             <constraint firstItem="8p3-LG-7Sa" firstAttribute="top" secondItem="Zoy-eD-LKM" secondAttribute="bottom" constant="6" id="9go-YC-U4S"/>
                                                                                             <constraint firstItem="vZC-c6-z6T" firstAttribute="top" secondItem="ueP-5Q-R2k" secondAttribute="bottom" constant="3" id="AaT-SO-nzf"/>
-                                                                                            <constraint firstItem="ueP-5Q-R2k" firstAttribute="leading" secondItem="EAH-qb-kPY" secondAttribute="leading" constant="12" id="CRf-ua-gOc"/>
+                                                                                            <constraint firstItem="ueP-5Q-R2k" firstAttribute="leading" secondItem="EAH-qb-kPY" secondAttribute="leading" constant="8" id="CRf-ua-gOc"/>
                                                                                             <constraint firstAttribute="bottom" secondItem="8p3-LG-7Sa" secondAttribute="bottom" constant="10" id="GE8-hN-f9w"/>
-                                                                                            <constraint firstItem="8p3-LG-7Sa" firstAttribute="leading" secondItem="Lje-a8-Adu" secondAttribute="trailing" constant="8" id="Ppv-1X-CWk"/>
-                                                                                            <constraint firstItem="vZC-c6-z6T" firstAttribute="leading" secondItem="EAH-qb-kPY" secondAttribute="leading" constant="14" id="TuK-H9-47c"/>
+                                                                                            <constraint firstItem="8p3-LG-7Sa" firstAttribute="leading" secondItem="Lje-a8-Adu" secondAttribute="trailing" constant="12" id="Ppv-1X-CWk"/>
+                                                                                            <constraint firstItem="vZC-c6-z6T" firstAttribute="leading" secondItem="EAH-qb-kPY" secondAttribute="leading" constant="8" id="TuK-H9-47c"/>
                                                                                             <constraint firstItem="Lje-a8-Adu" firstAttribute="top" secondItem="EAH-qb-kPY" secondAttribute="top" constant="10" id="dge-h6-96x"/>
-                                                                                            <constraint firstItem="Zoy-eD-LKM" firstAttribute="leading" secondItem="Lje-a8-Adu" secondAttribute="trailing" constant="8" id="ffh-uh-BWW"/>
-                                                                                            <constraint firstItem="Lje-a8-Adu" firstAttribute="leading" secondItem="ueP-5Q-R2k" secondAttribute="trailing" constant="8" id="mfZ-LZ-9vS"/>
+                                                                                            <constraint firstItem="Zoy-eD-LKM" firstAttribute="leading" secondItem="Lje-a8-Adu" secondAttribute="trailing" constant="12" id="ffh-uh-BWW"/>
+                                                                                            <constraint firstItem="Lje-a8-Adu" firstAttribute="leading" secondItem="ueP-5Q-R2k" secondAttribute="trailing" constant="12" id="mfZ-LZ-9vS"/>
                                                                                             <constraint firstItem="Zoy-eD-LKM" firstAttribute="centerY" secondItem="ueP-5Q-R2k" secondAttribute="centerY" id="rEQ-QK-5dc"/>
                                                                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Lje-a8-Adu" secondAttribute="bottom" constant="10" id="uRV-dK-hTD"/>
-                                                                                            <constraint firstAttribute="trailing" secondItem="8p3-LG-7Sa" secondAttribute="trailing" constant="10" id="vMt-TL-ZeH"/>
+                                                                                            <constraint firstAttribute="trailing" secondItem="8p3-LG-7Sa" secondAttribute="trailing" constant="8" id="vMt-TL-ZeH"/>
                                                                                         </constraints>
                                                                                     </customView>
                                                                                 </subviews>
@@ -982,6 +988,13 @@
                                                                                     <constraint firstAttribute="bottom" secondItem="EAH-qb-kPY" secondAttribute="bottom" id="eQK-vf-zNJ"/>
                                                                                     <constraint firstItem="EAH-qb-kPY" firstAttribute="leading" secondItem="hku-9L-gM7" secondAttribute="leading" id="ekQ-xn-ieF"/>
                                                                                 </constraints>
+                                                                                <connections>
+                                                                                    <outlet property="dividerView" destination="Lje-a8-Adu" id="nOI-xQ-bzo"/>
+                                                                                    <outlet property="endTimeLabel" destination="vZC-c6-z6T" id="sZk-ma-prZ"/>
+                                                                                    <outlet property="eventSummaryLabel" destination="8p3-LG-7Sa" id="k5w-Ve-iCX"/>
+                                                                                    <outlet property="eventTypeLabel" destination="Zoy-eD-LKM" id="IgV-Wc-HcH"/>
+                                                                                    <outlet property="startTimeLabel" destination="ueP-5Q-R2k" id="E2d-tC-nee"/>
+                                                                                </connections>
                                                                             </tableCellView>
                                                                         </prototypeCellViews>
                                                                     </tableColumn>
@@ -1000,7 +1013,7 @@
                                                     </scroller>
                                                 </scrollView>
                                                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="Pk3-Tj-SJ4">
-                                                    <rect key="frame" x="45" y="188" width="240" height="67"/>
+                                                    <rect key="frame" x="45" y="194" width="240" height="67"/>
                                                     <subviews>
                                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OoQ-0X-7uc">
                                                             <rect key="frame" x="30" y="-7" width="180" height="32"/>
@@ -1035,7 +1048,7 @@
                                                     </constraints>
                                                 </customView>
                                                 <customView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cwl-a2-y0e" userLabel="EmptyView">
-                                                    <rect key="frame" x="45" y="150" width="240" height="144"/>
+                                                    <rect key="frame" x="45" y="156" width="240" height="144"/>
                                                     <subviews>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="K98-BD-GnU">
                                                             <rect key="frame" x="-2" y="0.0" width="244" height="32"/>
@@ -1081,6 +1094,9 @@
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
+                                                    <connections>
+                                                        <action selector="refreshCalendar:" target="XfG-lQ-9wD" id="YUH-rd-iRC"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -1098,9 +1114,9 @@
                                                 <constraint firstItem="o8D-ZB-k3Z" firstAttribute="leading" secondItem="WGH-rk-iJa" secondAttribute="leading" constant="10" id="bld-Dv-Hx5"/>
                                                 <constraint firstItem="9bH-cI-B1T" firstAttribute="centerY" secondItem="vtt-nz-c5Q" secondAttribute="centerY" id="f2f-za-aVE"/>
                                                 <constraint firstAttribute="trailing" secondItem="2Vq-V9-G1S" secondAttribute="trailing" id="fx2-IA-fXt"/>
-                                                <constraint firstItem="9Ue-9d-jXz" firstAttribute="top" secondItem="o8D-ZB-k3Z" secondAttribute="bottom" constant="4" id="k1X-GP-Gmx"/>
+                                                <constraint firstItem="9Ue-9d-jXz" firstAttribute="top" secondItem="o8D-ZB-k3Z" secondAttribute="bottom" constant="10" id="k1X-GP-Gmx"/>
                                                 <constraint firstAttribute="trailing" secondItem="9bH-cI-B1T" secondAttribute="trailing" constant="12" id="mmY-LG-Crf"/>
-                                                <constraint firstItem="o8D-ZB-k3Z" firstAttribute="top" secondItem="vtt-nz-c5Q" secondAttribute="bottom" constant="4" id="nnX-Ye-5In"/>
+                                                <constraint firstItem="o8D-ZB-k3Z" firstAttribute="top" secondItem="vtt-nz-c5Q" secondAttribute="bottom" constant="10" id="nnX-Ye-5In"/>
                                                 <constraint firstItem="tFp-wd-oHD" firstAttribute="centerY" secondItem="9Ue-9d-jXz" secondAttribute="centerY" id="oMW-cE-PEy"/>
                                                 <constraint firstAttribute="trailing" secondItem="o8D-ZB-k3Z" secondAttribute="trailing" constant="10" id="pAL-6r-ZYi"/>
                                                 <constraint firstItem="UGy-oq-cSl" firstAttribute="leading" secondItem="WGH-rk-iJa" secondAttribute="leading" id="q3o-8b-bcB"/>
@@ -1133,6 +1149,7 @@
                     <connections>
                         <outlet property="emptyTaskTextView" destination="K98-BD-GnU" id="VaF-aJ-jIv"/>
                         <outlet property="emptyView" destination="Cwl-a2-y0e" id="HiY-Yx-wDg"/>
+                        <outlet property="eventsTable" destination="gl6-Ff-Ks4" id="pfk-1K-awR"/>
                         <outlet property="ghost_empty_image" destination="qeW-VS-qqr" id="px4-nO-bSK"/>
                         <outlet property="inspirationImage" destination="JX9-Av-S72" id="6sf-a2-9l4"/>
                         <outlet property="logInView" destination="Pk3-Tj-SJ4" id="gzR-eH-IQ7"/>
@@ -1163,6 +1180,9 @@
         </namedColor>
         <namedColor name="textColor">
             <color red="0.18000000715255737" green="0.18000000715255737" blue="0.18000000715255737" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textHintColor">
+            <color red="0.25999999046325684" green="0.28299999237060547" blue="0.24500000476837158" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
