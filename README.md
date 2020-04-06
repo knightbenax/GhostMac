@@ -5,6 +5,3 @@ open my phone everytime
 ![Screenshot](/Screenshots/1.png?raw=true "")
 ![Screenshot](/Screenshots/2.png?raw=true "")
 ![Screenshot](/Screenshots/3.png?raw=true "")
-![Screenshot](/Screenshots/4.png?raw=true "")
-
-![Screenshot](/two@2x.png?raw=true)
