@@ -741,7 +741,7 @@
                                                     <rect key="frame" x="0.0" y="475" width="249" height="40"/>
                                                     <subviews>
                                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7VA-6c-0Nd">
-                                                            <rect key="frame" x="206.5" y="8" width="31" height="23"/>
+                                                            <rect key="frame" x="207" y="8" width="30" height="23"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="30" id="vm3-vn-MZC"/>
                                                             </constraints>
@@ -866,7 +866,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </customView>
                                                 <segmentedControl verticalHuggingPriority="750" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vtt-nz-c5Q">
-                                                    <rect key="frame" x="9.5" y="367" width="171" height="23"/>
+                                                    <rect key="frame" x="10" y="367" width="171" height="23"/>
                                                     <segmentedCell key="cell" borderStyle="border" alignment="left" style="capsule" trackingMode="selectOne" id="oJY-YT-aUG">
                                                         <font key="font" size="13" name="Overpass-Regular"/>
                                                         <segments>
