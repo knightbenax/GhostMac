@@ -27,7 +27,8 @@ class BaseClass{
     
     func getToken(completion: @escaping (Result<Any, Error>) -> ()){
         var token = ""
-        let interval = Date().timeIntervalSince(storeHelper.getTokenExpired())
+        //let interval = Date().timeIntervalSince(storeHelper.getTokenExpired())
+        let interval = storeHelper.getTokenExpired()
         if (interval <= 3600){
             token = storeHelper.getUserToken()
             completion(.success(token))

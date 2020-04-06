@@ -2,7 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "refresh.pdf"
+      "filename" : "refresh_black.pdf"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "refresh.pdf",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ]
     }
   ],
   "info" : {
