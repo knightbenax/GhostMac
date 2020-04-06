@@ -13,8 +13,10 @@ public struct AppConstants{
     //https://sunrise-sunset.org/api
     let google_oauth_url = "https://accounts.google.com/o/oauth2/v2/auth?"
     let debugBaseUrl : String = "https://api.sunrise-sunset.org/json"
-    let google_calendar_api_key = "AIzaSyAalOPPg5Wfme8W5xS1J6QkbUCtGxuF5cc"
-    let google_oauth_client_id = "330535063750-fdineb4prdoddn8po9kkjmot8dsp87s8.apps.googleusercontent.com"
+    let google_calendar_api_key = "AIzaSyAgpBhyBFFHJKskTovj0hnO4IRXCyLC-cw"
+    //"AIzaSyAalOPPg5Wfme8W5xS1J6QkbUCtGxuF5cc"
+    let google_oauth_client_id = (Bundle.main.object(forInfoDictionaryKey: "GAppAuth") as? NSDictionary)?.object(forKey: "ClientId") as! String
+    //"330535063750-fdineb4prdoddn8po9kkjmot8dsp87s8.apps.googleusercontent.com"
     let google_authorization_url = "https://www.googleapis.com/oauth2/v4/token"
     let google_calender = "https://www.googleapis.com/calendar/v3/calendars/"
     let google_people = "https://people.googleapis.com/v1/people/me/connections"

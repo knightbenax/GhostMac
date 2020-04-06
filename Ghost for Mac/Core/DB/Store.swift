@@ -14,9 +14,8 @@ class Store{
     func saveUser(result: NSDictionary){
         let currentDate = Date()
         UserDefaults(suiteName: "group.com.ephod.ghost")!.set(result.object(forKey: "access_token")! as! String, forKey: "access_token")
-        UserDefaults(suiteName: "group.com.ephod.ghost")!.set(result.object(forKey: "id_token")! as? String, forKey: "id_token")
         UserDefaults(suiteName: "group.com.ephod.ghost")!.set(result.object(forKey: "refresh_token")! as? String, forKey: "refresh_token")
-        UserDefaults(suiteName: "group.com.ephod.ghost")!.set(result.object(forKey: "expires_in")! as? String, forKey: "expires_in")
+        UserDefaults(suiteName: "group.com.ephod.ghost")!.set(result.object(forKey: "expires_in")! as? Date, forKey: "expires_in")
         //UserDefaults(suiteName: "group.com.ephod.ghost")!.set(result.object(forKey: "expires_in")! as? String, forKey: "expires_in")
         UserDefaults(suiteName: "group.com.ephod.ghost")!.set(currentDate, forKey: "logged_date")
         UserDefaults(suiteName: "group.com.ephod.ghost")!.set(true, forKey: "loggedin")
@@ -25,7 +24,7 @@ class Store{
     func updateUser(result: NSDictionary){
         let currentDate = Date()
         UserDefaults(suiteName: "group.com.ephod.ghost")!.set(result.object(forKey: "access_token")! as! String, forKey: "access_token")
-        UserDefaults(suiteName: "group.com.ephod.ghost")!.set(result.object(forKey: "expires_in")! as? String, forKey: "expires_in")
+        UserDefaults(suiteName: "group.com.ephod.ghost")!.set(result.object(forKey: "expires_in")! as? Date, forKey: "expires_in")
         UserDefaults(suiteName: "group.com.ephod.ghost")!.set(currentDate, forKey: "logged_date")
     }
     
@@ -52,6 +51,10 @@ class Store{
     
     func getUserEmail() -> String{
         return UserDefaults(suiteName: "group.com.ephod.ghost")!.string(forKey: "userEmail")!
+    }
+    
+    func getTokenExpired() -> Date{
+        return UserDefaults(suiteName: "group.com.ephod.ghost")!.object(forKey: "expires_in") as! Date
     }
     
     func getUserToken() -> String{

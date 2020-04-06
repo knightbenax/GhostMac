@@ -15,49 +15,257 @@ class MainViewController: BaseViewController {
     @IBOutlet weak var weekView: NSCollectionView!
     @IBOutlet weak var inspirationImage: NSImageView!
     @IBOutlet weak var monthLabel: NSTextField!
-    
-    
+    @IBOutlet weak var logInView: NSView!
+    @IBOutlet weak var progressIndicator: NSProgressIndicator!
     
     let eventItemIdentifier: NSUserInterfaceItemIdentifier = NSUserInterfaceItemIdentifier(rawValue: "EventItemIdentifier")
     
     let today = Date()
-    
+    var fetchedDay = 0
+    var wakeup = false
     let daysOfWeek = ["SUN", "MON", "TUES", "WED", "THUR", "FRI", "SAT"]
+    var urgentCalendar = ""
+    var importantCalendar = "primary"
+    var selectedCalendar = ""
+    
+    var contacts : Array<Contact>!
+    
+    @IBOutlet weak var ghost_empty_image: NSImageView!
+    @IBOutlet weak var emptyView: NSView!
+    @IBOutlet weak var emptyTaskTextView: NSTextField!
+    //We don't want to load the contacts everytime. It takes effort and let's reduce CO2 waste.
+    var needContacts : Bool = false
+    
+    
+    private(set) lazy var events : [Event] = {
+          return []
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        selectedCalendar = importantCalendar
+        GAppAuth.shared.retrieveExistingAuthorizationState()
+        checkRegistration()
+        if (store.userLoggedIn()){
+            logInView.isHidden = true
+            getCalendarEvents()
+        } else {
+            logInView.isHidden = false
+        }
         getDailyView()
         setCollectionFlowLayout()
-        GAppAuth.shared.retrieveExistingAuthorizationState()
+    }
+    
+    func getCalendarEvents(){
+       startProgressLoading()
+        let today = getTimeAndDate(day: fetchedDay)
+        let yesterday = getTimeAndDate(diff: -1, day: fetchedDay)
+        googleService.getGoogleCalendarEvents(calendar_id: selectedCalendar, startDate: yesterday, endDate: today, completion: { (result: Result<Any, Error>) in
+            
+            switch (result){
+            case .success(let data):
+                 let dataItems = data as! NSDictionary
+                 let items = dataItems.object(forKey: "items") as! NSArray
+                 self.parseEvents(items: items)
+            case .failure(let error):
+                print(error)
+            }
+            
+          
+        })
+    }
+    
+    private func startProgressLoading(){
+        progressIndicator.isHidden = false
+        progressIndicator.startAnimation(self)
+    }
+    
+    private func endProgressLoading(){
+        progressIndicator.stopAnimation(self)
+        progressIndicator.isHidden = true
+    }
+    
+    func parseEvents(items: NSArray){
+        items.forEach {(item) in
+            let data = item as! NSDictionary
+            
+            var type = ""
+            var startDateValue = ""
+            var endDateValue = ""
+            var colorId = ""
+            var markedAsDone = false
+            var descriptionTemp = ""
+            var location : String? = ""
+            var hasTime = false
+            
+            if (data.object(forKey: "conferenceData") as? NSDictionary) != nil {
+                type = "#meeting"
+            } else {
+                type = "#work"
+            }
+            
+            let startDate = data.object(forKey: "start") as! NSDictionary
+            let endDate = data.object(forKey: "end") as! NSDictionary
+            
+            if let dateTime = startDate.object(forKey: "dateTime") as? String{
+                startDateValue = dateTime
+            } else {
+                startDateValue = startDate.object(forKey: "date") as! String
+            }
+            
+            if let dateTime = endDate.object(forKey: "dateTime") as? String{
+                endDateValue = dateTime
+                hasTime = true
+            } else {
+                endDateValue = endDate.object(forKey: "date") as! String
+            }
         
+            if let tempColorId = data.object(forKey: "colorId") as? String{
+                colorId = tempColorId
+            } else {
+                colorId = "11"
+            }
+            
+            if let locationTemp = data.object(forKey: "location") as? String{
+                location = locationTemp
+            }
+            
+            if let description = data.object(forKey: "description") as? String{
+                if (description == "Ghost marked as done" || description.contains("Ghost marked as done")){
+                    markedAsDone = true
+                }
+                
+                if (description.contains("Join Zoom Meeting") || description.contains("join zoom meeting") || description.contains("Ghost Meeting")){
+                    type = "#meeting"
+                } else if (description.contains("Ghost Gym")){
+                    type = "#gym"
+                } else if (description.contains("Ghost Task")){
+                    type = "#task"
+                } else if (description.contains("Ghost Work")){
+                    type = "#work"
+                }
+                
+                descriptionTemp = description
+            }
+            
+            var savedAttendees : Array<String>!
+            
+            if let attendees = data.object(forKey: "attendees") as? NSArray {
+                savedAttendees = Array<String>()
+                //there are attendees, load contacts
+                needContacts = true
+                
+                //save all attendees
+                for attendee in attendees {
+                    let attendeeData = attendee as! NSDictionary
+                    savedAttendees.append(attendeeData.object(forKey: "email") as! String)
+                    
+                }
+                //save the creator. this is for cases where the event wasn't created by me or
+                //we have more than one attendee
+                if let creator = data.object(forKey: "creator") as? NSDictionary {
+                    let creatorEmail = creator.object(forKey: "email" ) as! String
+                    if ((savedAttendees) != nil){
+                        savedAttendees.append(creatorEmail)
+                    }
+                }
+                
+                if let myIndex = savedAttendees.firstIndex(of: "knightbenax@gmail.com"){
+                    savedAttendees.remove(at: myIndex)
+                }
+                
+                savedAttendees = savedAttendees.removingDuplicates()
+            }
+            
+            
+            
+            //print(savedAttendees)
+            
+            events.append(Event(id: data.object(forKey: "id") as! String,
+                                summary: data.object(forKey: "summary") as! String,
+                                startDate: startDateValue,
+                                endDate: endDateValue,
+                                colorId: colorId,
+                                type: type,
+                                hasTime: hasTime, attendees: savedAttendees,
+                                markedAsDone: markedAsDone, description: descriptionTemp, location: location))
+        }
+        
+        
+        
+        if (needContacts) {
+            //fetch the contacts, we would reload the table when done
+            fetchContacts()
+        } else {
+            scheduleList.reloadData()
+            endProgressLoading()
+        }
+        
+        if (wakeup){
+            endProgressLoading()
+            wakeup = false
+        }
+        
+        if (events.count == 0){
+            emptyView.isHidden = false
+            setEmptyTaskTextViewLabel(calendar: selectedCalendar)
+        } else {
+            emptyView.isHidden = true
+        }
+        
+        //events.count == 0 ? emptyView.isHidden = false : emptyView.isHidden = true
+    }
+    
+    
+    func setEmptyTaskTextViewLabel(calendar: String){
+        switch calendar {
+        case importantCalendar:
+            ghost_empty_image.isHidden = false
+            emptyTaskTextView.stringValue = "You have no important long-term things for today. It's fine but don't make this a regular occurence"
+        case urgentCalendar:
+            ghost_empty_image.isHidden = false
+            emptyTaskTextView.stringValue = "You have no events, tasks or even fires to put out today! Time to read or catch up on that series"
+        case "nourgentcalendar":
+            ghost_empty_image.isHidden = true
+            emptyTaskTextView.stringValue = "You haven't selected a calender to use for urgent tasks. Select one from settings"
+        default:
+            break
+        }
+    }
+    
+    
+    func checkRegistration(){
         if GAppAuth.shared.isAuthorized() {
             let authorization = GAppAuth.shared.getCurrentAuthorization()
-            //self.updateUI(authorization)
+            let tokenResponse = authorization?.authState.lastTokenResponse
+            let accessToken : String = (tokenResponse?.accessToken)!
+            let refreshToken : String = (tokenResponse?.refreshToken)!
+            let accessExpiryDate : Date = (tokenResponse?.accessTokenExpirationDate)!
+            let values : NSMutableDictionary = ["access_token": accessToken,
+                                                "refresh_token": refreshToken,
+                                                "expires_in": accessExpiryDate]
+            store.saveUser(result: values)
+            print("saved user")
         }
     }
     
     override var representedObject: Any? {
         didSet {
-            if GAppAuth.shared.isAuthorized() {
-                let authorization = GAppAuth.shared.getCurrentAuthorization()
-                //self.updateUI(authorization)
-            }
+            checkRegistration()
         }
     }
+    
+    
     
     func signInGoogle(){
         do {
             try GAppAuth.shared.authorize { auth in
                 if auth {
-                    if GAppAuth.shared.isAuthorized() {
-                        let authorization = GAppAuth.shared.getCurrentAuthorization()
-                        //self.updateUI(authorization)
-                    }
+                    self.checkRegistration()
                 }
             }
         } catch let error {
             print(error.localizedDescription)
-            //updateUI(nil)
         }
     }
     

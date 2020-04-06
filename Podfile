@@ -8,6 +8,7 @@ target 'Ghost for Mac' do
   # Pods for Ghost for Mac
 pod 'Kingfisher'
 pod 'GAppAuth'
+pod 'Alamofire'
 
   target 'Ghost for MacTests' do
     inherit! :search_paths

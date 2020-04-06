@@ -24,15 +24,24 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>CFBundleURLTypes</string>
+			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.330535063750-nve47uptf78l455fj7n1o2asvk7v02l9.apps.googleusercontent.com</string>
+				<string>com.googleusercontent.apps.330535063750-nve47uptf78l455fj7n1o2asvk7v02l9</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>GAppAuth</key>
+	<dict>
+		<key>ClientId</key>
+		<string>330535063750-nve47uptf78l455fj7n1o2asvk7v02l9.apps.googleusercontent.com</string>
+		<key>ClientSecret</key>
+		<string>G3J4lQ6MAnmmaRAHi5CcJFev</string>
+		<key>RedirectUri</key>
+		<string>com.googleusercontent.apps.330535063750-nve47uptf78l455fj7n1o2asvk7v02l9:/oauthredirect</string>
+	</dict>
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
 	<key>NSHumanReadableCopyright</key>
@@ -41,16 +50,5 @@
 	<string>Main</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-	<key>NSSupportsAutomaticTermination</key>
-	<true/>
-	<key>NSSupportsSuddenTermination</key>
-	<true/>
-	<key>GAppAuth</key>
-	<dict>
-		<key>RedirectUri</key>
-		<string>com.googleusercontent.apps.330535063750-nve47uptf78l455fj7n1o2asvk7v02l9:/oauthredirect</string>
-		<key>ClientId</key>
-		<string>330535063750-nve47uptf78l455fj7n1o2asvk7v02l9.apps.googleusercontent.com</string>
-	</dict>
 </dict>
 </plist>
