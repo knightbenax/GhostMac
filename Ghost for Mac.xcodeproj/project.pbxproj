@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		37BDE9FBBD482218D8EB1426 /* Pods_Ghost_for_MacTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC917E76DE41586BDC2EF2B /* Pods_Ghost_for_MacTests.framework */; };
 		552365B44D482F3140614903 /* Pods_Ghost_for_Mac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A0A08BD7191287F1043593 /* Pods_Ghost_for_Mac.framework */; };
+		EFA30352243E319400240728 /* rndImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA30351243E319400240728 /* rndImageView.swift */; };
 		EFB99FC3242832B0005B38E5 /* EventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB99FC1242832B0005B38E5 /* EventItem.swift */; };
 		EFB99FC4242832B0005B38E5 /* EventItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFB99FC2242832B0005B38E5 /* EventItem.xib */; };
 		EFB99FC6242A63C1005B38E5 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB99FC5242A63C1005B38E5 /* AppConstants.swift */; };
@@ -51,6 +52,7 @@
 		6263089CBCA0C7D36EC31AFE /* Pods-Ghost for Mac.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ghost for Mac.debug.xcconfig"; path = "Target Support Files/Pods-Ghost for Mac/Pods-Ghost for Mac.debug.xcconfig"; sourceTree = "<group>"; };
 		A5C16CE5FA92500E555F3755 /* Pods-Ghost for Mac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ghost for Mac.release.xcconfig"; path = "Target Support Files/Pods-Ghost for Mac/Pods-Ghost for Mac.release.xcconfig"; sourceTree = "<group>"; };
 		CFC917E76DE41586BDC2EF2B /* Pods_Ghost_for_MacTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ghost_for_MacTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFA30351243E319400240728 /* rndImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rndImageView.swift; sourceTree = "<group>"; };
 		EFB99FC1242832B0005B38E5 /* EventItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventItem.swift; sourceTree = "<group>"; };
 		EFB99FC2242832B0005B38E5 /* EventItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventItem.xib; sourceTree = "<group>"; };
 		EFB99FC5242A63C1005B38E5 /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				EFF410412402379A00D01DF8 /* GhostWeekView.swift */,
 				EFF4104324023C9100D01DF8 /* BgNSView.swift */,
 				EFFCA5E3243BD15A001BA016 /* rndBgNSView.swift */,
+				EFA30351243E319400240728 /* rndImageView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				EFFCA5DC243B9C28001BA016 /* GhostCalendar.swift in Sources */,
 				EFFCA5DA243B9C28001BA016 /* Event.swift in Sources */,
 				EFFAD45F23F8A26C009004D0 /* AppDelegate.swift in Sources */,
+				EFA30352243E319400240728 /* rndImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

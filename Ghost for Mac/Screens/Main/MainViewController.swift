@@ -17,6 +17,7 @@ class MainViewController: BaseViewController {
     @IBOutlet weak var monthLabel: NSTextField!
     @IBOutlet weak var logInView: NSView!
     @IBOutlet weak var progressIndicator: NSProgressIndicator!
+    @IBOutlet weak var profileImage: NSImageView!
     
     let eventItemIdentifier: NSUserInterfaceItemIdentifier = NSUserInterfaceItemIdentifier(rawValue: "EventItemIdentifier")
     
@@ -375,9 +376,6 @@ class MainViewController: BaseViewController {
     
     override func viewDidAppear() {
         super.viewDidAppear()
-        let defaultImage = NSImage(named: NSImage.Name("wait_image"))!
-        self.imageFitWell(image: defaultImage)
-        self.imageFitWell(image: defaultImage)
     }
     
     fileprivate func setCollectionFlowLayout(){
@@ -402,7 +400,7 @@ class MainViewController: BaseViewController {
     
     func getDailyView(){
      
-        let url = URL(string: "https://source.unsplash.com/collection/9552158")
+        let url = URL(string: "https://avatars.io/twitter/knightbenax")
         /*KingfisherManager.shared.retrieveImage(with: url!, options: [.memoryCacheExpiration(.expired), .diskCacheExpiration(.expired), .keepCurrentImageWhileLoading, .transition(.none)]) { result in
             // Do something with `result`
             //try print(result.get().image)
@@ -425,12 +423,14 @@ class MainViewController: BaseViewController {
        }
     }
 
+  
     private func imageFitWell(image: NSImage){
-        inspirationImage.layer? = CALayer()
-        inspirationImage.layer?.contentsGravity = .resizeAspectFill
-        inspirationImage.layer?.contents = image
-        inspirationImage.wantsLayer = true
-    }
+           self.profileImage.layer? = CALayer()
+           self.profileImage.layer?.contentsGravity = .resizeAspectFill
+           self.profileImage.layer?.contents = image
+           self.profileImage.wantsLayer = true
+        self.profileImage.layer?.cornerRadius = 21
+       }
     
     
     func getDayOfWeek(today: Date) -> Int? {
@@ -503,7 +503,7 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource{
         let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("EventTableCell"), owner: self) as? EventTableCell
         
         if (event.hasTime){
-            cell?.startTimeLabel.stringValue = formatDateToTimeOnly(thisDate: event.startDate)
+            cell?.startTimeLabel.stringValue = formatDateToTimeOnly(thisDate: event.startDate) + " - "
             cell?.endTimeLabel.stringValue = formatDateToTimeOnly(thisDate: event.endDate)
         } else {
             cell?.startTimeLabel.stringValue = "ALL DAY"
@@ -511,7 +511,8 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource{
         }
         
         //print(tableView.bounds.width)
-        tableColumn?.width = tableView.frame.width
+        let width = (tableView.frame.width - 5)
+        tableColumn?.width = width
         //tableView.tableColumns[column].width = table
         
         if (event.markedAsDone){

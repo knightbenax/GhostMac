@@ -36,15 +36,17 @@ class EventTableCell: NSTableCellView {
        let gymTagColor = NSColor.init(named: "eventGymTag")
        
        func setColor(eventType: String){
+        
+        parentView.backgroundColor = NSColor.init(named: "eventHintColor")!
         switch eventType {
         case "#meeting":
-            parentView.backgroundColor = meetingBgColor!
+            dividerView.backgroundColor = meetingBgColor!
         case "#work":
-            parentView.backgroundColor = workBgColor!
+            dividerView.backgroundColor = workBgColor!
         case "#gym":
-            parentView.backgroundColor = gymBgColor!
+            dividerView.backgroundColor = gymBgColor!
         case "#task":
-            parentView.backgroundColor = taskBgColor!
+            dividerView.backgroundColor = taskBgColor!
         default:
             break
         }

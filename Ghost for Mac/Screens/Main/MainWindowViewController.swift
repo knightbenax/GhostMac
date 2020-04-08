@@ -14,7 +14,7 @@ class MainWindowViewController: NSWindowController {
     @IBOutlet weak var mainWindow: NSWindow!
     
     override func windowWillLoad() {
-        mainWindow.titleVisibility = .hidden
+        //mainWindow.titleVisibility = .hidden
         mainWindow.isMovableByWindowBackground = true
     }
 }
