@@ -491,6 +491,12 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource{
         return events.count
     }
     
+    func tableView(_ tableView: NSTableView, sizeToFitWidthOfColumn column: Int) -> CGFloat {
+        print("width")
+        return tableView.bounds.width
+        //tableView.tableColumns[column].width
+    }
+    
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
            
         let event = events[row]
@@ -503,6 +509,10 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource{
             cell?.startTimeLabel.stringValue = "ALL DAY"
             cell?.endTimeLabel.stringValue = ""
         }
+        
+        //print(tableView.bounds.width)
+        tableColumn?.width = tableView.frame.width
+        //tableView.tableColumns[column].width = table
         
         if (event.markedAsDone){
             let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: event.summary)

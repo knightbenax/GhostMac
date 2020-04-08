@@ -11,6 +11,8 @@ import AppKit
 
 class rndBgNSView: BgNSView {
     
+    @IBInspectable var cornerRadius: CGFloat = 3
+    
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         roundCorner()
@@ -23,6 +25,6 @@ class rndBgNSView: BgNSView {
     
     private func roundCorner(){
         self.wantsLayer = true
-        self.layer?.cornerRadius = 3
+        self.layer?.cornerRadius = cornerRadius
     }
 }

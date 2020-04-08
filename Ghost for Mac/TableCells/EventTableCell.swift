@@ -16,7 +16,7 @@ class EventTableCell: NSTableCellView {
     @IBOutlet weak var dividerView: rndBgNSView!
     @IBOutlet weak var eventTypeLabel: NSTextField!
     @IBOutlet weak var eventSummaryLabel: NSTextField!
-    
+    @IBOutlet weak var parentView: rndBgNSView!
     
     
     let meetingTextColor = NSColor.init(named: "meetingGreen")
@@ -38,17 +38,18 @@ class EventTableCell: NSTableCellView {
        func setColor(eventType: String){
         switch eventType {
         case "#meeting":
-            dividerView.backgroundColor = meetingBgColor!
+            parentView.backgroundColor = meetingBgColor!
         case "#work":
-            dividerView.backgroundColor = workBgColor!
+            parentView.backgroundColor = workBgColor!
         case "#gym":
-            dividerView.backgroundColor = gymBgColor!
+            parentView.backgroundColor = gymBgColor!
         case "#task":
-            dividerView.backgroundColor = taskBgColor!
+            parentView.backgroundColor = taskBgColor!
         default:
             break
         }
     }
+    
     
     
 }
