@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		37BDE9FBBD482218D8EB1426 /* Pods_Ghost_for_MacTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC917E76DE41586BDC2EF2B /* Pods_Ghost_for_MacTests.framework */; };
 		552365B44D482F3140614903 /* Pods_Ghost_for_Mac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A0A08BD7191287F1043593 /* Pods_Ghost_for_Mac.framework */; };
+		EF3D5C5C26978A4700FAD83A /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D5C5B26978A4700FAD83A /* HomeScreen.swift */; };
 		EFA30352243E319400240728 /* rndImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA30351243E319400240728 /* rndImageView.swift */; };
 		EFB99FC3242832B0005B38E5 /* EventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB99FC1242832B0005B38E5 /* EventItem.swift */; };
 		EFB99FC4242832B0005B38E5 /* EventItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFB99FC2242832B0005B38E5 /* EventItem.xib */; };
 		EFB99FC6242A63C1005B38E5 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB99FC5242A63C1005B38E5 /* AppConstants.swift */; };
 		EFB99FC8242A6A53005B38E5 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB99FC7242A6A53005B38E5 /* Store.swift */; };
 		EFB99FCB242A7AB6005B38E5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB99FCA242A7AB6005B38E5 /* BaseViewController.swift */; };
+		EFCF018C26AB902A00AFA6D6 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCF018B26AB902A00AFA6D6 /* DateHelper.swift */; };
 		EFF410422402379A00D01DF8 /* GhostWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF410412402379A00D01DF8 /* GhostWeekView.swift */; };
 		EFF4104424023C9100D01DF8 /* BgNSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF4104324023C9100D01DF8 /* BgNSView.swift */; };
 		EFF410462402421500D01DF8 /* MainWindowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF410452402421500D01DF8 /* MainWindowViewController.swift */; };
@@ -52,12 +54,14 @@
 		6263089CBCA0C7D36EC31AFE /* Pods-Ghost for Mac.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ghost for Mac.debug.xcconfig"; path = "Target Support Files/Pods-Ghost for Mac/Pods-Ghost for Mac.debug.xcconfig"; sourceTree = "<group>"; };
 		A5C16CE5FA92500E555F3755 /* Pods-Ghost for Mac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ghost for Mac.release.xcconfig"; path = "Target Support Files/Pods-Ghost for Mac/Pods-Ghost for Mac.release.xcconfig"; sourceTree = "<group>"; };
 		CFC917E76DE41586BDC2EF2B /* Pods_Ghost_for_MacTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ghost_for_MacTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF3D5C5B26978A4700FAD83A /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		EFA30351243E319400240728 /* rndImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rndImageView.swift; sourceTree = "<group>"; };
 		EFB99FC1242832B0005B38E5 /* EventItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventItem.swift; sourceTree = "<group>"; };
 		EFB99FC2242832B0005B38E5 /* EventItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventItem.xib; sourceTree = "<group>"; };
 		EFB99FC5242A63C1005B38E5 /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		EFB99FC7242A6A53005B38E5 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		EFB99FCA242A7AB6005B38E5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		EFCF018B26AB902A00AFA6D6 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		EFF410412402379A00D01DF8 /* GhostWeekView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GhostWeekView.swift; sourceTree = "<group>"; };
 		EFF4104324023C9100D01DF8 /* BgNSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BgNSView.swift; sourceTree = "<group>"; };
 		EFF410452402421500D01DF8 /* MainWindowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +136,21 @@
 			path = DB;
 			sourceTree = "<group>";
 		};
+		EFCF00FB26A77D3C00AFA6D6 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		EFCF018A26AB901C00AFA6D6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EFCF018B26AB902A00AFA6D6 /* DateHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		EFFAD45223F8A26C009004D0 = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +174,7 @@
 		EFFAD45D23F8A26C009004D0 /* Ghost for Mac */ = {
 			isa = PBXGroup;
 			children = (
+				EFCF018A26AB901C00AFA6D6 /* Helpers */,
 				EFFAD47F23F8A27B009004D0 /* Core */,
 				EFFAD48323F8B8B3009004D0 /* CustomViews */,
 				EFFCA5D6243B9C28001BA016 /* Models */,
@@ -191,6 +211,7 @@
 		EFFAD48023F8A28C009004D0 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				EFCF00FB26A77D3C00AFA6D6 /* Components */,
 				EFFAD48123F8A29D009004D0 /* Main */,
 				EFB99FCA242A7AB6005B38E5 /* BaseViewController.swift */,
 			);
@@ -205,6 +226,7 @@
 				EFF410452402421500D01DF8 /* MainWindowViewController.swift */,
 				EFB99FC1242832B0005B38E5 /* EventItem.swift */,
 				EFB99FC2242832B0005B38E5 /* EventItem.xib */,
+				EF3D5C5B26978A4700FAD83A /* HomeScreen.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -426,12 +448,14 @@
 			files = (
 				EFF410462402421500D01DF8 /* MainWindowViewController.swift in Sources */,
 				EFFCA5E2243BC072001BA016 /* EventTableCell.swift in Sources */,
+				EF3D5C5C26978A4700FAD83A /* HomeScreen.swift in Sources */,
 				EFB99FC6242A63C1005B38E5 /* AppConstants.swift in Sources */,
 				EFB99FCB242A7AB6005B38E5 /* BaseViewController.swift in Sources */,
 				EFFAD46423F8A26C009004D0 /* Ghost_for_Mac.xcdatamodeld in Sources */,
 				EFFAD48523F8B8C7009004D0 /* GhostNSImageView.swift in Sources */,
 				EFB99FC3242832B0005B38E5 /* EventItem.swift in Sources */,
 				EFB99FC8242A6A53005B38E5 /* Store.swift in Sources */,
+				EFCF018C26AB902A00AFA6D6 /* DateHelper.swift in Sources */,
 				EFF4104424023C9100D01DF8 /* BgNSView.swift in Sources */,
 				EFFCA5E4243BD15A001BA016 /* rndBgNSView.swift in Sources */,
 				EFFCA5D3243B6843001BA016 /* GoogleService.swift in Sources */,
@@ -605,6 +629,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ephod.ghost.Ghost-for-Mac";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -626,6 +651,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ephod.ghost.Ghost-for-Mac";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

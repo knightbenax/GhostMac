@@ -400,7 +400,7 @@ class MainViewController: BaseViewController {
     
     func getDailyView(){
      
-        let url = URL(string: "https://avatars.io/twitter/knightbenax")
+        let url = URL(string: "https://pbs.twimg.com/profile_images/1258870922678861824/STiPgl8r_400x400.jpg")
         /*KingfisherManager.shared.retrieveImage(with: url!, options: [.memoryCacheExpiration(.expired), .diskCacheExpiration(.expired), .keepCurrentImageWhileLoading, .transition(.none)]) { result in
             // Do something with `result`
             //try print(result.get().image)
@@ -430,6 +430,8 @@ class MainViewController: BaseViewController {
            self.profileImage.layer?.contents = image
            self.profileImage.wantsLayer = true
         self.profileImage.layer?.cornerRadius = 21
+        self.profileImage.layer?.borderColor = NSColor.white.cgColor
+        self.profileImage.layer?.borderWidth = 2
        }
     
     
