@@ -23,6 +23,10 @@ class DateHelper {
             let dateFormatterPrint = DateFormatter()
             dateFormatterPrint.dateFormat = "MMMM"
             return dateFormatterPrint.string(from: thisDate)
+        case "month_year":
+            let dateFormatterPrint = DateFormatter()
+            dateFormatterPrint.dateFormat = "MMMM YYYY"
+            return dateFormatterPrint.string(from: thisDate)
         default:
              let dateFormatterPrint = DateFormatter()
              dateFormatterPrint.dateFormat = "dd"
@@ -42,7 +46,7 @@ class DateHelper {
         if (event.hasTime){
             return getTimeFromDate(thisDate: event.startDate) + " - " +  getTimeFromDate(thisDate: event.endDate)
         } else {
-            return "ALL DAY"
+            return getTimeFromDateTemp(thisDate: event.startDate)
         }
     }
     
@@ -52,7 +56,29 @@ class DateHelper {
         dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
         //2019-07-08T18:00:00+01:00
         let dateFormatterPrint = DateFormatter()
-        dateFormatterPrint.dateFormat = "h:mm a"
+        //dateFormatterPrint.dateFormat = "h:mm a"
+        dateFormatterPrint.dateFormat = "dd MMM YYYY"
+        
+        let date = dateFormatterGet.date(from: thisDate)
+        return dateFormatterPrint.string(from: date!)
+    }
+    
+    func getDayFromDate(thisDate: Date) -> String{
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatterPrint.dateFormat = "d"
+        
+        return dateFormatterPrint.string(from: thisDate)
+    }
+    
+    func getTimeFromDateTemp(thisDate: String) -> String{
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatterGet.dateFormat = "yyyy-MM-dd"
+        //2019-07-08T18:00:00+01:00
+        let dateFormatterPrint = DateFormatter()
+        //dateFormatterPrint.dateFormat = "h:mm a"
+        dateFormatterPrint.dateFormat = "dd MMM YYYY"
         
         let date = dateFormatterGet.date(from: thisDate)
         return dateFormatterPrint.string(from: date!)

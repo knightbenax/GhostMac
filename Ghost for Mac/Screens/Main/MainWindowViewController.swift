@@ -14,6 +14,8 @@ class MainWindowViewController: NSWindowController {
     
     @IBOutlet weak var mainWindow: NSWindow!
     @IBOutlet weak var mainToolBar: NSToolbar!
+    var today : Date = Date()
+    let dateHelper = DateHelper()
     
     override func windowWillLoad() {
         
@@ -38,12 +40,11 @@ class MainWindowViewController: NSWindowController {
         let titlebarAccessory = NSTitlebarAccessoryViewController()
         titlebarAccessory.view = hostingView
         titlebarAccessory.layoutAttribute = .trailing
-        
-        //mainWindow.titleVisibility = .hidden
-        mainWindow.isMovableByWindowBackground = true
+        //mainWindow.isMovableByWindowBackground = true
         mainWindow.titlebarAppearsTransparent = true
-        //mainWindow.titleVisibility = .hidden
         mainWindow.addTitlebarAccessoryViewController(titlebarAccessory)
         mainWindow.backgroundColor = NSColor.init(named: "GhostBlue")
+        mainWindow.appearance = NSAppearance(named: .darkAqua)
+        //mainWindow.subtitle = dateHelper.formatDateToBeauty(thisDate: today, type: "month_year")
     }
 }

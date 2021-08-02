@@ -78,11 +78,12 @@ class MainViewController: BaseViewController {
            guard eventsTable.clickedRow >= 0 else { return }
     }
     
+    
     func getCalendarEvents(){
        startProgressLoading()
-        let today = getTimeAndDate(day: fetchedDay)
-        let yesterday = getTimeAndDate(diff: -1, day: fetchedDay)
-        googleService.getGoogleCalendarEvents(calendar_id: selectedCalendar, startDate: yesterday, endDate: today, completion: { (result: Result<Any, Error>) in
+        let next_week = getTimeAndDate(diff: 7, day: fetchedDay)
+        let last_week = getTimeAndDate(diff: -7, day: fetchedDay)
+        googleService.getGoogleCalendarEvents(calendar_id: selectedCalendar, startDate: last_week, endDate: next_week, completion: { (result: Result<Any, Error>) in
             switch (result){
             case .success(let data):
                  let dataItems = data as! NSDictionary
@@ -222,14 +223,14 @@ class MainViewController: BaseViewController {
             
             //print(savedAttendees)
             
-            events.append(Event(id: data.object(forKey: "id") as! String,
-                                summary: data.object(forKey: "summary") as! String,
-                                startDate: startDateValue,
-                                endDate: endDateValue,
-                                colorId: colorId,
-                                type: type,
-                                hasTime: hasTime, attendees: savedAttendees,
-                                markedAsDone: markedAsDone, description: descriptionTemp, location: location))
+//            events.append(Event(id: data.object(forKey: "id") as! String,
+//                                summary: data.object(forKey: "summary") as! String,
+//                                startDate: startDateValue,
+//                                endDate: endDateValue,
+//                                colorId: colorId,
+//                                type: type,
+//                                hasTime: hasTime, attendees: savedAttendees,
+//                                markedAsDone: markedAsDone, description: descriptionTemp, location: location))
         }
         
         
@@ -306,8 +307,8 @@ class MainViewController: BaseViewController {
                    emailValue = email.object(forKey: "value") as! String
                }
                
-               contacts.append(Contact(name: name.object(forKey: "displayNameLastFirst") as! String,
-                                       email: emailValue, photo: photo.object(forKey: "url") as! String))
+//               contacts.append(Contact(name: name.object(forKey: "displayNameLastFirst") as! String,
+//                                       email: emailValue, photo: photo.object(forKey: "url") as! String))
            }
            
            //reload table now
@@ -412,15 +413,15 @@ class MainViewController: BaseViewController {
             }
         }*/
        let downloader = ImageDownloader.default
-       downloader.downloadImage(with: url!) { result in
-           switch result {
-           case .success(let value):
-               let image = value.image
-               self.imageFitWell(image: image)
-           case .failure(let error):
-               print(error)
-           }
-       }
+        downloader.downloadImage(with: url!, completionHandler:  { result in
+            switch result {
+            case .success(let value):
+                let image = value.image
+                self.imageFitWell(image: image)
+            case .failure(let error):
+                print(error)
+            }
+        })
     }
 
   

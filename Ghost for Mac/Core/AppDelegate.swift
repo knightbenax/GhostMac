@@ -13,6 +13,7 @@ import GAppAuth
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     let storeHelper = Store()
+    var currentAccount : String = ""
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application

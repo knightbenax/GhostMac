@@ -9,16 +9,25 @@
 import SwiftUI
 import AppKit
 
+
+
 struct HomeScreen: View {
     @State private var date = Date()
+    @State private var loading = false
+    @State var events: [Event] = []
+    @State var eventsInWeek  = [[Event]]()
     
     var today : Date!
+    
     let daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     var daysArray = [String]()
     var datesArray = [String]()
     let helper = DateHelper()
+    let authViewModel = AuthViewModel()
+    let eventViewModel = EventsViewModel()
     
     init() {
+        authViewModel.doStart()
         today = Date()
         for i in 0..<14 {
             let dayDiff = i - 7
@@ -31,63 +40,27 @@ struct HomeScreen: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
-            HStack(alignment: .center){
-                VStack(alignment: .leading){
-                    Text("Hi Bezaleel")
-                        .font(.system(size: 20, weight: .bold))
-                    Text("Seeking today's productivity")
-                        .font(.system(size: 12))
-                }
-                .padding([.leading, .trailing], 14)
-                .padding([.top], 10)
-                .padding([.bottom], 14)
-                Spacer()
-                VStack{
-                    Button(action: {print("balls")}) {
-                        HStack{
-                            Image(systemName: "calendar.badge.plus")
-                                .font(.system(size: 16, weight: .bold))
-                                .padding([.leading], 10)
-                            Text("Add Schedule")
-                                .padding([.top, .bottom], 6)
-                                .padding([.trailing], 10)
-                                .padding([.leading], 2)
-                        }
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    .background(Color("orange"))
-                    .foregroundColor(.black)
-                    .cornerRadius(4)
-                }
-                .padding([.leading, .trailing], 14)
-            }.frame(maxWidth: .infinity)
-            .background(Color("GhostBlue"))
-            ScrollViewReader{ scrollView in
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 0){
-                        ForEach(0..<14, id: \.self) { i in
-                            VStack(alignment: .leading, spacing: 0) {
-                                VStack(alignment: .leading, spacing: 0){
-                                    Text(daysArray[i] + ", " +  datesArray[i]).font(.custom("Overpass-Regular", size: 14))
-                                        .padding([.leading, .trailing], 6)
-                                        .padding([.top, .bottom], 10)
-                                        .frame(minWidth: 0, maxWidth: .infinity)
-                                        .background(Color("GhostBlue"))
-                                    Spacer()
-                                }
-                                .frame(width: 310)
-                                .background(Color("bgColor"))
-                                .cornerRadius(4)
+            TopView(loading: loading)
+            if (authViewModel.isLoggedIn()){
+                KanbanView(eventViewModel: eventViewModel, daysArray: daysArray, datesArray: datesArray, eventsInWeek: eventsInWeek, helper: helper)
+                    .onAppear(){
+                    eventViewModel.fetchEvents(completion: {
+                        
+                        self.events = eventViewModel.events
+                        self.eventsInWeek = eventViewModel.eventsInWeek
+                        print(eventViewModel.eventsInWeek)
+                        if (events.count <= 0){
+                            if (eventViewModel.getCalendarsCount() <= 0){
+                                //fetchMessage = "Open up Ghost on your iPhone to sync calendars"
+                            } else {
+                                //fetchMessage = "You have no events or tasks for today! Time to read or catch up on that series"
                             }
-                            .id(i)
-                            .padding([.top, .leading, .bottom], 15)
                         }
+                        
+                    })
                     }
-                    .padding([.trailing], 15)
-                    .frame(width: .infinity, height: .infinity)
-                }.onAppear(){
-                    scrollView.scrollTo(7, anchor: .leading)
-                }
+            } else {
+                LoginView(authViewModel: authViewModel)
             }
         
         }.frame(minWidth: 700,  maxWidth: .infinity, minHeight: 500, maxHeight: .infinity)

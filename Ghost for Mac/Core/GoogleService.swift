@@ -39,7 +39,7 @@ class GoogleService: BaseClass {
 
     func getGoogleCalendarEvents(calendar_id: String, startDate: String, endDate : String, completion: @escaping (Result<Any, Error>) -> ()){
         
-        let requestURl = AppConstants().google_calender + calendar_id + "/events?orderBy=startTime&singleEvents=true&key=" + AppConstants().google_calendar_api_key
+        let requestURl = AppConstants().google_calender + calendar_id + "/events?orderBy=startTime&singleEvents=true&&key=" + AppConstants().google_calendar_api_key
         
         getToken(completion: {(result: Result<Any, Error>) in
             
@@ -117,5 +117,32 @@ class GoogleService: BaseClass {
             })
             
         }
+    
+    
+    func getPrimaryEmailFromCalendarList(token : String, completion: @escaping (Result<Any, Error>) -> ()){
+        
+        //let requestURl = AppConstants().google_calender_list + "?key=" + AppConstants().google_calendar_api_key
+        let requestURl = "https://www.googleapis.com/calendar/v3/calendars/primary?key=" + AppConstants().google_calendar_api_key
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer " + token,
+            "Accept" : "application/json"
+        ]
+    
+        AF.request(requestURl, method: .get, encoding: JSONEncoding.default, headers: headers)
+            .validate(statusCode: 200..<300).responseJSON(completionHandler: {(response) in
+                switch response.result {
+                case .success(let data):
+                    completion(.success(data))
+                    break
+                case .failure(let error):
+                    print(error)
+                    let data = self.nsdataToJSON(data: response.data! as NSData) as? NSDictionary
+                    print(data as Any)
+                    completion(.failure(error))
+                    break
+                }
+            })
+    }
     
 }
