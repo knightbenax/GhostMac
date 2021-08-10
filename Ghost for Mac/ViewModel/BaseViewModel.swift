@@ -13,9 +13,14 @@ class BaseViewModel{
     
     let storeHelper = Store()
     let googleService = GoogleService()
+    let rescueTimeService = RescueTimeService()
     
     func getDelegate() -> AppDelegate{
         return (NSApplication.shared.delegate) as! AppDelegate
+    }
+    
+    func showPreferences(){
+        getDelegate().showPreferences()
     }
     
     func getTimeAndDate(day: Int = 0) -> String{
@@ -79,12 +84,41 @@ class BaseViewModel{
         
     }
     
+    func getStringFromEventDate(hasTime: Bool, thisDate: Date) -> String{
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.locale = Locale(identifier: "en_US_POSIX")
+        if (hasTime){
+            dateFormatterPrint.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        } else {
+            dateFormatterPrint.dateFormat = "yyyy-MM-dd"
+        }
+        
+        return dateFormatterPrint.string(from: thisDate)
+    }
+    
+    
+    func getDatesForComparisonBool(hasTime: Bool, thisDate: String) -> Date{
+        if (hasTime){
+            return getSimpleDateFromString(dateInString: thisDate)
+        } else {
+            return getSimpleDateFromStringNoTime(thisDate: thisDate)
+        }
+    }
+    
     
     func getDatesForComparison(event: Event) -> Date{
         if (event.hasTime){
             return getSimpleDateFromString(dateInString: event.startDate)
         } else {
             return getSimpleDateFromStringNoTime(thisDate: event.startDate)
+        }
+    }
+    
+    func getDatesForComparisonEnd(event: Event) -> Date{
+        if (event.hasTime){
+            return getSimpleDateFromString(dateInString: event.endDate)
+        } else {
+            return getSimpleDateFromStringNoTime(thisDate: event.endDate)
         }
     }
     

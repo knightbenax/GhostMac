@@ -30,22 +30,35 @@ struct KanbanView: View {
                                         .padding([.leading, .trailing], 6)
                                         .padding([.top], 10)
                                         .frame(minWidth: 0, maxWidth: .infinity)
-                                        
                                     if (self.eventsInWeek.count > 0) {
-                                        if (eventsInWeek[i].count > 0){
+                                        if (self.eventsInWeek[i].count > 0){
                                             List {
                                                 ForEach(eventsInWeek[i]){ event in
                                                     EventView(event: event, helper: helper, eventViewModel: eventViewModel)
                                                         .padding([.leading, .trailing], 2)
-//                                                        .overlay(
-//                                                                RoundedRectangle(cornerRadius: 6)
-//                                                                    .stroke(Color("kanbanItemBorder"), lineWidth: 1)
-//                                                            )
                                                         .padding([.bottom], 8)
+                                                        .shadow(color: Color.black.opacity(0.1), radius: 0.8, x: 0.0, y: 1.0)
                                                 }
                                             }.padding(.horizontal, -5).workaroundForVerticalScrollingBugInMacOS()
                                         } else {
-                                            
+                                            Button(action: {print("balls")}) {
+                                                HStack{
+                                                    Image(systemName: "calendar.badge.plus")
+                                                        .font(.system(size: 16, weight: .bold))
+                                                        .padding([.leading], 10)
+                                                    Text("Add Schedule")
+                                                        .padding([.top, .bottom], 6)
+                                                        .padding([.trailing], 10)
+                                                        .padding([.leading], 2)
+                                                }.frame(minWidth: 0, maxWidth: .infinity)
+                                                .frame(height: 30)
+                                            }
+                                            .buttonStyle(PlainButtonStyle())
+                                            .background(Color("orange"))
+                                            .foregroundColor(.black)
+                                            .cornerRadius(4)
+                                            .padding([.leading, .trailing], 20)
+                                            .padding([.top], 20)
                                         }
                                     }
                                     Spacer()
@@ -62,6 +75,7 @@ struct KanbanView: View {
                     
                 }.onAppear(){
                     scrollView.scrollTo(7, anchor: .leading)
+                    
                 }
             }
         }

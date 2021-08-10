@@ -20,12 +20,12 @@ class EventsViewModel: BaseViewModel {
     var needContacts : Bool = false
     var contacts = Array<Contact>()
     
-    func fetchEvents(completion: @escaping () -> ()){
-        print("events")
+    func fetchEvents(completion: @escaping (_ eventsInDaysArrays : [[Event]]) -> ()){
+        
         var calendars = storeHelper.getCalendars(delegate: getDelegate())
         calendars = calendars.removingDuplicates()
-        fetchEventsProtocol(calendars: calendars, completion: {
-            completion()
+        fetchEventsProtocol(calendars: calendars, completion: { eventsInDaysArrays in
+            completion(eventsInDaysArrays)
         })
     }
     
@@ -53,26 +53,23 @@ class EventsViewModel: BaseViewModel {
     
     let group = DispatchGroup()
     
-    func fetchEventsProtocol(calendars: [GoogleCalendar], completion: @escaping () -> ()){
-        //print("events wrecked")
+    func fetchEventsProtocol(calendars: [GoogleCalendar], completion: @escaping (_ eventsInDaysArrays : [[Event]]) -> ()){
+        
         events.removeAll()
         let next_week = getTimeAndDate(day: 7)
         let last_week = getTimeAndDate(diff: -1, day: -7)
-        print(next_week)
-        print(last_week)
         calendars.forEach({
-            print("events wrecked 2")
             group.enter()
             let account = $0.owner
             getDelegate().currentAccount = $0.owner
+            print($0.owner)
             googleService.getGoogleCalendarEvents(calendar_id: $0.id, startDate: next_week, endDate: last_week, completion: { [self](result: Result<Any, Error>) in
-                group.enter()
                 switch (result){
                 case .success(let data):
                     let dataItems = data as! NSDictionary
                     let items = dataItems.object(forKey: "items") as! NSArray
-                    print(data)
-                    self.parseEvents(items: items, account: account, last_week: last_week, next_week: next_week)
+                    //print(data)
+                    self.parseEvents(items: items, account: account)
                     group.leave()
                     break
                 case .failure(let error):
@@ -82,18 +79,19 @@ class EventsViewModel: BaseViewModel {
                     group.leave()
                     break
                 }
-                group.leave()
             });
-            
         })
         
-        group.notify(queue: DispatchQueue.main) {
-            completion()
+        
+        
+        group.notify(queue: DispatchQueue.main) { [self] in
+            breakEventsIntoWeekDays(last_week: last_week, next_week: next_week)
+            completion(eventsInWeek)
         }
     }
     
     
-    func parseEvents(items: NSArray, account : String, last_week: String, next_week: String){
+    func parseEvents(items: NSArray, account : String){
         items.forEach {(item) in
             let data = item as! NSDictionary
             
@@ -184,28 +182,57 @@ class EventsViewModel: BaseViewModel {
                 savedAttendees = savedAttendees.removingDuplicates()
             }
             
-            events.append(Event(id: data.object(forKey: "id") as! String,
-                                summary: data.object(forKey: "summary") as! String,
-                                startDate: startDateValue,
-                                endDate: endDateValue,
-                                colorId: colorId,
-                                type: type,
-                                hasTime: hasTime, attendees: savedAttendees,
-                                markedAsDone: markedAsDone, description: descriptionTemp, location: location, account: account))
+            
+            let eventStartDate = getDatesForComparisonBool(hasTime: hasTime, thisDate: startDateValue)
+            let eventEndDate = getDatesForComparisonBool(hasTime: hasTime, thisDate: endDateValue)
+            
+            //I am getting the number of days an event spans for. We would remove 1 from this number since Google makes ALL-DAy events end the next day
+            let number = Calendar.current.numberOfDaysBetween(eventStartDate, and: eventEndDate) - 1
+            
+            if (number <= 1){
+                //this is an all day event i.e Event that ends the same day
+                let newEvent = Event(id: data.object(forKey: "id") as! String,
+                                     summary: data.object(forKey: "summary") as! String,
+                                     startDate: startDateValue,
+                                     endDate: endDateValue,
+                                     colorId: colorId,
+                                     type: type,
+                                     hasTime: hasTime, attendees: savedAttendees,
+                                     markedAsDone: markedAsDone, description: descriptionTemp, location: location, account: account)
+                events.append(newEvent)
+            } else {
+                var newStartDate = eventStartDate
+                var newEndDate = eventStartDate
+                for _ in 0..<number {
+                    
+                    newEndDate.addDays(n: 1)
+                    //here we want to create events to fill in the seperate days for each day the event occurs on too
+                    let duplicateEvent = Event(id: data.object(forKey: "id") as! String,
+                                         summary: data.object(forKey: "summary") as! String,
+                                         startDate: getStringFromEventDate(hasTime: hasTime, thisDate: newStartDate),
+                                         endDate: getStringFromEventDate(hasTime: hasTime, thisDate: newEndDate),
+                                         colorId: colorId,
+                                         type: type,
+                                         hasTime: hasTime, attendees: savedAttendees,
+                                         markedAsDone: markedAsDone, description: descriptionTemp, location: location, account: account)
+
+                    newStartDate = newEndDate
+                    events.append(duplicateEvent)
+                }
+                
+            }
+            
+            
             events = events.sorted(by: { $0.startDate < $1.startDate})
         }
         
-//        if (needContacts) {
-//            //fetch the contacts, we would reload the table when done
-//            fetchContacts()
-//        }
         
-        //print(events)
+    }
+    
+    func breakEventsIntoWeekDays(last_week: String, next_week: String){
         
         let next_week_date = getDateFromString(dateInString: next_week)
         var last_week_date = getDateFromString(dateInString: last_week)
-        
-        
         
         while last_week_date <= next_week_date {
             var thisEvents = [Event]()
@@ -213,6 +240,7 @@ class EventsViewModel: BaseViewModel {
             eventsInWeek.append(thisEvents)
             last_week_date = Calendar.current.date(byAdding: .day, value: 1, to: last_week_date)!
         }
+        
     }
     
     func fetchContacts (){

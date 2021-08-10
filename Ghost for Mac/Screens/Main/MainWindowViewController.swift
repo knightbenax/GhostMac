@@ -17,6 +17,8 @@ class MainWindowViewController: NSWindowController {
     var today : Date = Date()
     let dateHelper = DateHelper()
     
+    var baseViewModel = BaseViewModel()
+    
     override func windowWillLoad() {
         
         let hostingView = NSHostingView(rootView:
@@ -27,7 +29,7 @@ class MainWindowViewController: NSWindowController {
                         .foregroundColor(.white)
                 }.padding([.trailing, .leading], 5)
                 .buttonStyle(PlainButtonStyle())
-                Button(action: {print("balls")}) {
+                Button(action: {self.baseViewModel.showPreferences()}) {
                     Image(systemName: "gear")
                         .font(.system(size: 18, weight: .bold))
                         .foregroundColor(.white)

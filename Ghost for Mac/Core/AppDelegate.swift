@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Preferences
 import GAppAuth
 
 @NSApplicationMain
@@ -39,6 +40,26 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let url = URL(string: urlString)!
         
         _ = GAppAuth.shared.continueAuthorization(with: url, callback: nil)
+    }
+    
+    private lazy var preferences: [PreferencePane] = [
+            GeneralPreferenceViewController(),
+            AccountsPreferenceViewController()
+        ]
+    
+    private lazy var preferencesWindowController = PreferencesWindowController(
+        preferencePanes: preferences,
+        style: .toolbarItems,
+        animated: true,
+        hidesToolbarForSingleItem: true
+    )
+    
+    func showPreferences(){
+        preferencesWindowController.show()
+    }
+    
+    @IBAction private func preferencesMenuItemActionHandler(_ sender: NSMenuItem) {
+        preferencesWindowController.show()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

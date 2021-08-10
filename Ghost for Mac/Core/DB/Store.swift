@@ -151,7 +151,6 @@ class Store{
         return accounts
     }
     
-    
     func getSingleSavedCalendar(id: String, delegate: AppDelegate) -> [NSManagedObject]{
         var accounts : [NSManagedObject] = []
         
@@ -333,11 +332,11 @@ class Store{
     }
     
     func setFirstname(firstname: String){
-        UserDefaults(suiteName: "group.com.ephod.ghost")!.set(firstname, forKey: "firstname")
+        UserDefaults(suiteName: suite)!.set(firstname, forKey: "firstname")
      }
     
     func setRescuetimeKey(rescuetimekey: String){
-       UserDefaults(suiteName: "group.com.ephod.ghost")!.set(rescuetimekey, forKey: "rescuetime")
+       UserDefaults(suiteName: suite)!.set(rescuetimekey, forKey: "rescuetime")
     }
     
     func getUsers(delegate: AppDelegate) -> [NSManagedObject]{

@@ -8,19 +8,32 @@
 
 import Foundation
 import GAppAuth
+import SwiftUI
 
 class AuthViewModel : BaseViewModel{
     
-    func doStart(){
-        GAppAuth.shared.retrieveExistingAuthorizationState()
-        checkRegistration()
-    }
+//    func doStart(){
+//        GAppAuth.shared.retrieveExistingAuthorizationState()
+//        checkRegistration()
+//    }
     
     func signInGoogle(){
         do {
             try GAppAuth.shared.authorize { auth in
                 if auth {
                     self.checkRegistration()
+                }
+            }
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func authorizeNewAccount(){
+        do {
+            try GAppAuth.shared.authorize { auth in
+                if auth {
+                    self.addGoogleAccount()
                 }
             }
         } catch let error {
@@ -64,7 +77,7 @@ class AuthViewModel : BaseViewModel{
             case .failure(let error):
                 print(error)
                 let code = error.asAFError?.responseCode
-                //self.manageError(responseCode: code!)
+                self.manageError(responseCode: code!)
                 break;
             }
         })
@@ -74,20 +87,69 @@ class AuthViewModel : BaseViewModel{
     
     func checkRegistration(){
         if GAppAuth.shared.isAuthorized() {
-            let authorization = GAppAuth.shared.getCurrentAuthorization()
-            let tokenResponse = authorization?.authState.lastTokenResponse
-            let accessToken : String = (tokenResponse?.accessToken)!
-            let refreshToken : String = (tokenResponse?.refreshToken)!
-            let idToken : String = (tokenResponse?.idToken)!
-            let interval = Date().timeIntervalSince((tokenResponse?.accessTokenExpirationDate)!)
-            let accessExpiryDate : TimeInterval = interval
-            let values : NSMutableDictionary = ["access_token": accessToken,
-                                                "refresh_token": refreshToken,
-                                                "id_token": idToken,
-                                                "expires_in": accessExpiryDate]
-            //storeHelper.saveUser(result: values)
-            getPrimaryCalendar(resultData: values)
+//            let authorization = GAppAuth.shared.getCurrentAuthorization()
+//            let tokenResponse = authorization?.authState.lastTokenResponse
+//            let accessToken : String = (tokenResponse?.accessToken)!
+//            let refreshToken : String = (tokenResponse?.refreshToken)!
+//            let idToken : String = (tokenResponse?.idToken)!
+//            let interval = Date().timeIntervalSince((tokenResponse?.accessTokenExpirationDate)!)
+//            let accessExpiryDate : TimeInterval = interval
+//            let values : NSMutableDictionary = ["access_token": accessToken,
+//                                                "refresh_token": refreshToken,
+//                                                "id_token": idToken,
+//                                                "expires_in": accessExpiryDate]
+//            //storeHelper.saveUser(result: values)
+//            getPrimaryCalendar(resultData: values)
+            addGoogleAccount()
         }
     }
     
+    
+    func addGoogleAccount(){
+        let authorization = GAppAuth.shared.getCurrentAuthorization()
+        let tokenResponse = authorization?.authState.lastTokenResponse
+        let accessToken : String = (tokenResponse?.accessToken)!
+        let refreshToken : String = (tokenResponse?.refreshToken)!
+        let idToken : String = (tokenResponse?.idToken)!
+        let interval = Date().timeIntervalSince((tokenResponse?.accessTokenExpirationDate)!)
+        let accessExpiryDate : TimeInterval = interval
+        let values : NSMutableDictionary = ["access_token": accessToken,
+                                            "refresh_token": refreshToken,
+                                            "id_token": idToken,
+                                            "expires_in": accessExpiryDate]
+        getPrimaryCalendar(resultData: values)
+    }
+    
+    
+    func getGoogleAccounts() -> [GoogleCalendar]{
+        //let accounts = storeHelper.getUsers(delegate: getDelegate())
+        let accounts = storeHelper.getSavedCalendars(delegate: getDelegate())
+        var googleCalendars = [GoogleCalendar]()
+        
+        accounts.forEach({
+            let id = $0.value(forKey: "id") as! String
+            let name = $0.value(forKey: "name") as! String
+            let account = $0.value(forKey: "account") as! String
+            let primary = $0.value(forKey: "primary") as! Bool
+            
+            let calendar = GoogleCalendar(id: id, owner: account, primary: primary, name: name)
+            googleCalendars.append(calendar)
+        })
+        
+        return googleCalendars
+    }
+    
+    func getSingleAccountName(accountIDToEdit : String) -> String{
+        return storeHelper.getSingleSavedCalendar(id: accountIDToEdit, delegate: getDelegate())[0].value(forKey: "name") as! String
+    }
+    
+    func getSingleAccountColor(accountIDToEdit : String) -> String{
+        return storeHelper.getSingleSavedAccount(name: accountIDToEdit, delegate: getDelegate())[0].value(forKey: "color") as! String
+    }
+    
+    
+    func saveCalendar(accountIDtoEdit: String, accountName: String, accountColor : Color){
+        storeHelper.updateCalendarName(delegate: getDelegate(), account: accountIDtoEdit, name: accountName )
+        storeHelper.updateUserColor(delegate: getDelegate(), account: accountIDtoEdit, color: NSColor(accountColor).toHexString())
+    }
 }

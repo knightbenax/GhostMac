@@ -10,11 +10,16 @@ import SwiftUI
 
 struct MonthView: View {
     @State var dates : [Date] = Date().getAllDays()
+    var today = Date()
+    let calendar = Calendar.current
     var ghostDates : [GhostDate] = []
     var helper = DateHelper()
     let daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+    var event : Event
     
     init() {
+        event = Event(id: "23274264234", summary: "Wound David", startDate: "2012-07-11T02:30:00-06:00", endDate: "2012-07-11T04:30:00-06:00", colorId: "#546513", type: "meeting", hasTime: true, attendees: [], markedAsDone: false, description: "Break his back door", location: "Egbeda", account: "knightbenax@gmail.com")
+        
         dates.forEach({
             let thisGhostDate = GhostDate(date: $0)
             ghostDates.append(thisGhostDate)
@@ -56,17 +61,27 @@ struct MonthView: View {
                 ForEach(daysOfWeek, id: \.self){ day in
                     Text(day)
                         .font(.custom("Overpass-Bold", size: 14))
-                        .frame(width: 38, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .frame(width: 38, height: 40, alignment: .center)
                 }
             }
             LazyVGrid(columns: sixColumnGrid){
                 ForEach(ghostDates){ thisDate in
-                    Text(helper.getDayFromDate(thisDate: thisDate.date))
-                        .font(.custom("Overpass-Regular", size: 14))
-                        .frame(width: 50, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    if (calendar.isDateInToday(thisDate.date)){
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 20).fill(Color("orange")).frame(width: 30, height: 30)
+                            Text(helper.getDayFromDate(thisDate: thisDate.date))
+                                .font(.custom("Overpass-Regular", size: 14))
+                                .foregroundColor(.white)
+                        }.frame(width: 50, height: 40, alignment: .center)
+                    } else {
+                        Text(helper.getDayFromDate(thisDate: thisDate.date))
+                            .font(.custom("Overpass-Regular", size: 14))
+                            .frame(width: 50, height: 40, alignment: .center)
+                    }
                 }
-            }
+            }.padding([.bottom], 40)
             Spacer()
+            DetailsView(event: event)
         }.frame(minWidth: 0, maxWidth: 280)
         .padding([.leading, .trailing], 10)
         .padding([.top, .bottom], 14)
@@ -78,6 +93,7 @@ struct MonthView: View {
 struct MonthView_Previews: PreviewProvider {
     static var currentMonthDates = Date().getAllDays()
     static var ghostDates = [GhostDate]()
+  
     
     static var previews: some View {
         MonthView()

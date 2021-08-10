@@ -13,8 +13,7 @@ import AppKit
 
 struct HomeScreen: View {
     @State private var date = Date()
-    @State private var loading = false
-    @State var events: [Event] = []
+    @State var loading = false
     @State var eventsInWeek  = [[Event]]()
     
     var today : Date!
@@ -27,7 +26,7 @@ struct HomeScreen: View {
     let eventViewModel = EventsViewModel()
     
     init() {
-        authViewModel.doStart()
+        //authViewModel.doStart()
         today = Date()
         for i in 0..<14 {
             let dayDiff = i - 7
@@ -44,20 +43,10 @@ struct HomeScreen: View {
             if (authViewModel.isLoggedIn()){
                 KanbanView(eventViewModel: eventViewModel, daysArray: daysArray, datesArray: datesArray, eventsInWeek: eventsInWeek, helper: helper)
                     .onAppear(){
-                    eventViewModel.fetchEvents(completion: {
-                        
-                        self.events = eventViewModel.events
-                        self.eventsInWeek = eventViewModel.eventsInWeek
-                        print(eventViewModel.eventsInWeek)
-                        if (events.count <= 0){
-                            if (eventViewModel.getCalendarsCount() <= 0){
-                                //fetchMessage = "Open up Ghost on your iPhone to sync calendars"
-                            } else {
-                                //fetchMessage = "You have no events or tasks for today! Time to read or catch up on that series"
-                            }
-                        }
-                        
-                    })
+                        eventViewModel.fetchEvents(completion: { eventsInDaysArray in
+                            self.eventsInWeek = eventsInDaysArray
+                            self.loading = false
+                        })
                     }
             } else {
                 LoginView(authViewModel: authViewModel)

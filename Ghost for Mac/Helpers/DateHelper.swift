@@ -46,7 +46,7 @@ class DateHelper {
         if (event.hasTime){
             return getTimeFromDate(thisDate: event.startDate) + " - " +  getTimeFromDate(thisDate: event.endDate)
         } else {
-            return getTimeFromDateTemp(thisDate: event.startDate)
+            return "ALL DAY"
         }
     }
     
@@ -56,8 +56,8 @@ class DateHelper {
         dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
         //2019-07-08T18:00:00+01:00
         let dateFormatterPrint = DateFormatter()
-        //dateFormatterPrint.dateFormat = "h:mm a"
-        dateFormatterPrint.dateFormat = "dd MMM YYYY"
+        dateFormatterPrint.dateFormat = "h:mm a"
+        //dateFormatterPrint.dateFormat = "dd MMM YYYY"
         
         let date = dateFormatterGet.date(from: thisDate)
         return dateFormatterPrint.string(from: date!)

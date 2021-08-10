@@ -39,7 +39,7 @@ class GoogleService: BaseClass {
 
     func getGoogleCalendarEvents(calendar_id: String, startDate: String, endDate : String, completion: @escaping (Result<Any, Error>) -> ()){
         
-        let requestURl = AppConstants().google_calender + calendar_id + "/events?orderBy=startTime&singleEvents=true&&key=" + AppConstants().google_calendar_api_key
+        let requestURl = AppConstants().google_calender + calendar_id + "/events?orderBy=startTime&singleEvents=true&key=" + AppConstants().google_calendar_api_key
         
         getToken(completion: {(result: Result<Any, Error>) in
             
@@ -54,7 +54,7 @@ class GoogleService: BaseClass {
                 
                 let parameters: Parameters = [
                     "timeMin": endDate,
-                    "timeMax": startDate
+                    "timeMax": startDate,
                 ]
                 
                 AF.request(requestURl, method: .get, parameters: parameters, headers: headers)

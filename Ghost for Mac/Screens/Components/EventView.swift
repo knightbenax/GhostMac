@@ -16,11 +16,11 @@ struct EventView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0){
-            Text(event.summary).font(.custom("Overpass-Bold", size: 16))
+            Text(event.summary).font(.custom("Overpass-Regular", size: 14))
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 2, trailing: 0))
             Text(helper.formatDateToTimeOnly(event: event)).font(.custom("Overpass-Regular", size: 12))
                 .opacity(0.6)
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 4, trailing: 0))
+                .padding(EdgeInsets(top: 4, leading: 0, bottom: 8, trailing: 0))
             HStack{
                 Text(eventViewModel.getCalendarName(event: event)).font(.custom("Overpass-Regular", size: 12))
                     .padding(EdgeInsets(top: 3, leading: 8, bottom: 3, trailing: 8))
@@ -28,6 +28,7 @@ struct EventView: View {
                     .background(Color(eventViewModel.getCalendarTextBackgroundColor(event: event)))
                     .cornerRadius(2)
                 Text(event.type.capitalized).font(.custom("Overpass-Regular", size: 12))
+                    .foregroundColor(Color.white)
                     .padding(EdgeInsets(top: 3, leading: 8, bottom: 3, trailing: 8))
                     .background(Color.blue)
                     .cornerRadius(2)
@@ -41,8 +42,7 @@ struct EventView: View {
           )
         .padding(EdgeInsets(top: 10, leading: 10, bottom: 12, trailing: 10))
         .background(Color("darkBgColor"))
-        .border(width: 1, edges: [.top, .bottom, .leading, .trailing], color: Color("kanbanItemBorder"))
-        .cornerRadius(4)
+        .cornerRadius(6)
     }
 }
 
