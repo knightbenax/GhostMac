@@ -24,23 +24,26 @@ class BaseClass{
            return nil
     }
     
+    func getDelegate() -> AppDelegate{
+        return (NSApplication.shared.delegate) as! AppDelegate
+    }
     
     func getToken(completion: @escaping (Result<Any, Error>) -> ()){
         var token = ""
-        //let interval = Date().timeIntervalSince(storeHelper.getTokenExpired())
-        let interval = storeHelper.getTokenExpired()
+        let account = getDelegate().currentAccount
+        let interval = Date().timeIntervalSince(storeHelper.getLoggedDate(account: account))
         if (interval <= 3600){
-            token = storeHelper.getUserToken()
+            token = storeHelper.getUserToken(account: account)
             completion(.success(token))
         } else {
+            print("call refresh")
             refreshToken(completion: {(result : Result<Any, Error>) in
                 switch (result){
                     case .success( _):
-                        token = self.storeHelper.getUserToken()
+                        token = self.storeHelper.getUserToken(account: account)
                         completion(.success(token))
                         break
                     case .failure(let error):
-                        
                         completion(.failure(error))
                         break
                 }
@@ -50,13 +53,13 @@ class BaseClass{
     
     
     func refreshToken(completion: @escaping (Result<Any, Error>) -> ()){
-           
+        let delegate = getDelegate()
         let requestURl = AppConstants().google_authorization_url
+        let account = delegate.currentAccount
         let client_secret = (Bundle.main.object(forInfoDictionaryKey: "GAppAuth") as? NSDictionary)?.object(forKey: "ClientSecret") as! String
            
-        print(client_secret)
         let parameters: Parameters = [
-            "refresh_token": storeHelper.getRefreshToken(),
+            "refresh_token": storeHelper.getRefreshToken(account: account),
             "client_secret" : client_secret,
             "client_id" : AppConstants().google_oauth_client_id,
             "grant_type": "refresh_token"
@@ -66,18 +69,14 @@ class BaseClass{
                .validate(statusCode: 200..<300).responseJSON(completionHandler: {(response) in
                    switch response.result {
                    case .success(let data):
-                       let data = data as! NSDictionary
-                       self.storeHelper.updateUser(result: data)
-                       print(data)
-                       _ = self.nsdataToJSON(data: response.data! as NSData) as? NSDictionary
-                       //print(error as Any)
+                    let data = data as! NSDictionary
+                    self.storeHelper.updateUser(delegate: delegate, result: data, account: account)
                        completion(.success(data))
                        break
                    case .failure(let serverError):
                     print(serverError)
                        self.addressErrorCode(code: response.response!.statusCode)
                        _ = self.nsdataToJSON(data: response.data! as NSData) as? NSDictionary
-                       //print(error as Any)
                        completion(.failure(serverError))
                        break
                    }

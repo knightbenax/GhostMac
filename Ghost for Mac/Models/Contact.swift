@@ -8,13 +8,13 @@
 
 import Foundation
 
-class Contact{
+class Contact : Identifiable{
     
     var name: String
-    var email: String
+    var email: [String]
     var photo: String
     
-    init(name: String, email: String, photo: String) {
+    init(name: String, email: [String], photo: String) {
         self.name = name
         self.email = email
         self.photo = photo

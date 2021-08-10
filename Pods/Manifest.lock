@@ -19,11 +19,13 @@ PODS:
   - Kingfisher (5.13.0):
     - Kingfisher/Core (= 5.13.0)
   - Kingfisher/Core (5.13.0)
+  - Preferences (2.3.0)
 
 DEPENDENCIES:
   - Alamofire
   - GAppAuth
   - Kingfisher
+  - Preferences
 
 SPEC REPOS:
   trunk:
@@ -33,6 +35,7 @@ SPEC REPOS:
     - GTMAppAuth
     - GTMSessionFetcher
     - Kingfisher
+    - Preferences
 
 SPEC CHECKSUMS:
   Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
@@ -41,7 +44,8 @@ SPEC CHECKSUMS:
   GTMAppAuth: 4deac854479704f348309e7b66189e604cf5e01e
   GTMSessionFetcher: cea130bbfe5a7edc8d06d3f0d17288c32ffe9925
   Kingfisher: 0d334cada987fcddbe9b5cec516406e1ee9d4748
+  Preferences: 74934e0d3661a343a53646679985c136a7b994bb
 
-PODFILE CHECKSUM: 3810c56b8c6c6283bed76e83f70ce0f6346cfb75
+PODFILE CHECKSUM: f6dfd0cb4f7fce6f67c5ce0bd1b91cd6e4fb45bb
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.3

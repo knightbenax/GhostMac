@@ -17,6 +17,7 @@ class MainViewController: BaseViewController {
     @IBOutlet weak var monthLabel: NSTextField!
     @IBOutlet weak var logInView: NSView!
     @IBOutlet weak var progressIndicator: NSProgressIndicator!
+    @IBOutlet weak var profileImage: NSImageView!
     
     let eventItemIdentifier: NSUserInterfaceItemIdentifier = NSUserInterfaceItemIdentifier(rawValue: "EventItemIdentifier")
     
@@ -77,11 +78,12 @@ class MainViewController: BaseViewController {
            guard eventsTable.clickedRow >= 0 else { return }
     }
     
+    
     func getCalendarEvents(){
        startProgressLoading()
-        let today = getTimeAndDate(day: fetchedDay)
-        let yesterday = getTimeAndDate(diff: -1, day: fetchedDay)
-        googleService.getGoogleCalendarEvents(calendar_id: selectedCalendar, startDate: yesterday, endDate: today, completion: { (result: Result<Any, Error>) in
+        let next_week = getTimeAndDate(diff: 7, day: fetchedDay)
+        let last_week = getTimeAndDate(diff: -7, day: fetchedDay)
+        googleService.getGoogleCalendarEvents(calendar_id: selectedCalendar, startDate: last_week, endDate: next_week, completion: { (result: Result<Any, Error>) in
             switch (result){
             case .success(let data):
                  let dataItems = data as! NSDictionary
@@ -221,14 +223,14 @@ class MainViewController: BaseViewController {
             
             //print(savedAttendees)
             
-            events.append(Event(id: data.object(forKey: "id") as! String,
-                                summary: data.object(forKey: "summary") as! String,
-                                startDate: startDateValue,
-                                endDate: endDateValue,
-                                colorId: colorId,
-                                type: type,
-                                hasTime: hasTime, attendees: savedAttendees,
-                                markedAsDone: markedAsDone, description: descriptionTemp, location: location))
+//            events.append(Event(id: data.object(forKey: "id") as! String,
+//                                summary: data.object(forKey: "summary") as! String,
+//                                startDate: startDateValue,
+//                                endDate: endDateValue,
+//                                colorId: colorId,
+//                                type: type,
+//                                hasTime: hasTime, attendees: savedAttendees,
+//                                markedAsDone: markedAsDone, description: descriptionTemp, location: location))
         }
         
         
@@ -305,8 +307,8 @@ class MainViewController: BaseViewController {
                    emailValue = email.object(forKey: "value") as! String
                }
                
-               contacts.append(Contact(name: name.object(forKey: "displayNameLastFirst") as! String,
-                                       email: emailValue, photo: photo.object(forKey: "url") as! String))
+//               contacts.append(Contact(name: name.object(forKey: "displayNameLastFirst") as! String,
+//                                       email: emailValue, photo: photo.object(forKey: "url") as! String))
            }
            
            //reload table now
@@ -375,9 +377,6 @@ class MainViewController: BaseViewController {
     
     override func viewDidAppear() {
         super.viewDidAppear()
-        let defaultImage = NSImage(named: NSImage.Name("wait_image"))!
-        self.imageFitWell(image: defaultImage)
-        self.imageFitWell(image: defaultImage)
     }
     
     fileprivate func setCollectionFlowLayout(){
@@ -402,7 +401,7 @@ class MainViewController: BaseViewController {
     
     func getDailyView(){
      
-        let url = URL(string: "https://source.unsplash.com/collection/9552158")
+        let url = URL(string: "https://pbs.twimg.com/profile_images/1258870922678861824/STiPgl8r_400x400.jpg")
         /*KingfisherManager.shared.retrieveImage(with: url!, options: [.memoryCacheExpiration(.expired), .diskCacheExpiration(.expired), .keepCurrentImageWhileLoading, .transition(.none)]) { result in
             // Do something with `result`
             //try print(result.get().image)
@@ -414,23 +413,27 @@ class MainViewController: BaseViewController {
             }
         }*/
        let downloader = ImageDownloader.default
-       downloader.downloadImage(with: url!) { result in
-           switch result {
-           case .success(let value):
-               let image = value.image
-               self.imageFitWell(image: image)
-           case .failure(let error):
-               print(error)
-           }
-       }
+        downloader.downloadImage(with: url!, completionHandler:  { result in
+            switch result {
+            case .success(let value):
+                let image = value.image
+                self.imageFitWell(image: image)
+            case .failure(let error):
+                print(error)
+            }
+        })
     }
 
+  
     private func imageFitWell(image: NSImage){
-        inspirationImage.layer? = CALayer()
-        inspirationImage.layer?.contentsGravity = .resizeAspectFill
-        inspirationImage.layer?.contents = image
-        inspirationImage.wantsLayer = true
-    }
+           self.profileImage.layer? = CALayer()
+           self.profileImage.layer?.contentsGravity = .resizeAspectFill
+           self.profileImage.layer?.contents = image
+           self.profileImage.wantsLayer = true
+        self.profileImage.layer?.cornerRadius = 21
+        self.profileImage.layer?.borderColor = NSColor.white.cgColor
+        self.profileImage.layer?.borderWidth = 2
+       }
     
     
     func getDayOfWeek(today: Date) -> Int? {
@@ -503,7 +506,7 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource{
         let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("EventTableCell"), owner: self) as? EventTableCell
         
         if (event.hasTime){
-            cell?.startTimeLabel.stringValue = formatDateToTimeOnly(thisDate: event.startDate)
+            cell?.startTimeLabel.stringValue = formatDateToTimeOnly(thisDate: event.startDate) + " - "
             cell?.endTimeLabel.stringValue = formatDateToTimeOnly(thisDate: event.endDate)
         } else {
             cell?.startTimeLabel.stringValue = "ALL DAY"
@@ -511,7 +514,8 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource{
         }
         
         //print(tableView.bounds.width)
-        tableColumn?.width = tableView.frame.width
+        let width = (tableView.frame.width - 5)
+        tableColumn?.width = width
         //tableView.tableColumns[column].width = table
         
         if (event.markedAsDone){
