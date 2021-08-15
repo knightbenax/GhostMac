@@ -9,9 +9,9 @@
 import Foundation
 import AppKit
 
-class EventsViewModel: BaseViewModel {
+class EventsViewModel: BaseViewModel, ObservableObject {
     
-    public lazy var events : [Event] = {
+    @Published public var events : [Event] = {
         return []
     }()
     
@@ -62,7 +62,6 @@ class EventsViewModel: BaseViewModel {
             group.enter()
             let account = $0.owner
             getDelegate().currentAccount = $0.owner
-            print($0.owner)
             googleService.getGoogleCalendarEvents(calendar_id: $0.id, startDate: next_week, endDate: last_week, completion: { [self](result: Result<Any, Error>) in
                 switch (result){
                 case .success(let data):

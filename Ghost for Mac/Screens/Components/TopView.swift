@@ -9,15 +9,15 @@
 import SwiftUI
 
 struct TopView: View {
-    @State var loading : Bool
+    @ObservedObject var loadingIndicator : LoadingIndicator
     var baseViewModel = BaseViewModel()
     var statsViewModel = StatsViewModel()
     @State var prodStats = "Seeking today's productivity"
     @AppStorage("firstname") var firstname = ""
     
-    init(loading: Bool) {
-        self.loading = loading
-    }
+//    init(loading: Bool) {
+//        self.loading = loading
+//    }
     
     var body: some View {
         HStack(alignment: .center){
@@ -36,9 +36,11 @@ struct TopView: View {
                 })
             }
             Spacer()
-            if (loading){
-                ProgressView().progressViewStyle(CircularProgressViewStyle())
+            if (loadingIndicator.loading){
+                ProgressView().progressViewStyle(CircularProgressViewStyle(tint: Color.white))
                     .frame(width: 30, height: 30)
+                    .scaleEffect(0.8, anchor: .center)
+                    .colorScheme(.dark)
             }
             VStack{
                 Button(action: {print("bussy")}) {
@@ -64,9 +66,9 @@ struct TopView: View {
 }
 
 struct TopView_Previews: PreviewProvider {
-    static var loading : Bool = false
+    static var loadingIndicator = LoadingIndicator()
     
     static var previews: some View {
-        TopView(loading: loading)
+        TopView(loadingIndicator: loadingIndicator) //loading: loading
     }
 }

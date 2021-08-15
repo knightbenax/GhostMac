@@ -9,12 +9,15 @@
 import Cocoa
 import Preferences
 import GAppAuth
+import SwiftUI
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     let storeHelper = Store()
     var currentAccount : String = ""
+    
+    //@EnvironmentObject var eventViewModel = EventsViewModel()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application

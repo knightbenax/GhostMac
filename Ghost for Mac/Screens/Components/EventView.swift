@@ -22,7 +22,7 @@ struct EventView: View {
                 .opacity(0.6)
                 .padding(EdgeInsets(top: 4, leading: 0, bottom: 8, trailing: 0))
             HStack{
-                Text(eventViewModel.getCalendarName(event: event)).font(.custom("Overpass-Regular", size: 12))
+                Text(eventViewModel.getCalendarName(event: event)).font(.custom("Overpass-Light", size: 12))
                     .padding(EdgeInsets(top: 3, leading: 8, bottom: 3, trailing: 8))
                     .foregroundColor(Color(eventViewModel.getCalendarTextColor(event: event)))
                     .background(Color(eventViewModel.getCalendarTextBackgroundColor(event: event)))

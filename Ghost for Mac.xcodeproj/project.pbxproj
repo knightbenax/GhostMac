@@ -38,6 +38,13 @@
 		EFCF018C26AB902A00AFA6D6 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCF018B26AB902A00AFA6D6 /* DateHelper.swift */; };
 		EFD5C50826BC330D009B225D /* StatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD5C50726BC330D009B225D /* StatsViewModel.swift */; };
 		EFD5C50A26BC7E12009B225D /* RescueTimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD5C50926BC7E12009B225D /* RescueTimeService.swift */; };
+		EFEC86B726C836530010726E /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEC86B626C836530010726E /* LoadingIndicator.swift */; };
+		EFEC86BA26C8591C0010726E /* AddScheduleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEC86B926C8591C0010726E /* AddScheduleButtonView.swift */; };
+		EFEC86BC26C859B20010726E /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEC86BB26C859B20010726E /* IndicatorView.swift */; };
+		EFEC86BE26C861CC0010726E /* KanbanHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEC86BD26C861CC0010726E /* KanbanHeaderView.swift */; };
+		EFEC86C126C876060010726E /* String+htmlString.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEC86C026C876060010726E /* String+htmlString.swift */; };
+		EFEC86C326C886C50010726E /* MultilineTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEC86C226C886C50010726E /* MultilineTextfield.swift */; };
+		EFEC86C526C88C8E0010726E /* EditableMultilineField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEC86C426C88C8E0010726E /* EditableMultilineField.swift */; };
 		EFF4104424023C9100D01DF8 /* BgNSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF4104324023C9100D01DF8 /* BgNSView.swift */; };
 		EFF410462402421500D01DF8 /* MainWindowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF410452402421500D01DF8 /* MainWindowViewController.swift */; };
 		EFFAD45F23F8A26C009004D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFAD45E23F8A26C009004D0 /* AppDelegate.swift */; };
@@ -102,6 +109,13 @@
 		EFCF018B26AB902A00AFA6D6 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		EFD5C50726BC330D009B225D /* StatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewModel.swift; sourceTree = "<group>"; };
 		EFD5C50926BC7E12009B225D /* RescueTimeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RescueTimeService.swift; sourceTree = "<group>"; };
+		EFEC86B626C836530010726E /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
+		EFEC86B926C8591C0010726E /* AddScheduleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScheduleButtonView.swift; sourceTree = "<group>"; };
+		EFEC86BB26C859B20010726E /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
+		EFEC86BD26C861CC0010726E /* KanbanHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanHeaderView.swift; sourceTree = "<group>"; };
+		EFEC86C026C876060010726E /* String+htmlString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+htmlString.swift"; sourceTree = "<group>"; };
+		EFEC86C226C886C50010726E /* MultilineTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextfield.swift; sourceTree = "<group>"; };
+		EFEC86C426C88C8E0010726E /* EditableMultilineField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableMultilineField.swift; sourceTree = "<group>"; };
 		EFF4104324023C9100D01DF8 /* BgNSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BgNSView.swift; sourceTree = "<group>"; };
 		EFF410452402421500D01DF8 /* MainWindowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowViewController.swift; sourceTree = "<group>"; };
 		EFFAD45B23F8A26C009004D0 /* Ghost for Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ghost for Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,6 +220,7 @@
 		EFCF00FB26A77D3C00AFA6D6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				EFEC86B826C859060010726E /* Controls */,
 				EFC6F0C026B95B78001299D2 /* Settings */,
 				EFA4A1B926B753CD00143A2A /* Calendar */,
 				EFA4A1AB26B5DB0C00143A2A /* EventView.swift */,
@@ -214,6 +229,7 @@
 				EFA4A1B126B5DE1F00143A2A /* KanbanView.swift */,
 				EFA4A1B526B5F8E600143A2A /* VerticalScrollingFixHostingView.swift */,
 				EF2435C526C060080041EAA7 /* DetailsView.swift */,
+				EFEC86BD26C861CC0010726E /* KanbanHeaderView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -224,6 +240,31 @@
 				EFCF018B26AB902A00AFA6D6 /* DateHelper.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		EFEC86B526C8355A0010726E /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				EFEC86B626C836530010726E /* LoadingIndicator.swift */,
+			);
+			path = Structs;
+			sourceTree = "<group>";
+		};
+		EFEC86B826C859060010726E /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				EFEC86B926C8591C0010726E /* AddScheduleButtonView.swift */,
+				EFEC86BB26C859B20010726E /* IndicatorView.swift */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		EFEC86BF26C875E80010726E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EFEC86C026C876060010726E /* String+htmlString.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		EFFAD45223F8A26C009004D0 = {
@@ -249,6 +290,8 @@
 		EFFAD45D23F8A26C009004D0 /* Ghost for Mac */ = {
 			isa = PBXGroup;
 			children = (
+				EFEC86BF26C875E80010726E /* Extensions */,
+				EFEC86B526C8355A0010726E /* Structs */,
 				EFC465BA26ACA8860040DC9B /* ViewModel */,
 				EFCF018A26AB901C00AFA6D6 /* Helpers */,
 				EFFAD47F23F8A27B009004D0 /* Core */,
@@ -312,6 +355,8 @@
 				EFF4104324023C9100D01DF8 /* BgNSView.swift */,
 				EFFCA5E3243BD15A001BA016 /* rndBgNSView.swift */,
 				EFA30351243E319400240728 /* rndImageView.swift */,
+				EFEC86C226C886C50010726E /* MultilineTextfield.swift */,
+				EFEC86C426C88C8E0010726E /* EditableMultilineField.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -529,11 +574,13 @@
 			files = (
 				EFF410462402421500D01DF8 /* MainWindowViewController.swift in Sources */,
 				EFA4A1B626B5F8E600143A2A /* VerticalScrollingFixHostingView.swift in Sources */,
+				EFEC86BA26C8591C0010726E /* AddScheduleButtonView.swift in Sources */,
 				EFC6F0C426B96281001299D2 /* AccountsSettingsView.swift in Sources */,
 				EFFCA5E2243BC072001BA016 /* EventTableCell.swift in Sources */,
 				EF3D5C5C26978A4700FAD83A /* HomeScreen.swift in Sources */,
 				EFA4A1B026B5DD2500143A2A /* TopView.swift in Sources */,
 				EFB99FC6242A63C1005B38E5 /* AppConstants.swift in Sources */,
+				EFEC86C326C886C50010726E /* MultilineTextfield.swift in Sources */,
 				EFA4A1BF26B7682A00143A2A /* MonthView.swift in Sources */,
 				EFB99FCB242A7AB6005B38E5 /* BaseViewController.swift in Sources */,
 				EFC465BE26ACA9260040DC9B /* BaseViewModel.swift in Sources */,
@@ -551,6 +598,8 @@
 				EFA4A1B226B5DE1F00143A2A /* KanbanView.swift in Sources */,
 				EFFCA5D5243B868E001BA016 /* BaseClass.swift in Sources */,
 				EFA4A1AE26B5DC6700143A2A /* LoginView.swift in Sources */,
+				EFEC86B726C836530010726E /* LoadingIndicator.swift in Sources */,
+				EFEC86BC26C859B20010726E /* IndicatorView.swift in Sources */,
 				EF2435C626C060080041EAA7 /* DetailsView.swift in Sources */,
 				EFFAD46123F8A26C009004D0 /* MainViewController.swift in Sources */,
 				EF2BDD0126B040A8001B664C /* NSTableView+removeBg.swift in Sources */,
@@ -563,7 +612,10 @@
 				EFFCA5DC243B9C28001BA016 /* GhostCalendar.swift in Sources */,
 				EFFCA5DA243B9C28001BA016 /* Event.swift in Sources */,
 				EFC6F0C626B962D6001299D2 /* Preferences+Pane.swift in Sources */,
+				EFEC86C526C88C8E0010726E /* EditableMultilineField.swift in Sources */,
 				EFA4A1BD26B7680100143A2A /* Date+alldays.swift in Sources */,
+				EFEC86C126C876060010726E /* String+htmlString.swift in Sources */,
+				EFEC86BE26C861CC0010726E /* KanbanHeaderView.swift in Sources */,
 				EFC465C426AE13560040DC9B /* EventsViewModel.swift in Sources */,
 				EFFAD45F23F8A26C009004D0 /* AppDelegate.swift in Sources */,
 				EFA4A1C326B8242200143A2A /* View+Border.swift in Sources */,

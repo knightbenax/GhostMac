@@ -15,10 +15,13 @@ struct MonthView: View {
     var ghostDates : [GhostDate] = []
     var helper = DateHelper()
     let daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-    var event : Event
+    @EnvironmentObject var event : Event
+    @ObservedObject var eventViewModel : EventsViewModel
+    @ObservedObject var loadingIndicator : LoadingIndicator
     
-    init() {
-        event = Event(id: "23274264234", summary: "Wound David", startDate: "2012-07-11T02:30:00-06:00", endDate: "2012-07-11T04:30:00-06:00", colorId: "#546513", type: "meeting", hasTime: true, attendees: [], markedAsDone: false, description: "Break his back door", location: "Egbeda", account: "knightbenax@gmail.com")
+    init(eventViewModel : EventsViewModel, loadingIndicator: LoadingIndicator) {
+        self.loadingIndicator = loadingIndicator
+        self.eventViewModel = eventViewModel
         
         dates.forEach({
             let thisGhostDate = GhostDate(date: $0)
@@ -81,7 +84,7 @@ struct MonthView: View {
                 }
             }.padding([.bottom], 40)
             Spacer()
-            DetailsView(event: event)
+            DetailsView(loadingIndicator: loadingIndicator).environmentObject(event)
         }.frame(minWidth: 0, maxWidth: 280)
         .padding([.leading, .trailing], 10)
         .padding([.top, .bottom], 14)
@@ -91,11 +94,13 @@ struct MonthView: View {
 }
 
 struct MonthView_Previews: PreviewProvider {
+    static var loadingIndicator = LoadingIndicator()
     static var currentMonthDates = Date().getAllDays()
     static var ghostDates = [GhostDate]()
-  
+    static var eventViewModel = EventsViewModel()
+    static var event = Event(id: "23274264234", summary: "Wound David", startDate: "2012-07-11T02:30:00-06:00", endDate: "2012-07-11T04:30:00-06:00", colorId: "#546513", type: "meeting", hasTime: true, attendees: [], markedAsDone: false, description: "Break his back door", location: "Egbeda", account: "knightbenax@gmail.com")
     
     static var previews: some View {
-        MonthView()
+        MonthView(eventViewModel: eventViewModel, loadingIndicator: loadingIndicator).environmentObject(event)
     }
 }
