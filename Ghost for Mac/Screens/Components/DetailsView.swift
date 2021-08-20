@@ -40,7 +40,7 @@ struct DetailsView: View {
                         }.padding(EdgeInsets(top: 0, leading: 0, bottom: 2, trailing: 0))
                     }
                     if (event.description.count > 0){
-                        MultilineTextField(NSAttributedString(string: event.description), nsFont: NSFont(name: "Overpass-Light", size: 14)!)
+                        MultilineTextField(event.description.htmlToAttributedString!, nsFont: NSFont(name: "Overpass-Light", size: 14)!)
                             .padding(.horizontal, -4)
                             .padding([.top], 5)
                     }

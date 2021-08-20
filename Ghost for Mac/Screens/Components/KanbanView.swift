@@ -12,7 +12,8 @@ struct KanbanView: View {
     @ObservedObject var eventViewModel : EventsViewModel
     var daysArray : [String]
     var datesArray : [String]
-    var eventsInWeek : [[Event]]
+    //var eventsInWeek : [[Event]]
+    @ObservedObject var eventsInWeek : EventsInWeek
     var helper : DateHelper
     var selectedDayIndex : Int = 7
     @EnvironmentObject var currentEvent : Event
@@ -29,10 +30,10 @@ struct KanbanView: View {
                             VStack(alignment: .leading, spacing: 0) {
                                 VStack(alignment: .leading, spacing: 0){
                                     KanbanHeaderView(day: daysArray[i], dayOfMonth: datesArray[i], currentDay: selectedDayIndex, indexDay: i)
-                                    if (self.eventsInWeek.count > 0) {
-                                        if (self.eventsInWeek[i].count > 0){
+                                    if (self.eventsInWeek.weekevents.count > 0) {
+                                        if (self.eventsInWeek.weekevents[i].count > 0){
                                             List {
-                                                ForEach(eventsInWeek[i]){ event in
+                                                ForEach(eventsInWeek.weekevents[i], id: \.id){ event in
                                                     EventView(event: event, helper: helper, eventViewModel: eventViewModel)
                                                         .padding([.leading, .trailing], 2)
                                                         .padding([.bottom], 8)
@@ -50,6 +51,7 @@ struct KanbanView: View {
                                                             self.currentEvent.markedAsDone = event.markedAsDone
                                                             self.currentEvent.description = event.description
                                                             self.currentEvent.account = event.account
+                                                            self.currentEvent.location = event.location
                                                         }
                                                 }
                                             }.padding(.horizontal, -5).workaroundForVerticalScrollingBugInMacOS()
@@ -82,7 +84,7 @@ struct KanbanView_Previews: PreviewProvider {
     static var eventII = Event(id: "23274264234", summary: "Wound David", startDate: "2012-07-11T02:30:00-06:00", endDate: "2012-07-11T04:30:00-06:00", colorId: "#546513", type: "meeting", hasTime: true, attendees: [], markedAsDone: false, description: "Break his back door", location: "Egbeda", account: "knightbenax@gmail.com")
     
     
-    static var eventsInWeek = [[Event]]()
+    static var eventsInWeek = EventsInWeek()
     static var helper  = DateHelper()
     static var eventViewModel = EventsViewModel()
     static var daysArray = [String]()

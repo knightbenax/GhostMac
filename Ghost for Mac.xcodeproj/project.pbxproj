@@ -45,6 +45,8 @@
 		EFEC86C126C876060010726E /* String+htmlString.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEC86C026C876060010726E /* String+htmlString.swift */; };
 		EFEC86C326C886C50010726E /* MultilineTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEC86C226C886C50010726E /* MultilineTextfield.swift */; };
 		EFEC86C526C88C8E0010726E /* EditableMultilineField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEC86C426C88C8E0010726E /* EditableMultilineField.swift */; };
+		EFEC86C726CAF7140010726E /* DatesArranger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEC86C626CAF7140010726E /* DatesArranger.swift */; };
+		EFEC86C926CB08CE0010726E /* EventsInWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEC86C826CB08CE0010726E /* EventsInWeek.swift */; };
 		EFF4104424023C9100D01DF8 /* BgNSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF4104324023C9100D01DF8 /* BgNSView.swift */; };
 		EFF410462402421500D01DF8 /* MainWindowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF410452402421500D01DF8 /* MainWindowViewController.swift */; };
 		EFFAD45F23F8A26C009004D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFAD45E23F8A26C009004D0 /* AppDelegate.swift */; };
@@ -116,6 +118,8 @@
 		EFEC86C026C876060010726E /* String+htmlString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+htmlString.swift"; sourceTree = "<group>"; };
 		EFEC86C226C886C50010726E /* MultilineTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextfield.swift; sourceTree = "<group>"; };
 		EFEC86C426C88C8E0010726E /* EditableMultilineField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableMultilineField.swift; sourceTree = "<group>"; };
+		EFEC86C626CAF7140010726E /* DatesArranger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesArranger.swift; sourceTree = "<group>"; };
+		EFEC86C826CB08CE0010726E /* EventsInWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsInWeek.swift; sourceTree = "<group>"; };
 		EFF4104324023C9100D01DF8 /* BgNSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BgNSView.swift; sourceTree = "<group>"; };
 		EFF410452402421500D01DF8 /* MainWindowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowViewController.swift; sourceTree = "<group>"; };
 		EFFAD45B23F8A26C009004D0 /* Ghost for Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ghost for Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -379,6 +383,8 @@
 				EFFCA5D9243B9C28001BA016 /* GhostCalendar.swift */,
 				EFC465BF26AD685C0040DC9B /* GoogleCalendar.swift */,
 				EFA4A1C026B7F34700143A2A /* GhostDate.swift */,
+				EFEC86C626CAF7140010726E /* DatesArranger.swift */,
+				EFEC86C826CB08CE0010726E /* EventsInWeek.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -595,6 +601,7 @@
 				EFFCA5D3243B6843001BA016 /* GoogleService.swift in Sources */,
 				EFC465C026AD685C0040DC9B /* GoogleCalendar.swift in Sources */,
 				EFFCA5DF243BB535001BA016 /* Utils.swift in Sources */,
+				EFEC86C726CAF7140010726E /* DatesArranger.swift in Sources */,
 				EFA4A1B226B5DE1F00143A2A /* KanbanView.swift in Sources */,
 				EFFCA5D5243B868E001BA016 /* BaseClass.swift in Sources */,
 				EFA4A1AE26B5DC6700143A2A /* LoginView.swift in Sources */,
@@ -610,6 +617,7 @@
 				EFC465C226ADF6AA0040DC9B /* NSColor+Random.swift in Sources */,
 				EFC6F0C226B95B91001299D2 /* GeneralSettingsView.swift in Sources */,
 				EFFCA5DC243B9C28001BA016 /* GhostCalendar.swift in Sources */,
+				EFEC86C926CB08CE0010726E /* EventsInWeek.swift in Sources */,
 				EFFCA5DA243B9C28001BA016 /* Event.swift in Sources */,
 				EFC6F0C626B962D6001299D2 /* Preferences+Pane.swift in Sources */,
 				EFEC86C526C88C8E0010726E /* EditableMultilineField.swift in Sources */,

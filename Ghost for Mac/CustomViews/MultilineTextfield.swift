@@ -82,7 +82,6 @@ fileprivate struct NSTextViewWrapper: NSViewRepresentable {
             DispatchQueue.main.async {
                 result.wrappedValue = latestSize.height
                 //print(#function, latestSize.height)
-                
             }
         }
     }

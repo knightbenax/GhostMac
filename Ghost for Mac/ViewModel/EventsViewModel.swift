@@ -15,14 +15,16 @@ class EventsViewModel: BaseViewModel, ObservableObject {
         return []
     }()
     
+    var calendars : [GoogleCalendar]!
     var eventsInWeek  = [[Event]]()
     var fetchedDay = 0
     var needContacts : Bool = false
     var contacts = Array<Contact>()
     
+    
+    
     func fetchEvents(completion: @escaping (_ eventsInDaysArrays : [[Event]]) -> ()){
-        
-        var calendars = storeHelper.getCalendars(delegate: getDelegate())
+        calendars = storeHelper.getCalendars(delegate: getDelegate())
         calendars = calendars.removingDuplicates()
         fetchEventsProtocol(calendars: calendars, completion: { eventsInDaysArrays in
             completion(eventsInDaysArrays)
@@ -55,6 +57,8 @@ class EventsViewModel: BaseViewModel, ObservableObject {
     
     func fetchEventsProtocol(calendars: [GoogleCalendar], completion: @escaping (_ eventsInDaysArrays : [[Event]]) -> ()){
         
+        //clear out previous events
+        eventsInWeek.removeAll()
         events.removeAll()
         let next_week = getTimeAndDate(day: 7)
         let last_week = getTimeAndDate(diff: -1, day: -7)
@@ -239,6 +243,13 @@ class EventsViewModel: BaseViewModel, ObservableObject {
             eventsInWeek.append(thisEvents)
             last_week_date = Calendar.current.date(byAdding: .day, value: 1, to: last_week_date)!
         }
+        
+//        `for events in eventsInWeek{
+//            for event in events {
+//                print(event.summary)
+//            }
+//            print("")
+//        }`
         
     }
     

@@ -32,7 +32,9 @@ struct TopView: View {
             .padding([.bottom], 14)
             .onAppear(){
                 statsViewModel.getRescueTimeData(completion: { result in
-                    prodStats = result
+                    DispatchQueue.main.async {
+                        prodStats = result
+                    }
                 })
             }
             Spacer()

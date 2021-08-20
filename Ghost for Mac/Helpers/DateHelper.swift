@@ -71,6 +71,15 @@ class DateHelper {
         return dateFormatterPrint.string(from: thisDate)
     }
     
+    
+    func formatDateToMonth(thisDate: Date) -> String{
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatterPrint.dateFormat = "MMMM YYYY"
+        
+        return dateFormatterPrint.string(from: thisDate)
+    }
+    
     func getTimeFromDateTemp(thisDate: String) -> String{
         let dateFormatterGet = DateFormatter()
         dateFormatterGet.locale = Locale(identifier: "en_US_POSIX")
