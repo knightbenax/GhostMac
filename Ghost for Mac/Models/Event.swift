@@ -10,9 +10,9 @@ import Foundation
 
 import SwiftUI
 
-class Event: Identifiable{
+class Event: Identifiable, ObservableObject{
     
-    var summary: String
+    @Published var summary: String
     var startDate: String
     var endDate: String
     var type: String
@@ -24,8 +24,9 @@ class Event: Identifiable{
     var description : String
     var location : String?
     var account : String?
+    var conferenceData : ConferenceData?
     
-    init(id: String, summary: String, startDate: String, endDate: String, colorId: String, type: String, hasTime : Bool, attendees : Array<String>? = nil, markedAsDone: Bool, description: String, location: String? = "", account : String) {
+    init(id: String, summary: String, startDate: String, endDate: String, colorId: String, type: String, hasTime : Bool, attendees : Array<String>? = nil, markedAsDone: Bool, description: String, location: String? = "", account : String, conferenceData : ConferenceData? = nil) {
         self.summary = summary
         self.startDate = startDate
         self.endDate = endDate
@@ -38,6 +39,23 @@ class Event: Identifiable{
         self.description = description
         self.location = location
         self.account = account
+        self.conferenceData = conferenceData
+    }
+    
+    func updateValue(id: String, summary: String, startDate: String, endDate: String, colorId: String, type: String, hasTime : Bool, attendees : Array<String>? = nil, markedAsDone: Bool, description: String, location: String? = "", account : String, conferenceData : ConferenceData? = nil){
+        self.summary = summary
+        self.startDate = startDate
+        self.endDate = endDate
+        self.type = type
+        self.hasTime = hasTime
+        self.colorId = colorId
+        self.id = id
+        self.attendees = attendees
+        self.markedAsDone = markedAsDone
+        self.description = description
+        self.location = location
+        self.account = account
+        self.conferenceData = conferenceData
     }
     
     

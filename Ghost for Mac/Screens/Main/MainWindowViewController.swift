@@ -23,7 +23,7 @@ class MainWindowViewController: NSWindowController {
         
         let hostingView = NSHostingView(rootView:
             HStack{
-                Button(action: {print("balls")}) {
+                Button(action: { reloadHomeScreenView() }) {
                     Image(systemName: "arrow.clockwise")
                         .font(.system(size: 18, weight: .bold))
                         .foregroundColor(.white)
@@ -42,11 +42,24 @@ class MainWindowViewController: NSWindowController {
         let titlebarAccessory = NSTitlebarAccessoryViewController()
         titlebarAccessory.view = hostingView
         titlebarAccessory.layoutAttribute = .trailing
-        //mainWindow.isMovableByWindowBackground = true
         mainWindow.titlebarAppearsTransparent = true
         mainWindow.addTitlebarAccessoryViewController(titlebarAccessory)
         mainWindow.backgroundColor = NSColor.init(named: "GhostBlue")
-        mainWindow.appearance = NSAppearance(named: .darkAqua)
-        //mainWindow.subtitle = dateHelper.formatDateToBeauty(thisDate: today, type: "month_year")
+        
     }
+    
+    override func windowDidLoad() {
+        mainWindow.makeKeyAndOrderFront(nil)
+    }
+}
+
+func reloadHomeScreenView(){
+    NotificationCenter.default.post(Notification(name: .reload,
+                                                       object: nil,
+                                                       userInfo: nil))
+}
+
+
+extension Notification.Name {
+  static var reload: Notification.Name { return .init("reload") }
 }

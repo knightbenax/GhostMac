@@ -9,15 +9,12 @@
 import SwiftUI
 
 struct TopView: View {
-    @State var loading : Bool
+    @ObservedObject var loadingIndicator : LoadingIndicator
     var baseViewModel = BaseViewModel()
     var statsViewModel = StatsViewModel()
     @State var prodStats = "Seeking today's productivity"
     @AppStorage("firstname") var firstname = ""
-    
-    init(loading: Bool) {
-        self.loading = loading
-    }
+    var reloadNotificationChanged = NotificationCenter.default.publisher(for: .reload)
     
     var body: some View {
         HStack(alignment: .center){
@@ -32,13 +29,17 @@ struct TopView: View {
             .padding([.bottom], 14)
             .onAppear(){
                 statsViewModel.getRescueTimeData(completion: { result in
-                    prodStats = result
+                    DispatchQueue.main.async {
+                        prodStats = result
+                    }
                 })
             }
             Spacer()
-            if (loading){
-                ProgressView().progressViewStyle(CircularProgressViewStyle())
+            if (loadingIndicator.loading){
+                ProgressView().progressViewStyle(CircularProgressViewStyle(tint: Color.white))
                     .frame(width: 30, height: 30)
+                    .scaleEffect(0.8, anchor: .center)
+                    .colorScheme(.dark)
             }
             VStack{
                 Button(action: {print("bussy")}) {
@@ -60,13 +61,21 @@ struct TopView: View {
             .padding([.leading, .trailing], 14)
         }.frame(maxWidth: .infinity)
         .background(Color("GhostBlue"))
+        .onReceive(reloadNotificationChanged, perform: { _ in
+            //checkNewDayAndLoad()
+            statsViewModel.getRescueTimeData(completion: { result in
+                DispatchQueue.main.async {
+                    prodStats = result
+                }
+            })
+        })
     }
 }
 
 struct TopView_Previews: PreviewProvider {
-    static var loading : Bool = false
+    static var loadingIndicator = LoadingIndicator()
     
     static var previews: some View {
-        TopView(loading: loading)
+        TopView(loadingIndicator: loadingIndicator) //loading: loading
     }
 }
