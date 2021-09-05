@@ -79,6 +79,44 @@ class GoogleService: BaseClass {
         //print(request)
     }
     
+    func getColors(completion: @escaping(Result<Any, Error>) -> ()){
+        let colorsURl = "https://www.googleapis.com/calendar/v3/colors?key=" + AppConstants().google_calendar_api_key
+        //
+        
+        getToken(completion: {(result: Result<Any, Error>) in
+            
+            switch (result){
+            case .success(let data):
+                let token = data as! String
+                
+                let headers: HTTPHeaders = [
+                    "Authorization": "Bearer " + token,
+                    "Accept" : "application/json"
+                ]
+                
+                AF.request(colorsURl, method: .get, headers: headers)
+                    .validate(statusCode: 200..<300).responseJSON(completionHandler: {(response) in
+                        switch response.result {
+                        case .success(let data):
+                            completion(.success((data as! NSDictionary).object(forKey: "calendar")!))
+                            break
+                        case .failure(let error):
+                            let data = self.nsdataToJSON(data: response.data! as NSData) as? NSDictionary
+                            print(data as Any)
+                            print(response.error)
+                            print(colorsURl)
+                            completion(.failure(error))
+                            break
+                        }
+                    })
+            case .failure(let error):
+                completion(.failure(error))
+            }
+            
+            
+        })
+    }
+    
     //https://www.googleapis.com/calendar/v3/calendars/calendarId/events/eventId
      func getContacts(completion: @escaping (Result<Any, Error>) -> ()){
     //       let requestURl = AppConstants().google_people + "&key=" + AppConstants().google_calendar_api_key

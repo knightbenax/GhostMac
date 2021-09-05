@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		37BDE9FBBD482218D8EB1426 /* Pods_Ghost_for_MacTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC917E76DE41586BDC2EF2B /* Pods_Ghost_for_MacTests.framework */; };
 		552365B44D482F3140614903 /* Pods_Ghost_for_Mac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A0A08BD7191287F1043593 /* Pods_Ghost_for_Mac.framework */; };
+		EF14EE0626CFEDBB00EBE556 /* ConferenceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF14EE0526CFEDBB00EBE556 /* ConferenceData.swift */; };
 		EF2435C626C060080041EAA7 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2435C526C060080041EAA7 /* DetailsView.swift */; };
 		EF2BDD0126B040A8001B664C /* NSTableView+removeBg.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2BDD0026B040A8001B664C /* NSTableView+removeBg.swift */; };
 		EF3D5C5C26978A4700FAD83A /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D5C5B26978A4700FAD83A /* HomeScreen.swift */; };
@@ -22,6 +23,9 @@
 		EFA4A1BF26B7682A00143A2A /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA4A1BE26B7682A00143A2A /* MonthView.swift */; };
 		EFA4A1C126B7F34700143A2A /* GhostDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA4A1C026B7F34700143A2A /* GhostDate.swift */; };
 		EFA4A1C326B8242200143A2A /* View+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA4A1C226B8242200143A2A /* View+Border.swift */; };
+		EFAA583C26E419FC00C21B02 /* EventColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAA583B26E419FC00C21B02 /* EventColor.swift */; };
+		EFAA583E26E430A200C21B02 /* OldEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAA583D26E430A200C21B02 /* OldEventView.swift */; };
+		EFAA584726E5287E00C21B02 /* ConferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAA584626E5287E00C21B02 /* ConferenceView.swift */; };
 		EFB99FC3242832B0005B38E5 /* EventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB99FC1242832B0005B38E5 /* EventItem.swift */; };
 		EFB99FC4242832B0005B38E5 /* EventItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFB99FC2242832B0005B38E5 /* EventItem.xib */; };
 		EFB99FC6242A63C1005B38E5 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB99FC5242A63C1005B38E5 /* AppConstants.swift */; };
@@ -82,6 +86,7 @@
 		6263089CBCA0C7D36EC31AFE /* Pods-Ghost for Mac.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ghost for Mac.debug.xcconfig"; path = "Target Support Files/Pods-Ghost for Mac/Pods-Ghost for Mac.debug.xcconfig"; sourceTree = "<group>"; };
 		A5C16CE5FA92500E555F3755 /* Pods-Ghost for Mac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ghost for Mac.release.xcconfig"; path = "Target Support Files/Pods-Ghost for Mac/Pods-Ghost for Mac.release.xcconfig"; sourceTree = "<group>"; };
 		CFC917E76DE41586BDC2EF2B /* Pods_Ghost_for_MacTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ghost_for_MacTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF14EE0526CFEDBB00EBE556 /* ConferenceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceData.swift; sourceTree = "<group>"; };
 		EF2435C526C060080041EAA7 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		EF2BDD0026B040A8001B664C /* NSTableView+removeBg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTableView+removeBg.swift"; sourceTree = "<group>"; };
 		EF3D5C5B26978A4700FAD83A /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
@@ -95,6 +100,9 @@
 		EFA4A1BE26B7682A00143A2A /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
 		EFA4A1C026B7F34700143A2A /* GhostDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostDate.swift; sourceTree = "<group>"; };
 		EFA4A1C226B8242200143A2A /* View+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Border.swift"; sourceTree = "<group>"; };
+		EFAA583B26E419FC00C21B02 /* EventColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventColor.swift; sourceTree = "<group>"; };
+		EFAA583D26E430A200C21B02 /* OldEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldEventView.swift; sourceTree = "<group>"; };
+		EFAA584626E5287E00C21B02 /* ConferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceView.swift; sourceTree = "<group>"; };
 		EFB99FC1242832B0005B38E5 /* EventItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventItem.swift; sourceTree = "<group>"; };
 		EFB99FC2242832B0005B38E5 /* EventItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventItem.xib; sourceTree = "<group>"; };
 		EFB99FC5242A63C1005B38E5 /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
@@ -234,6 +242,8 @@
 				EFA4A1B526B5F8E600143A2A /* VerticalScrollingFixHostingView.swift */,
 				EF2435C526C060080041EAA7 /* DetailsView.swift */,
 				EFEC86BD26C861CC0010726E /* KanbanHeaderView.swift */,
+				EFAA583D26E430A200C21B02 /* OldEventView.swift */,
+				EFAA584626E5287E00C21B02 /* ConferenceView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -385,6 +395,8 @@
 				EFA4A1C026B7F34700143A2A /* GhostDate.swift */,
 				EFEC86C626CAF7140010726E /* DatesArranger.swift */,
 				EFEC86C826CB08CE0010726E /* EventsInWeek.swift */,
+				EF14EE0526CFEDBB00EBE556 /* ConferenceData.swift */,
+				EFAA583B26E419FC00C21B02 /* EventColor.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -590,10 +602,12 @@
 				EFA4A1BF26B7682A00143A2A /* MonthView.swift in Sources */,
 				EFB99FCB242A7AB6005B38E5 /* BaseViewController.swift in Sources */,
 				EFC465BE26ACA9260040DC9B /* BaseViewModel.swift in Sources */,
+				EF14EE0626CFEDBB00EBE556 /* ConferenceData.swift in Sources */,
 				EFFAD46423F8A26C009004D0 /* Ghost_for_Mac.xcdatamodeld in Sources */,
 				EFB99FC3242832B0005B38E5 /* EventItem.swift in Sources */,
 				EFB99FC8242A6A53005B38E5 /* Store.swift in Sources */,
 				EFCF018C26AB902A00AFA6D6 /* DateHelper.swift in Sources */,
+				EFAA583C26E419FC00C21B02 /* EventColor.swift in Sources */,
 				EFF4104424023C9100D01DF8 /* BgNSView.swift in Sources */,
 				EFD5C50826BC330D009B225D /* StatsViewModel.swift in Sources */,
 				EFD5C50A26BC7E12009B225D /* RescueTimeService.swift in Sources */,
@@ -612,6 +626,7 @@
 				EF2BDD0126B040A8001B664C /* NSTableView+removeBg.swift in Sources */,
 				EFA4A1C126B7F34700143A2A /* GhostDate.swift in Sources */,
 				EFC465BC26ACA89A0040DC9B /* AuthViewModel.swift in Sources */,
+				EFAA584726E5287E00C21B02 /* ConferenceView.swift in Sources */,
 				EFFCA5DB243B9C28001BA016 /* Contact.swift in Sources */,
 				EFA4A1AC26B5DB0C00143A2A /* EventView.swift in Sources */,
 				EFC465C226ADF6AA0040DC9B /* NSColor+Random.swift in Sources */,
@@ -623,6 +638,7 @@
 				EFEC86C526C88C8E0010726E /* EditableMultilineField.swift in Sources */,
 				EFA4A1BD26B7680100143A2A /* Date+alldays.swift in Sources */,
 				EFEC86C126C876060010726E /* String+htmlString.swift in Sources */,
+				EFAA583E26E430A200C21B02 /* OldEventView.swift in Sources */,
 				EFEC86BE26C861CC0010726E /* KanbanHeaderView.swift in Sources */,
 				EFC465C426AE13560040DC9B /* EventsViewModel.swift in Sources */,
 				EFFAD45F23F8A26C009004D0 /* AppDelegate.swift in Sources */,

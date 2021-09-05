@@ -14,10 +14,7 @@ struct TopView: View {
     var statsViewModel = StatsViewModel()
     @State var prodStats = "Seeking today's productivity"
     @AppStorage("firstname") var firstname = ""
-    
-//    init(loading: Bool) {
-//        self.loading = loading
-//    }
+    var reloadNotificationChanged = NotificationCenter.default.publisher(for: .reload)
     
     var body: some View {
         HStack(alignment: .center){
@@ -64,6 +61,14 @@ struct TopView: View {
             .padding([.leading, .trailing], 14)
         }.frame(maxWidth: .infinity)
         .background(Color("GhostBlue"))
+        .onReceive(reloadNotificationChanged, perform: { _ in
+            //checkNewDayAndLoad()
+            statsViewModel.getRescueTimeData(completion: { result in
+                DispatchQueue.main.async {
+                    prodStats = result
+                }
+            })
+        })
     }
 }
 

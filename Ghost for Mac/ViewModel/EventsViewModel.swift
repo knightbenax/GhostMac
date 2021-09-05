@@ -66,6 +66,7 @@ class EventsViewModel: BaseViewModel, ObservableObject {
             group.enter()
             let account = $0.owner
             getDelegate().currentAccount = $0.owner
+            
             googleService.getGoogleCalendarEvents(calendar_id: $0.id, startDate: next_week, endDate: last_week, completion: { [self](result: Result<Any, Error>) in
                 switch (result){
                 case .success(let data):
@@ -84,6 +85,7 @@ class EventsViewModel: BaseViewModel, ObservableObject {
                 }
             });
         })
+
         
         
         
@@ -106,6 +108,7 @@ class EventsViewModel: BaseViewModel, ObservableObject {
             var descriptionTemp = ""
             var location : String? = ""
             var hasTime = false
+            var thisEventConferenceData : ConferenceData? = nil
             
             if (data.object(forKey: "conferenceData") as? NSDictionary) != nil {
                 type = "#meeting"
@@ -133,6 +136,23 @@ class EventsViewModel: BaseViewModel, ObservableObject {
                 colorId = tempColorId
             } else {
                 colorId = "11"
+            }
+            
+            if let conferenceData = data.object(forKey: "conferenceData") as? NSDictionary{
+                thisEventConferenceData = ConferenceData()
+                if let solution = conferenceData.object(forKey: "conferenceSolution") as? NSDictionary {
+                    thisEventConferenceData?.toolName = solution.object(forKey: "name") as! String
+                }
+                
+                if let entryPoint = conferenceData.object(forKey: "entryPoints") as? NSArray{
+                    if let firstPoint = entryPoint[0] as? NSDictionary{
+                        thisEventConferenceData?.toolLink = firstPoint.object(forKey: "uri") as! String
+                    }
+                    
+                    if let secondPoint = entryPoint[1] as? NSDictionary{
+                        thisEventConferenceData?.toolPhoneLink = secondPoint.object(forKey: "uri") as! String
+                    }
+                }
             }
             
             if let locationTemp = data.object(forKey: "location") as? String{
@@ -201,7 +221,7 @@ class EventsViewModel: BaseViewModel, ObservableObject {
                                      colorId: colorId,
                                      type: type,
                                      hasTime: hasTime, attendees: savedAttendees,
-                                     markedAsDone: markedAsDone, description: descriptionTemp, location: location, account: account)
+                                     markedAsDone: markedAsDone, description: descriptionTemp, location: location, account: account, conferenceData: thisEventConferenceData)
                 events.append(newEvent)
             } else {
                 var newStartDate = eventStartDate
@@ -217,7 +237,8 @@ class EventsViewModel: BaseViewModel, ObservableObject {
                                          colorId: colorId,
                                          type: type,
                                          hasTime: hasTime, attendees: savedAttendees,
-                                         markedAsDone: markedAsDone, description: descriptionTemp, location: location, account: account)
+                                         markedAsDone: markedAsDone, description: descriptionTemp, location: location, account: account,
+                                         conferenceData: thisEventConferenceData)
 
                     newStartDate = newEndDate
                     events.append(duplicateEvent)
@@ -244,12 +265,12 @@ class EventsViewModel: BaseViewModel, ObservableObject {
             last_week_date = Calendar.current.date(byAdding: .day, value: 1, to: last_week_date)!
         }
         
-//        `for events in eventsInWeek{
+//        for events in eventsInWeek{
 //            for event in events {
 //                print(event.summary)
 //            }
 //            print("")
-//        }`
+//        }
         
     }
     

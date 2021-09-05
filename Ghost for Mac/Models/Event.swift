@@ -24,8 +24,9 @@ class Event: Identifiable, ObservableObject{
     var description : String
     var location : String?
     var account : String?
+    var conferenceData : ConferenceData?
     
-    init(id: String, summary: String, startDate: String, endDate: String, colorId: String, type: String, hasTime : Bool, attendees : Array<String>? = nil, markedAsDone: Bool, description: String, location: String? = "", account : String) {
+    init(id: String, summary: String, startDate: String, endDate: String, colorId: String, type: String, hasTime : Bool, attendees : Array<String>? = nil, markedAsDone: Bool, description: String, location: String? = "", account : String, conferenceData : ConferenceData? = nil) {
         self.summary = summary
         self.startDate = startDate
         self.endDate = endDate
@@ -38,9 +39,10 @@ class Event: Identifiable, ObservableObject{
         self.description = description
         self.location = location
         self.account = account
+        self.conferenceData = conferenceData
     }
     
-    func updateValue(id: String, summary: String, startDate: String, endDate: String, colorId: String, type: String, hasTime : Bool, attendees : Array<String>? = nil, markedAsDone: Bool, description: String, location: String? = "", account : String){
+    func updateValue(id: String, summary: String, startDate: String, endDate: String, colorId: String, type: String, hasTime : Bool, attendees : Array<String>? = nil, markedAsDone: Bool, description: String, location: String? = "", account : String, conferenceData : ConferenceData? = nil){
         self.summary = summary
         self.startDate = startDate
         self.endDate = endDate
@@ -53,6 +55,7 @@ class Event: Identifiable, ObservableObject{
         self.description = description
         self.location = location
         self.account = account
+        self.conferenceData = conferenceData
     }
     
     

@@ -10,7 +10,7 @@ import Foundation
 
 class DatesArranger: ObservableObject {
     
-    var daysArray : [String] = [String]()
-    var datesArray : [String] = [String]()
+    @Published var daysArray : [String] = [String]()
+    @Published var datesArray : [String] = [String]()
     
 }

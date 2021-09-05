@@ -27,6 +27,7 @@ struct MonthView: View {
     @EnvironmentObject var event : Event
     @ObservedObject var eventViewModel : EventsViewModel
     @ObservedObject var loadingIndicator : LoadingIndicator
+    var reloadNotificationChanged = NotificationCenter.default.publisher(for: .reload)
     
     init(eventViewModel : EventsViewModel, loadingIndicator: LoadingIndicator) {
         self.loadingIndicator = loadingIndicator
@@ -36,7 +37,7 @@ struct MonthView: View {
     func loadDates(){
         dates = today.getAllDays()
         let firstDate = Calendar.current.component(.weekday, from: dates[0])
-        
+        self.ghostDates.removeAll()
         for _ in 0..<firstDate - 1 {
             let thisGhostDate = GhostDate(date: nil)
             ghostDates.append(thisGhostDate)
@@ -148,9 +149,13 @@ struct MonthView: View {
         .padding([.leading, .trailing], 10)
         .padding([.top, .bottom], 14)
         .background(Color("kanbanInside"))
-        .border(width: 1, edges: [.trailing], color: Color("kanbanItemBorder")).onAppear(){
+        .border(width: 1, edges: [.trailing], color: Color("kanbanItemBorder"))
+        .onAppear(){
             loadDates()
-        }
+        }.onReceive(reloadNotificationChanged, perform: { _ in
+            loadDates()
+        })
+        
     }
 }
 

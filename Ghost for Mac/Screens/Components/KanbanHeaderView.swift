@@ -15,23 +15,42 @@ struct KanbanHeaderView: View {
     var indexDay : Int
     
     var body: some View {
-        VStack(spacing: 0){
+        VStack(alignment: .leading, spacing: 0){
             if (currentDay == indexDay){
                 HStack(alignment: .center, spacing: 0){
                     IndicatorView()
                     Text(day + ", " +  dayOfMonth)
                         .font(.custom("Overpass-Regular", size: 14))
                         .foregroundColor(Color("textColor"))
-                        
+                    Spacer()
+                    Button(action: {print("be")}) {
+                        Image(systemName: "calendar.badge.plus")
+                            .font(.system(size: 14, weight: .bold))
+                            .frame(width: 32, height: 28, alignment: .center)
+                    }
+                    .buttonStyle(BlueButtonStyle())
+                    .foregroundColor(.black)
+                    .cornerRadius(4.0)
                 }.padding([.top], 10)
+                .padding([.leading, .trailing], 14)
                 .frame(minWidth: 0, maxWidth: .infinity)
             } else {
-                Text(day + ", " +  dayOfMonth)
-                    .font(.custom("Overpass-Regular", size: 14))
-                    .foregroundColor(Color("textColor"))
-                    .padding([.leading, .trailing], 6)
-                    .padding([.top], 10)
-                    .frame(minWidth: 0, maxWidth: .infinity)
+                HStack(alignment: .center, spacing: 0){
+                    Text(day + ", " +  dayOfMonth)
+                        .font(.custom("Overpass-Regular", size: 14))
+                        .foregroundColor(Color("textColor"))
+                    Spacer()
+                    Button(action: {print("be")}) {
+                        Image(systemName: "calendar.badge.plus")
+                            .font(.system(size: 14, weight: .bold))
+                            .frame(width: 32, height: 28, alignment: .center)
+                    }
+                    .buttonStyle(BlueButtonStyle())
+                    .foregroundColor(.black)
+                    .cornerRadius(4.0)
+                }.padding([.top], 10)
+                .padding([.leading, .trailing], 16)
+                .frame(minWidth: 0, maxWidth: .infinity)
             }
         }
     }

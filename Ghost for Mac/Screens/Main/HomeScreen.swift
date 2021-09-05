@@ -18,13 +18,13 @@ struct HomeScreen: View {
     //@State var eventsInWeek = [[Event]]()
     @State var currentEvent : Event = Event(id: "23274264256", summary: "Bless Derin", startDate: "2012-07-19T02:30:00-06:00", endDate: "2012-07-21T02:30:00-06:00", colorId: "#546513", type: "meeting", hasTime: true, attendees: [], markedAsDone: false, description: "Break his back door", location: "Lekki", account: "knightbenax@gmail.com")
     
-    var today : Date!
+    @State var today : Date!
     var reloadNotificationChanged = NotificationCenter.default.publisher(for: .reload)
     
     let daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 //    @State var daysArray : [String] = [String]()
 //    @State var datesArray : [String] = [String]()
-    @State var datesArranger  = DatesArranger()
+    @StateObject var datesArranger  = DatesArranger()
     let helper = DateHelper()
     let authViewModel = AuthViewModel()
     @StateObject var eventViewModel = EventsViewModel()
@@ -33,9 +33,12 @@ struct HomeScreen: View {
         let currentDay = today ?? Date()
         if (Calendar.current.isDateInToday(currentDay)){//meaning we are still in the same day
             loadData()
+            print("change data")
         } else {
+            print("change day")
             datesArranger.datesArray.removeAll()
             datesArranger.daysArray.removeAll()
+            print(currentDay)
             for i in 0..<14 {
                 let dayDiff = i - 7
                 let nextDate = Calendar.current.date(byAdding: .day, value: dayDiff, to: currentDay)
@@ -43,6 +46,7 @@ struct HomeScreen: View {
                 datesArranger.datesArray.append(helper.formatDateToBeauty(thisDate: nextDate!, type: "day"))
                 datesArranger.daysArray.append(daysOfWeek[index])
             }
+            print(datesArranger.datesArray[7])
         }
     }
     
@@ -68,12 +72,16 @@ struct HomeScreen: View {
                     self.currentEvent.description = event.description
                     self.currentEvent.account = event.account
                     self.currentEvent.location = event.location
+                    self.currentEvent.conferenceData = event.conferenceData
                 }
             }
         })
     }
     
-    init() {
+    func createValues(){
+        print("fresg")
+        datesArranger.datesArray.removeAll()
+        datesArranger.daysArray.removeAll()
         today = Date()
         for i in 0..<14 {
             let dayDiff = i - 7
@@ -88,7 +96,7 @@ struct HomeScreen: View {
         VStack(alignment: .center, spacing: 0) {
             TopView(loadingIndicator: loadingIndicator) //loading: loadingIndicator.loading
             if (authViewModel.isLoggedIn()){
-                KanbanView(eventViewModel: eventViewModel, daysArray: datesArranger.daysArray, datesArray: datesArranger.datesArray, eventsInWeek: eventsInWeek, helper: helper, loadingIndicator: loadingIndicator)
+                KanbanView(eventViewModel: eventViewModel, datesArranger: datesArranger, eventsInWeek: eventsInWeek, helper: helper, loadingIndicator: loadingIndicator)
                     .onAppear(){
                         self.loadData()
                     }.environmentObject(currentEvent)
@@ -98,10 +106,12 @@ struct HomeScreen: View {
         
         }.frame(minWidth: 700,  maxWidth: .infinity, minHeight: 500, maxHeight: .infinity)
         .background(Color("darkBgColor"))
+        .onAppear(){
+            self.createValues()
+        }
         .onReceive(reloadNotificationChanged, perform: { _ in
             checkNewDayAndLoad()
         })
-        //.environmentObject(eventViewModel)
     }
 }
 
