@@ -11,9 +11,9 @@ import SwiftUI
 
 class GhostDate: Identifiable{
     
-    var date: Date
+    var date: Date?
     
-    init(date: Date) {
+    init(date: Date?) {
         self.date = date
     }
         

@@ -10,7 +10,9 @@ import SwiftUI
 
 struct DetailsView: View {
     var helper = DateHelper()
-    var event : Event
+    @EnvironmentObject var event : Event
+    @ObservedObject var loadingIndicator : LoadingIndicator
+    @Environment(\.openURL) var openURL
     
     func isValidUrl(url: String) -> Bool {
         let urlRegEx = "^(https?://)?(www\\.)?([-a-z0-9]{1,63}\\.)*?[a-z0-9][-a-z0-9]{0,61}[a-z0-9]\\.[a-z]{2,6}(/[-\\w@\\+\\.~#\\?&/=%]*)?$"
@@ -21,39 +23,62 @@ struct DetailsView: View {
     
     var body: some View {
         HStack{
-            VStack(alignment: .leading){
-                Text(event.summary).font(.custom("Overpass-Regular", size: 16))
-                    .padding(EdgeInsets(top: 0, leading: 2, bottom: 0, trailing: 2))
-                HStack(alignment: .center){
-                    Image(systemName: "calendar.badge.clock")
-                        .font(.system(size: 16, weight: .bold))
-                    Text(helper.formatDateToTimeOnly(event: event)).font(.custom("Overpass-Regular", size: 12))
-                        .opacity(0.6)
-                }.padding(EdgeInsets(top: 2, leading: 0, bottom: 2, trailing: 0))
-                if (event.location != ""){
-                    HStack(alignment: .center){
-                        Image(systemName: "map.fill")
-                            .font(.system(size: 16, weight: .bold))
-                        if (isValidUrl(url: event.location!)){
-                            Link(event.location ?? "", destination: URL(string: event.location ?? "")!).font(.custom("Overpass-Regular", size: 12))
-                                .opacity(0.6)
-                        } else {
-                            Text(event.location ?? "").font(.custom("Overpass-Regular", size: 12))
-                                .opacity(0.6)
+            if (loadingIndicator.loading == false){
+                VStack(alignment: .leading){
+                    Text(event.summary).font(.custom("Overpass-Bold", size: 14))
+                        .padding(EdgeInsets(top: 0, leading: 2, bottom: 0, trailing: 2))
+                    if (event.hasTime){
+                        HStack(alignment: .center, spacing: 4){
+                            Image(systemName: "clock")
+                                .font(.system(size: 14))
+                            Text(helper.formatDateToTimeOnly(event: event)).font(.custom("Overpass-Regular", size: 12))
+                        }.padding(EdgeInsets(top: 2, leading: 0, bottom: 2, trailing: 0)).opacity(0.6)
+                    }
+                    if(event.location != nil && !event.location!.isEmpty){
+                        if (!isValidUrl(url: event.location!)){
+                            HStack(alignment: .center, spacing: 4){
+                                Image(systemName: "location.fill")
+                                    .font(.system(size: 12))
+                                Text(event.location!.capitalized).font(.custom("Overpass-Regular", size: 12))
+                                    .foregroundColor(Color("ribsTextColor"))
+                            }.padding(EdgeInsets(top: 0, leading: 0, bottom: 2, trailing: 0))
                         }
-                    }.padding(EdgeInsets(top: 0, leading: 0, bottom: 2, trailing: 0))
-                }
-                Spacer()
-            }.padding([.leading, .trailing], 14)
+                    }
+                    if (event.description.count > 0){
+                        MultilineTextField(event.description.htmlToAttributedString!, nsFont: NSFont(name: "Overpass-Light", size: 14)!)
+                            .padding(.horizontal, -4)
+                            .padding([.top], 5)
+                    }
+                    Spacer()
+                    if (event.conferenceData != nil){
+                        Button(action: {openURL(URL(string: event.conferenceData!.toolLink)!)}) {
+                            HStack{
+                                Image(systemName: "video.fill")
+                                    .font(.system(size: 12))
+                                Text("Join " + event.conferenceData!.toolName)
+                                    .font(.custom("Overpass-Regular", size: 14))
+                            }.padding([.top, .bottom], 12)
+                            .padding([.trailing, .leading], 14)
+                        }
+                        .foregroundColor(.white)
+                        .buttonStyle(PlainButtonStyle())
+                        .frame(maxWidth: .infinity)
+                        .background(Color.blue)
+                        .cornerRadius(4)
+                        .padding([.bottom], 8)
+                    }
+                }.padding([.leading, .trailing], 14)
+            }
             Spacer()
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
 struct DetailsView_Previews: PreviewProvider {
+    static var loadingIndicator = LoadingIndicator()
     static var event = Event(id: "23274264234", summary: "Wound David", startDate: "2012-07-11T02:30:00-06:00", endDate: "2012-07-11T04:30:00-06:00", colorId: "#546513", type: "meeting", hasTime: true, attendees: [], markedAsDone: false, description: "Break his back door", location: "Egbeda", account: "knightbenax@gmail.com")
     
     static var previews: some View {
-        DetailsView(event: event)
+        DetailsView(loadingIndicator: loadingIndicator).environmentObject(event)
     }
 }

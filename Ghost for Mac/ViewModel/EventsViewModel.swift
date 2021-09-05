@@ -9,20 +9,22 @@
 import Foundation
 import AppKit
 
-class EventsViewModel: BaseViewModel {
+class EventsViewModel: BaseViewModel, ObservableObject {
     
-    public lazy var events : [Event] = {
+    @Published public var events : [Event] = {
         return []
     }()
     
+    var calendars : [GoogleCalendar]!
     var eventsInWeek  = [[Event]]()
     var fetchedDay = 0
     var needContacts : Bool = false
     var contacts = Array<Contact>()
     
+    
+    
     func fetchEvents(completion: @escaping (_ eventsInDaysArrays : [[Event]]) -> ()){
-        
-        var calendars = storeHelper.getCalendars(delegate: getDelegate())
+        calendars = storeHelper.getCalendars(delegate: getDelegate())
         calendars = calendars.removingDuplicates()
         fetchEventsProtocol(calendars: calendars, completion: { eventsInDaysArrays in
             completion(eventsInDaysArrays)
@@ -55,6 +57,8 @@ class EventsViewModel: BaseViewModel {
     
     func fetchEventsProtocol(calendars: [GoogleCalendar], completion: @escaping (_ eventsInDaysArrays : [[Event]]) -> ()){
         
+        //clear out previous events
+        eventsInWeek.removeAll()
         events.removeAll()
         let next_week = getTimeAndDate(day: 7)
         let last_week = getTimeAndDate(diff: -1, day: -7)
@@ -62,7 +66,7 @@ class EventsViewModel: BaseViewModel {
             group.enter()
             let account = $0.owner
             getDelegate().currentAccount = $0.owner
-            print($0.owner)
+            
             googleService.getGoogleCalendarEvents(calendar_id: $0.id, startDate: next_week, endDate: last_week, completion: { [self](result: Result<Any, Error>) in
                 switch (result){
                 case .success(let data):
@@ -81,6 +85,7 @@ class EventsViewModel: BaseViewModel {
                 }
             });
         })
+
         
         
         
@@ -103,6 +108,7 @@ class EventsViewModel: BaseViewModel {
             var descriptionTemp = ""
             var location : String? = ""
             var hasTime = false
+            var thisEventConferenceData : ConferenceData? = nil
             
             if (data.object(forKey: "conferenceData") as? NSDictionary) != nil {
                 type = "#meeting"
@@ -130,6 +136,23 @@ class EventsViewModel: BaseViewModel {
                 colorId = tempColorId
             } else {
                 colorId = "11"
+            }
+            
+            if let conferenceData = data.object(forKey: "conferenceData") as? NSDictionary{
+                thisEventConferenceData = ConferenceData()
+                if let solution = conferenceData.object(forKey: "conferenceSolution") as? NSDictionary {
+                    thisEventConferenceData?.toolName = solution.object(forKey: "name") as! String
+                }
+                
+                if let entryPoint = conferenceData.object(forKey: "entryPoints") as? NSArray{
+                    if let firstPoint = entryPoint[0] as? NSDictionary{
+                        thisEventConferenceData?.toolLink = firstPoint.object(forKey: "uri") as! String
+                    }
+                    
+                    if let secondPoint = entryPoint[1] as? NSDictionary{
+                        thisEventConferenceData?.toolPhoneLink = secondPoint.object(forKey: "uri") as! String
+                    }
+                }
             }
             
             if let locationTemp = data.object(forKey: "location") as? String{
@@ -198,7 +221,7 @@ class EventsViewModel: BaseViewModel {
                                      colorId: colorId,
                                      type: type,
                                      hasTime: hasTime, attendees: savedAttendees,
-                                     markedAsDone: markedAsDone, description: descriptionTemp, location: location, account: account)
+                                     markedAsDone: markedAsDone, description: descriptionTemp, location: location, account: account, conferenceData: thisEventConferenceData)
                 events.append(newEvent)
             } else {
                 var newStartDate = eventStartDate
@@ -214,7 +237,8 @@ class EventsViewModel: BaseViewModel {
                                          colorId: colorId,
                                          type: type,
                                          hasTime: hasTime, attendees: savedAttendees,
-                                         markedAsDone: markedAsDone, description: descriptionTemp, location: location, account: account)
+                                         markedAsDone: markedAsDone, description: descriptionTemp, location: location, account: account,
+                                         conferenceData: thisEventConferenceData)
 
                     newStartDate = newEndDate
                     events.append(duplicateEvent)
@@ -240,6 +264,13 @@ class EventsViewModel: BaseViewModel {
             eventsInWeek.append(thisEvents)
             last_week_date = Calendar.current.date(byAdding: .day, value: 1, to: last_week_date)!
         }
+        
+//        for events in eventsInWeek{
+//            for event in events {
+//                print(event.summary)
+//            }
+//            print("")
+//        }
         
     }
     
