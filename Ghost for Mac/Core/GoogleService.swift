@@ -103,8 +103,6 @@ class GoogleService: BaseClass {
                         case .failure(let error):
                             let data = self.nsdataToJSON(data: response.data! as NSData) as? NSDictionary
                             print(data as Any)
-                            print(response.error)
-                            print(colorsURl)
                             completion(.failure(error))
                             break
                         }

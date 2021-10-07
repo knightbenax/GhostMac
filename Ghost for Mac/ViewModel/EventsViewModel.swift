@@ -20,6 +20,7 @@ class EventsViewModel: BaseViewModel, ObservableObject {
     var fetchedDay = 0
     var needContacts : Bool = false
     var contacts = Array<Contact>()
+    var backlog = [Backlog]()
     
     
     
@@ -30,6 +31,12 @@ class EventsViewModel: BaseViewModel, ObservableObject {
             completion(eventsInDaysArrays)
         })
     }
+    
+    func fetchBacklog(completion: @escaping (_ eventsInDaysArrays : [Backlog]) -> ()){
+        let backlog = storeHelper.getBacklog(delegate: getDelegate())
+        completion(backlog)
+    }
+    
     
     
     func getCalendarName(event : Event) -> String{
@@ -109,6 +116,7 @@ class EventsViewModel: BaseViewModel, ObservableObject {
             var location : String? = ""
             var hasTime = false
             var thisEventConferenceData : ConferenceData? = nil
+            var eventType : EventType?
             
             if (data.object(forKey: "conferenceData") as? NSDictionary) != nil {
                 type = "#meeting"
@@ -148,9 +156,23 @@ class EventsViewModel: BaseViewModel, ObservableObject {
                     if let firstPoint = entryPoint[0] as? NSDictionary{
                         thisEventConferenceData?.toolLink = firstPoint.object(forKey: "uri") as! String
                     }
-                    
-                    if let secondPoint = entryPoint[1] as? NSDictionary{
-                        thisEventConferenceData?.toolPhoneLink = secondPoint.object(forKey: "uri") as! String
+                
+                    if (entryPoint.count > 1){
+                        if let secondPoint = entryPoint[1] as? NSDictionary{
+                            thisEventConferenceData?.toolPhoneLink = secondPoint.object(forKey: "uri") as! String
+                        }
+                    }
+                }
+            }
+            
+            if let extProperties = data.object(forKey: "extendedProperties") as? NSDictionary{
+                if let shared = extProperties.object(forKey: "shared") as? NSDictionary {
+                    if let ghost_type = shared.object(forKey: "ghost_type") as? String{
+                        if (ghost_type == "event"){
+                            eventType = .EVENT
+                        } else {
+                            eventType = .TASK
+                        }
                     }
                 }
             }
@@ -221,7 +243,7 @@ class EventsViewModel: BaseViewModel, ObservableObject {
                                      colorId: colorId,
                                      type: type,
                                      hasTime: hasTime, attendees: savedAttendees,
-                                     markedAsDone: markedAsDone, description: descriptionTemp, location: location, account: account, conferenceData: thisEventConferenceData)
+                                     markedAsDone: markedAsDone, description: descriptionTemp, location: location, account: account, conferenceData: thisEventConferenceData, eventType: eventType)
                 events.append(newEvent)
             } else {
                 var newStartDate = eventStartDate
@@ -238,7 +260,7 @@ class EventsViewModel: BaseViewModel, ObservableObject {
                                          type: type,
                                          hasTime: hasTime, attendees: savedAttendees,
                                          markedAsDone: markedAsDone, description: descriptionTemp, location: location, account: account,
-                                         conferenceData: thisEventConferenceData)
+                                         conferenceData: thisEventConferenceData, eventType: eventType)
 
                     newStartDate = newEndDate
                     events.append(duplicateEvent)

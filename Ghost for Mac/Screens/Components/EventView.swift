@@ -25,10 +25,21 @@ struct EventView: View {
         HStack(spacing: 0){
             Rectangle()
                 .fill(Color(eventViewModel.getCalendarTextBackgroundColor(event: event)))
-                .frame(width: 10)
+                .frame(width: 8)
             VStack(alignment: .leading, spacing: 0){
-                Text(event.summary).font(.custom("Overpass-Regular", size: 14))
-                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                HStack(spacing: 10){
+                    Text(event.summary).font(.custom("Overpass-Regular", size: 14))
+                        .lineSpacing(3.2)
+                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                    Spacer()
+                    if(event.eventType == .TASK){
+                        CheckView(action: { value in
+                            if (value){
+                                
+                            }
+                        })
+                    }
+                }.frame(maxWidth: .infinity)
                 if (event.hasTime){
                     HStack(spacing: 4){
                         Image(systemName: "clock")
@@ -51,18 +62,6 @@ struct EventView: View {
                         }.padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
                     }
                 }
-//                if(event.conferenceData != nil){
-//                    HStack (spacing: 0){
-//                        HStack(spacing: 4){
-//                            Image(systemName: "video.fill")
-//                                .font(.system(size: 12))
-//                            Text( event.conferenceData!.toolName).font(.custom("Overpass-Regular", size: 12))
-//                                .foregroundColor(Color("ribsTextColor"))
-//                        }.padding(EdgeInsets(top: 4, leading: 11, bottom: 4, trailing: 11))
-//                        .background(Color("kanbanInside"))
-//                        .cornerRadius(20)
-//                    }.padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
-//                }
                 ConferenceView(event: event)
             }.padding(EdgeInsets(top: 12, leading: 10, bottom: 12, trailing: 10))
         }.frame(
