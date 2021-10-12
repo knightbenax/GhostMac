@@ -10,6 +10,11 @@ import Foundation
 
 import SwiftUI
 
+enum EventType{
+    case EVENT
+    case TASK
+}
+
 class Event: Identifiable, ObservableObject{
     
     @Published var summary: String
@@ -25,8 +30,26 @@ class Event: Identifiable, ObservableObject{
     var location : String?
     var account : String?
     var conferenceData : ConferenceData?
+    var eventType : EventType?
     
-    init(id: String, summary: String, startDate: String, endDate: String, colorId: String, type: String, hasTime : Bool, attendees : Array<String>? = nil, markedAsDone: Bool, description: String, location: String? = "", account : String, conferenceData : ConferenceData? = nil) {
+    init() {
+        self.summary = ""
+        self.startDate = ""
+        self.endDate = ""
+        self.type = ""
+        self.hasTime = false
+        self.colorId = ""
+        self.id = ""
+        self.attendees = nil
+        self.markedAsDone = false
+        self.description = ""
+        self.location = ""
+        self.account = ""
+        self.conferenceData = nil
+        self.eventType = nil
+    }
+    
+    init(id: String, summary: String, startDate: String, endDate: String, colorId: String, type: String, hasTime : Bool, attendees : Array<String>? = nil, markedAsDone: Bool, description: String, location: String? = "", account : String, conferenceData : ConferenceData? = nil, eventType : EventType? = nil) {
         self.summary = summary
         self.startDate = startDate
         self.endDate = endDate
@@ -40,24 +63,25 @@ class Event: Identifiable, ObservableObject{
         self.location = location
         self.account = account
         self.conferenceData = conferenceData
+        self.eventType = eventType
     }
     
-    func updateValue(id: String, summary: String, startDate: String, endDate: String, colorId: String, type: String, hasTime : Bool, attendees : Array<String>? = nil, markedAsDone: Bool, description: String, location: String? = "", account : String, conferenceData : ConferenceData? = nil){
-        self.summary = summary
-        self.startDate = startDate
-        self.endDate = endDate
-        self.type = type
-        self.hasTime = hasTime
-        self.colorId = colorId
-        self.id = id
-        self.attendees = attendees
-        self.markedAsDone = markedAsDone
-        self.description = description
-        self.location = location
-        self.account = account
-        self.conferenceData = conferenceData
-    }
-    
+//    func updateValue(id: String, summary: String, startDate: String, endDate: String, colorId: String, type: String, hasTime : Bool, attendees : Array<String>? = nil, markedAsDone: Bool, description: String, location: String? = "", account : String, conferenceData : ConferenceData? = nil){
+//        self.summary = summary
+//        self.startDate = startDate
+//        self.endDate = endDate
+//        self.type = type
+//        self.hasTime = hasTime
+//        self.colorId = colorId
+//        self.id = id
+//        self.attendees = attendees
+//        self.markedAsDone = markedAsDone
+//        self.description = description
+//        self.location = location
+//        self.account = account
+//        self.conferenceData = conferenceData
+//    }
+//
     
 }
 

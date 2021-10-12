@@ -116,6 +116,48 @@ class Store{
         })
     }
     
+    func getBacklog(delegate: AppDelegate) -> [Backlog]{
+        var temp : [NSManagedObject] = []
+        var backlog : [Backlog] = []
+        
+        let managedContext = delegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "BacklogCD")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date_added", ascending: false)]
+        
+        do {
+            try temp = managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Couldn't retrieve shit \(error), \(error.userInfo)")
+        }
+        
+        temp.forEach({
+            backlog.append(Backlog(summary: $0.value(forKey: "summary") as! String, description: $0.value(forKey: "desc") as? String ?? "", dateAdded: $0.value(forKey: "date_added") as! Date, whereAdded: $0.value(forKey: "where_added") as? String ?? ""))
+        })
+        
+        return backlog
+    }
+    
+    func saveBacklog(delegate: AppDelegate, backlog: Backlog){
+        let backlogArr =  getBacklog(delegate: delegate)
+        
+        if backlogArr.first(where: { $0.summary == backlog.summary }) == nil {
+            //same backlog summary exist
+            let managedContext = delegate.persistentContainer.viewContext
+            let entity = NSEntityDescription.entity(forEntityName: "BacklogCD", in: managedContext)
+            let call = NSManagedObject(entity: entity!, insertInto: managedContext)
+            call.setValue(backlog.summary, forKey: "summary")
+            call.setValue(backlog.description, forKey: "desc")
+            call.setValue(backlog.dateAdded, forKey: "date_added")
+            call.setValue(backlog.whereAdded, forKey: "where_added")
+            
+            do {
+                try managedContext.save()
+            } catch let error as NSError {
+                print("Couldn't save shit \(error), \(error.userInfo)")
+            }
+        }
+    }
+    
     
     func getSavedCalendars(delegate: AppDelegate) -> [NSManagedObject]{
         var accounts : [NSManagedObject] = []

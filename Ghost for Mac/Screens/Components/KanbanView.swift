@@ -19,11 +19,28 @@ struct KanbanView: View {
     var selectedDayIndex : Int = 7
     @EnvironmentObject var currentEvent : Event
     @ObservedObject var loadingIndicator : LoadingIndicator
+    var hideMonthSiderNotificationChanged = NotificationCenter.default.publisher(for: .hideMonthSidebar)
+    var hideBacklogSiderNotificationChanged = NotificationCenter.default.publisher(for: .hideBacklogSidebar)
+    @AppStorage("hideMonthSidebar") var hideMonthSidebar = true
+    @AppStorage("hideBacklogSidebar") var hideBacklogSidebar = false
     
+    func showSidebarIfHidden(){
+        withAnimation{
+            hideMonthSidebar = true
+        }
+    }
+    
+    func showBacklogIfHidden(){
+        withAnimation{
+            hideBacklogSidebar = true
+        }
+    }
     
     var body: some View {
         HStack(spacing: 0){
-            MonthView(eventViewModel : eventViewModel, loadingIndicator: loadingIndicator).environmentObject(currentEvent)
+            if (hideMonthSidebar){
+                MonthView(eventViewModel : eventViewModel, loadingIndicator: loadingIndicator).environmentObject(currentEvent)
+            }
             ScrollViewReader{ scrollView in
                 ScrollView(.horizontal, showsIndicators: true) {
                     HStack(spacing: 0){
@@ -42,24 +59,18 @@ struct KanbanView: View {
                                                             .shadow(color: Color.black.opacity(0.1), radius: 0.8, x: 0.0, y: 1.0)
                                                             .contentShape(Rectangle())
                                                             .onTapGesture {
-                                                                self.currentEvent.summary = ""
-                                                                self.currentEvent.id = event.id
-                                                                self.currentEvent.summary = event.summary
-                                                                self.currentEvent.startDate = event.startDate
-                                                                self.currentEvent.endDate = event.endDate
-                                                                self.currentEvent.colorId = event.colorId
-                                                                self.currentEvent.type = event.type
-                                                                self.currentEvent.hasTime =  event.hasTime
-                                                                self.currentEvent.markedAsDone = event.markedAsDone
-                                                                self.currentEvent.description = event.description
-                                                                self.currentEvent.account = event.account
-                                                                self.currentEvent.location = event.location
-                                                                self.currentEvent.conferenceData = event.conferenceData
+                                                                self.eventsInWeek.currentEvent = event
+                                                                showSidebarIfHidden()
                                                             }
                                                     }
-                                                }.padding(.horizontal, -5).workaroundForVerticalScrollingBugInMacOS()
+                                                }.padding(.horizontal, -5)
+                                                    .onTapGesture(count: 2) {
+                                                    withAnimation {
+                                                        scrollView.scrollTo(7, anchor: .leading)
+                                                    }
+                                                }.workaroundForVerticalScrollingBugInMacOS()
                                             } else {
-                                                //AddScheduleButtonView()
+                                                EmptyStateView()
                                             }
                                         }
                                         Spacer()
@@ -71,14 +82,31 @@ struct KanbanView: View {
                                 .id(i)
                                 .padding([.top, .leading, .bottom], 15)
                             }.onAppear(){
-                                scrollView.scrollTo(7, anchor: .leading)
+                                withAnimation {
+                                    scrollView.scrollTo(7, anchor: .leading)
+                                }
                             }
                         }
                     }
                     .padding([.trailing], 15)
+                }.onTapGesture(count: 2) {
+                    withAnimation {
+                        scrollView.scrollTo(7, anchor: .leading)
+                    }
                 }
             }
-        }
+            if (hideBacklogSidebar){
+                BackLogView()
+            }
+        }.onReceive(hideMonthSiderNotificationChanged, perform: { _ in
+            withAnimation{
+                hideMonthSidebar.toggle()
+            }
+        }).onReceive(hideBacklogSiderNotificationChanged, perform: { _ in
+            withAnimation{
+                hideBacklogSidebar.toggle()
+            }
+        })
     }
 }
 

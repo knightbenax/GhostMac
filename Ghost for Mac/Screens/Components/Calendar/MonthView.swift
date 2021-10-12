@@ -29,15 +29,18 @@ struct MonthView: View {
     @ObservedObject var loadingIndicator : LoadingIndicator
     var reloadNotificationChanged = NotificationCenter.default.publisher(for: .reload)
     
+    
     init(eventViewModel : EventsViewModel, loadingIndicator: LoadingIndicator) {
         self.loadingIndicator = loadingIndicator
         self.eventViewModel = eventViewModel
     }
     
     func loadDates(){
+        today = Date()
         dates = today.getAllDays()
         let firstDate = Calendar.current.component(.weekday, from: dates[0])
         self.ghostDates.removeAll()
+        
         for _ in 0..<firstDate - 1 {
             let thisGhostDate = GhostDate(date: nil)
             ghostDates.append(thisGhostDate)
@@ -46,9 +49,7 @@ struct MonthView: View {
         dates.forEach({
             let thisGhostDate = GhostDate(date: $0)
             ghostDates.append(thisGhostDate)
-        })
-        
-        
+        })   
     }
     
     func advanceByMonth(){
@@ -89,20 +90,20 @@ struct MonthView: View {
         VStack(spacing: 0){
             HStack(alignment: .center){
                 Text(helper.formatDateToMonth(thisDate: today))
-                    .font(.custom("Overpass-Regular", size: 16))
+                    .font(.custom("Overpass-Regular", size: 14))
                 Spacer()
                 Button(action: {reveserByMonth()}) {
                     Image(systemName: "chevron.left")
-                        .font(.system(size: 16, weight: .bold))
-                        .frame(width: 30, height: 30, alignment: .center)
+                        .font(.system(size: 14, weight: .bold))
+                        .frame(width: 32, height: 28, alignment: .center)
                 }
                 .buttonStyle(BlueButtonStyle())
                 .foregroundColor(.black)
                 .cornerRadius(4.0)
                 Button(action: {advanceByMonth()}) {
                     Image(systemName: "chevron.right")
-                        .font(.system(size: 16, weight: .bold))
-                        .frame(width: 30, height: 30, alignment: .center)
+                        .font(.system(size: 14, weight: .bold))
+                        .frame(width: 32, height: 28, alignment: .center)
                 }
                 .foregroundColor(.black)
                 .buttonStyle(BlueButtonStyle())
@@ -124,7 +125,7 @@ struct MonthView: View {
                             Text(helper.getDayFromDate(thisDate: thisDate.date!))
                                 .font(.custom("Overpass-Regular", size: 14))
                                 .padding([.bottom], 4)
-                                .border(width: 4, edges: [.bottom], color: Color("orange"))
+                                .border(width: 2, edges: [.bottom], color: Color("orange"))
                                 .frame(width: 40, height: 32, alignment: .center)
                                 
                         } else {
@@ -138,7 +139,7 @@ struct MonthView: View {
                         Text("")
                             .font(.custom("Overpass-Regular", size: 14))
                             .padding([.bottom], 4)
-                            .border(width: 4, edges: [.bottom], color: Color("kanbanInside"))
+                            .border(width: 2, edges: [.bottom], color: Color("kanbanInside"))
                             .frame(width: 40, height: 32, alignment: .center).hidden()
                     }
                 }
@@ -146,8 +147,9 @@ struct MonthView: View {
             Spacer()
             DetailsView(loadingIndicator: loadingIndicator).environmentObject(event)
         }.frame(minWidth: 0, maxWidth: 280)
-        .padding([.leading, .trailing], 10)
-        .padding([.top, .bottom], 14)
+        .padding([.leading, .trailing], 3)
+        .padding([.bottom], 14)
+        .padding([.top], 12)
         .background(Color("kanbanInside"))
         .border(width: 1, edges: [.trailing], color: Color("kanbanItemBorder"))
         .onAppear(){
