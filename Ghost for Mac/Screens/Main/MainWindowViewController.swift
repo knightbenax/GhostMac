@@ -12,6 +12,7 @@ import SwiftUI
 
 class MainWindowViewController: NSWindowController {
     
+    @IBOutlet weak var mainToolbar: NSToolbar!
     @IBOutlet weak var mainWindow: NSWindow!
     @IBOutlet weak var mainToolBar: NSToolbar!
     var today : Date = Date()
@@ -23,6 +24,19 @@ class MainWindowViewController: NSWindowController {
         
         let hostingView = NSHostingView(rootView:
             HStack{
+                Button(action: { postHideMonthSideBar() }) {
+                    Image(systemName: "sidebar.left")
+                        .font(.system(size: 18, weight: .regular))
+                        .foregroundColor(.white)
+                }.padding([.trailing, .leading], 5)
+                .buttonStyle(PlainButtonStyle())
+                Spacer()
+                Button(action: { postHideBackloghSideBar() }) {
+                    Image(systemName: "list.bullet")
+                        .font(.system(size: 18, weight: .regular))
+                        .foregroundColor(.white)
+                }.padding([.trailing, .leading], 5)
+                .buttonStyle(PlainButtonStyle())
                 Button(action: { reloadHomeScreenView() }) {
                     Image(systemName: "arrow.clockwise")
                         .font(.system(size: 18, weight: .bold))
@@ -35,17 +49,17 @@ class MainWindowViewController: NSWindowController {
                         .foregroundColor(.white)
                 }.padding([.trailing, .leading], 5)
                 .buttonStyle(PlainButtonStyle())
-            }.padding([.trailing, .leading], 12)
+            }.padding([.trailing, .leading], 12).edgesIgnoringSafeArea(.all)
         )
         hostingView.frame.size = hostingView.fittingSize
 
         let titlebarAccessory = NSTitlebarAccessoryViewController()
+        
         titlebarAccessory.view = hostingView
-        titlebarAccessory.layoutAttribute = .trailing
+        titlebarAccessory.layoutAttribute = .top
         mainWindow.titlebarAppearsTransparent = true
         mainWindow.addTitlebarAccessoryViewController(titlebarAccessory)
         mainWindow.backgroundColor = NSColor.init(named: "GhostBlue")
-        
     }
     
     override func windowDidLoad() {
@@ -59,7 +73,21 @@ func reloadHomeScreenView(){
                                                        userInfo: nil))
 }
 
+func postHideMonthSideBar(){
+    NotificationCenter.default.post(Notification(name: .hideMonthSidebar,
+                                                       object: nil,
+                                                       userInfo: nil))
+}
+
+func postHideBackloghSideBar(){
+    NotificationCenter.default.post(Notification(name: .hideBacklogSidebar,
+                                                       object: nil,
+                                                       userInfo: nil))
+}
+
 
 extension Notification.Name {
-  static var reload: Notification.Name { return .init("reload") }
+    static var reload: Notification.Name { return .init("reload") }
+    static var hideMonthSidebar: Notification.Name { return .init("hidemonthsidebar") }
+    static var hideBacklogSidebar: Notification.Name { return .init("hideBacklogSidebar") }
 }

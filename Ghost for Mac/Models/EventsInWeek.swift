@@ -11,5 +11,7 @@ import Foundation
 class EventsInWeek: ObservableObject{
     
     @Published var weekevents = [[Event]]()
+    @Published var currentEvent = Event()
+    var lastActiveDate = Date()
     
 }

@@ -25,7 +25,8 @@ struct DetailsView: View {
         HStack{
             if (loadingIndicator.loading == false){
                 VStack(alignment: .leading){
-                    Text(event.summary).font(.custom("Overpass-Bold", size: 14))
+                    Text(event.summary).font(.custom("Overpass-Regular", size: 14))
+                        .lineSpacing(3.2)
                         .padding(EdgeInsets(top: 0, leading: 2, bottom: 0, trailing: 2))
                     if (event.hasTime){
                         HStack(alignment: .center, spacing: 4){
@@ -45,9 +46,9 @@ struct DetailsView: View {
                         }
                     }
                     if (event.description.count > 0){
-                        MultilineTextField(event.description.htmlToAttributedString!, nsFont: NSFont(name: "Overpass-Light", size: 14)!)
+                        MultilineTextField(event.description.htmlToAttributedString!, nsFont: NSFont(name: "Overpass-Light", size: 12)!)
                             .padding(.horizontal, -4)
-                            .padding([.top], 5)
+                            .padding([.top], 5).opacity(0.6)
                     }
                     Spacer()
                     if (event.conferenceData != nil){
@@ -67,7 +68,7 @@ struct DetailsView: View {
                         .cornerRadius(4)
                         .padding([.bottom], 8)
                     }
-                }.padding([.leading, .trailing], 14)
+                }.padding([.leading, .trailing], 15)
             }
             Spacer()
         }.frame(maxWidth: .infinity, maxHeight: .infinity)

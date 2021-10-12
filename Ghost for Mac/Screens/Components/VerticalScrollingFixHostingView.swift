@@ -21,8 +21,17 @@ extension View {
 
 // this is the NSView that implements proper `wantsForwardedScrollEvents` method
 final class VerticalScrollingFixHostingView<Content>: NSHostingView<Content> where Content: View {
-
+    
   override func wantsForwardedScrollEvents(for axis: NSEvent.GestureAxis) -> Bool {
+      if (self.subviews.count > 0){
+          let viewIn = self.subviews[0]
+          if (viewIn.subviews.count > 0){
+              if let scrollView = viewIn.subviews[0] as? NSScrollView{
+                  scrollView.verticalScrollElasticity = .none
+                  scrollView.horizontalScrollElasticity = .none
+              }
+          }
+      }
     return axis == .horizontal
   }
 }
@@ -37,7 +46,7 @@ struct VerticalScrollingFixViewRepresentable<Content>: NSViewRepresentable where
   }
 
   func updateNSView(_ nsView: NSHostingView<Content>, context: Context) {}
-
+   
 }
 
 // this is the SwiftUI wrapper that makes it easy to insert the view

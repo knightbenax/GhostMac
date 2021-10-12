@@ -48,6 +48,7 @@ struct TopView: View {
                             .font(.system(size: 16, weight: .bold))
                             .padding([.leading], 10)
                         Text("Add Schedule")
+                            .font(.custom("Overpass-Regular", size: 14))
                             .padding([.top, .bottom], 6)
                             .padding([.trailing], 10)
                             .padding([.leading], 2)

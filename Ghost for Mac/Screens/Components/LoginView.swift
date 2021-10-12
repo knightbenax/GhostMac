@@ -16,7 +16,7 @@ struct LoginView: View {
         VStack{
             Spacer()
             Text("You need to connect your Google Account to continue")
-                .font(.custom("Overpass-Regular", size: 16))
+                .font(.custom("Overpass-Regular", size: 14))
                 .padding([.bottom], 20)
             Button(action: { authViewModel.signInGoogle() }) {
                 HStack{
@@ -26,16 +26,16 @@ struct LoginView: View {
                         .frame(width: 20, height: 20)
                         .padding([.leading], 20)
                     Text("Add Google Account")
-                        .font(.custom("Overpass-Regular", size: 16))
+                        .font(.custom("Overpass-Regular", size: 14))
                         .padding([.top, .bottom], 10)
                         .padding([.trailing], 20)
                         .padding([.leading], 2)
                 }
             }.buttonStyle(PlainButtonStyle())
-            .background(Color.white)
-            .foregroundColor(.black)
-            .cornerRadius(4)
-            .padding([.bottom], 20)
+                .background(Color("orange"))
+                .foregroundColor(.black)
+                .cornerRadius(4)
+                .padding([.bottom], 20)
             Spacer()
         }
     }

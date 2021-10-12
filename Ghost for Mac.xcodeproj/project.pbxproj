@@ -13,6 +13,7 @@
 		EF2435C626C060080041EAA7 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2435C526C060080041EAA7 /* DetailsView.swift */; };
 		EF2BDD0126B040A8001B664C /* NSTableView+removeBg.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2BDD0026B040A8001B664C /* NSTableView+removeBg.swift */; };
 		EF3D5C5C26978A4700FAD83A /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D5C5B26978A4700FAD83A /* HomeScreen.swift */; };
+		EF896531270B76AD00ABB299 /* CheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF896530270B76AD00ABB299 /* CheckView.swift */; };
 		EFA30352243E319400240728 /* rndImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA30351243E319400240728 /* rndImageView.swift */; };
 		EFA4A1AC26B5DB0C00143A2A /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA4A1AB26B5DB0C00143A2A /* EventView.swift */; };
 		EFA4A1AE26B5DC6700143A2A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA4A1AD26B5DC6700143A2A /* LoginView.swift */; };
@@ -26,6 +27,7 @@
 		EFAA583C26E419FC00C21B02 /* EventColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAA583B26E419FC00C21B02 /* EventColor.swift */; };
 		EFAA583E26E430A200C21B02 /* OldEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAA583D26E430A200C21B02 /* OldEventView.swift */; };
 		EFAA584726E5287E00C21B02 /* ConferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAA584626E5287E00C21B02 /* ConferenceView.swift */; };
+		EFAA85CC26E81F4D0068617C /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAA85CB26E81F4D0068617C /* EmptyStateView.swift */; };
 		EFB99FC3242832B0005B38E5 /* EventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB99FC1242832B0005B38E5 /* EventItem.swift */; };
 		EFB99FC4242832B0005B38E5 /* EventItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFB99FC2242832B0005B38E5 /* EventItem.xib */; };
 		EFB99FC6242A63C1005B38E5 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB99FC5242A63C1005B38E5 /* AppConstants.swift */; };
@@ -53,6 +55,11 @@
 		EFEC86C926CB08CE0010726E /* EventsInWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEC86C826CB08CE0010726E /* EventsInWeek.swift */; };
 		EFF4104424023C9100D01DF8 /* BgNSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF4104324023C9100D01DF8 /* BgNSView.swift */; };
 		EFF410462402421500D01DF8 /* MainWindowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF410452402421500D01DF8 /* MainWindowViewController.swift */; };
+		EFF649E9270F001D00C0A8F7 /* Backlog.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF649E8270F001D00C0A8F7 /* Backlog.swift */; };
+		EFF649EC270F017B00C0A8F7 /* BackLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF649EA270F017B00C0A8F7 /* BackLogView.swift */; };
+		EFF649ED270F017B00C0A8F7 /* SingleBacklogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF649EB270F017B00C0A8F7 /* SingleBacklogView.swift */; };
+		EFF649EF270F01A800C0A8F7 /* BacklogDH.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF649EE270F01A800C0A8F7 /* BacklogDH.swift */; };
+		EFF649F1270F030700C0A8F7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF649F0270F030700C0A8F7 /* CloudKit.framework */; };
 		EFFAD45F23F8A26C009004D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFAD45E23F8A26C009004D0 /* AppDelegate.swift */; };
 		EFFAD46123F8A26C009004D0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFAD46023F8A26C009004D0 /* MainViewController.swift */; };
 		EFFAD46423F8A26C009004D0 /* Ghost_for_Mac.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFFAD46223F8A26C009004D0 /* Ghost_for_Mac.xcdatamodeld */; };
@@ -90,6 +97,7 @@
 		EF2435C526C060080041EAA7 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		EF2BDD0026B040A8001B664C /* NSTableView+removeBg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTableView+removeBg.swift"; sourceTree = "<group>"; };
 		EF3D5C5B26978A4700FAD83A /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		EF896530270B76AD00ABB299 /* CheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckView.swift; sourceTree = "<group>"; };
 		EFA30351243E319400240728 /* rndImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rndImageView.swift; sourceTree = "<group>"; };
 		EFA4A1AB26B5DB0C00143A2A /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 		EFA4A1AD26B5DC6700143A2A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -103,6 +111,7 @@
 		EFAA583B26E419FC00C21B02 /* EventColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventColor.swift; sourceTree = "<group>"; };
 		EFAA583D26E430A200C21B02 /* OldEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldEventView.swift; sourceTree = "<group>"; };
 		EFAA584626E5287E00C21B02 /* ConferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceView.swift; sourceTree = "<group>"; };
+		EFAA85CB26E81F4D0068617C /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		EFB99FC1242832B0005B38E5 /* EventItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventItem.swift; sourceTree = "<group>"; };
 		EFB99FC2242832B0005B38E5 /* EventItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventItem.xib; sourceTree = "<group>"; };
 		EFB99FC5242A63C1005B38E5 /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
@@ -130,6 +139,11 @@
 		EFEC86C826CB08CE0010726E /* EventsInWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsInWeek.swift; sourceTree = "<group>"; };
 		EFF4104324023C9100D01DF8 /* BgNSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BgNSView.swift; sourceTree = "<group>"; };
 		EFF410452402421500D01DF8 /* MainWindowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowViewController.swift; sourceTree = "<group>"; };
+		EFF649E8270F001D00C0A8F7 /* Backlog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Backlog.swift; sourceTree = "<group>"; };
+		EFF649EA270F017B00C0A8F7 /* BackLogView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackLogView.swift; sourceTree = "<group>"; };
+		EFF649EB270F017B00C0A8F7 /* SingleBacklogView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleBacklogView.swift; sourceTree = "<group>"; };
+		EFF649EE270F01A800C0A8F7 /* BacklogDH.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BacklogDH.swift; sourceTree = "<group>"; };
+		EFF649F0270F030700C0A8F7 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		EFFAD45B23F8A26C009004D0 /* Ghost for Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ghost for Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFFAD45E23F8A26C009004D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFFAD46023F8A26C009004D0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				552365B44D482F3140614903 /* Pods_Ghost_for_Mac.framework in Frameworks */,
+				EFF649F1270F030700C0A8F7 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +200,7 @@
 		DFCBE443C06E68696E62300D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EFF649F0270F030700C0A8F7 /* CloudKit.framework */,
 				45A0A08BD7191287F1043593 /* Pods_Ghost_for_Mac.framework */,
 				CFC917E76DE41586BDC2EF2B /* Pods_Ghost_for_MacTests.framework */,
 			);
@@ -238,6 +254,8 @@
 				EFA4A1AB26B5DB0C00143A2A /* EventView.swift */,
 				EFA4A1AD26B5DC6700143A2A /* LoginView.swift */,
 				EFA4A1AF26B5DD2500143A2A /* TopView.swift */,
+				EFF649EA270F017B00C0A8F7 /* BackLogView.swift */,
+				EFF649EB270F017B00C0A8F7 /* SingleBacklogView.swift */,
 				EFA4A1B126B5DE1F00143A2A /* KanbanView.swift */,
 				EFA4A1B526B5F8E600143A2A /* VerticalScrollingFixHostingView.swift */,
 				EF2435C526C060080041EAA7 /* DetailsView.swift */,
@@ -260,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				EFEC86B626C836530010726E /* LoadingIndicator.swift */,
+				EFF649EE270F01A800C0A8F7 /* BacklogDH.swift */,
 			);
 			path = Structs;
 			sourceTree = "<group>";
@@ -269,6 +288,8 @@
 			children = (
 				EFEC86B926C8591C0010726E /* AddScheduleButtonView.swift */,
 				EFEC86BB26C859B20010726E /* IndicatorView.swift */,
+				EFAA85CB26E81F4D0068617C /* EmptyStateView.swift */,
+				EF896530270B76AD00ABB299 /* CheckView.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -391,6 +412,7 @@
 				EFFCA5D7243B9C28001BA016 /* Event.swift */,
 				EFFCA5D8243B9C28001BA016 /* Contact.swift */,
 				EFFCA5D9243B9C28001BA016 /* GhostCalendar.swift */,
+				EFF649E8270F001D00C0A8F7 /* Backlog.swift */,
 				EFC465BF26AD685C0040DC9B /* GoogleCalendar.swift */,
 				EFA4A1C026B7F34700143A2A /* GhostDate.swift */,
 				EFEC86C626CAF7140010726E /* DatesArranger.swift */,
@@ -595,6 +617,7 @@
 				EFEC86BA26C8591C0010726E /* AddScheduleButtonView.swift in Sources */,
 				EFC6F0C426B96281001299D2 /* AccountsSettingsView.swift in Sources */,
 				EFFCA5E2243BC072001BA016 /* EventTableCell.swift in Sources */,
+				EFF649ED270F017B00C0A8F7 /* SingleBacklogView.swift in Sources */,
 				EF3D5C5C26978A4700FAD83A /* HomeScreen.swift in Sources */,
 				EFA4A1B026B5DD2500143A2A /* TopView.swift in Sources */,
 				EFB99FC6242A63C1005B38E5 /* AppConstants.swift in Sources */,
@@ -615,13 +638,16 @@
 				EFFCA5D3243B6843001BA016 /* GoogleService.swift in Sources */,
 				EFC465C026AD685C0040DC9B /* GoogleCalendar.swift in Sources */,
 				EFFCA5DF243BB535001BA016 /* Utils.swift in Sources */,
+				EFF649E9270F001D00C0A8F7 /* Backlog.swift in Sources */,
 				EFEC86C726CAF7140010726E /* DatesArranger.swift in Sources */,
 				EFA4A1B226B5DE1F00143A2A /* KanbanView.swift in Sources */,
+				EF896531270B76AD00ABB299 /* CheckView.swift in Sources */,
 				EFFCA5D5243B868E001BA016 /* BaseClass.swift in Sources */,
 				EFA4A1AE26B5DC6700143A2A /* LoginView.swift in Sources */,
 				EFEC86B726C836530010726E /* LoadingIndicator.swift in Sources */,
 				EFEC86BC26C859B20010726E /* IndicatorView.swift in Sources */,
 				EF2435C626C060080041EAA7 /* DetailsView.swift in Sources */,
+				EFAA85CC26E81F4D0068617C /* EmptyStateView.swift in Sources */,
 				EFFAD46123F8A26C009004D0 /* MainViewController.swift in Sources */,
 				EF2BDD0126B040A8001B664C /* NSTableView+removeBg.swift in Sources */,
 				EFA4A1C126B7F34700143A2A /* GhostDate.swift in Sources */,
@@ -629,6 +655,7 @@
 				EFAA584726E5287E00C21B02 /* ConferenceView.swift in Sources */,
 				EFFCA5DB243B9C28001BA016 /* Contact.swift in Sources */,
 				EFA4A1AC26B5DB0C00143A2A /* EventView.swift in Sources */,
+				EFF649EC270F017B00C0A8F7 /* BackLogView.swift in Sources */,
 				EFC465C226ADF6AA0040DC9B /* NSColor+Random.swift in Sources */,
 				EFC6F0C226B95B91001299D2 /* GeneralSettingsView.swift in Sources */,
 				EFFCA5DC243B9C28001BA016 /* GhostCalendar.swift in Sources */,
@@ -642,6 +669,7 @@
 				EFEC86BE26C861CC0010726E /* KanbanHeaderView.swift in Sources */,
 				EFC465C426AE13560040DC9B /* EventsViewModel.swift in Sources */,
 				EFFAD45F23F8A26C009004D0 /* AppDelegate.swift in Sources */,
+				EFF649EF270F01A800C0A8F7 /* BacklogDH.swift in Sources */,
 				EFA4A1C326B8242200143A2A /* View+Border.swift in Sources */,
 				EFA30352243E319400240728 /* rndImageView.swift in Sources */,
 			);

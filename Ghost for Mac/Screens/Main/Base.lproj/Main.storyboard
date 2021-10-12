@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19162"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -701,13 +702,14 @@
                     </window>
                     <connections>
                         <outlet property="mainToolBar" destination="yW8-c4-RPh" id="HJC-IV-1r1"/>
+                        <outlet property="mainToolbar" destination="yW8-c4-RPh" id="MmZ-2J-vXQ"/>
                         <outlet property="mainWindow" destination="IQv-IB-iLA" id="ll2-wc-tqT"/>
                         <segue destination="lwV-dj-huw" kind="relationship" relationship="window.shadowedContentViewController" id="41c-35-6Ta"/>
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-207" y="234"/>
+            <point key="canvasLocation" x="-277" y="234"/>
         </scene>
         <!--Home Hosting Controller-->
         <scene sceneID="MNE-Fs-uus">
