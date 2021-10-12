@@ -38,7 +38,7 @@ struct BackLogView: View {
             if (backlogDH.backlog.count > 0){
                 List {
                     ForEach(backlogDH.backlog, id: \.id){ backlog in
-                       SingleBacklogView(backlog: backlog)
+                       SingleBacklogView(backlog: backlog).buttonStyle(PlainButtonStyle())
                             .padding([.bottom], 14)
                     }.listRowBackground(Color.clear)
                 }

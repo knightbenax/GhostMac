@@ -26,7 +26,7 @@ struct SingleBacklogView: View {
                         Image(systemName: "calendar.badge.plus")
                             .font(.system(size: 14, weight: .bold))
                             .padding([.leading], 8)
-                        Text("Add Item")
+                        Text("Add To Calendar")
                             .font(.custom("Overpass-Regular", size: 14))
                             .padding([.top, .bottom], 6)
                             .padding([.trailing], 10)
